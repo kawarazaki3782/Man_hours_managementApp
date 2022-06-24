@@ -109,7 +109,6 @@
             this.LoginidtextBox.Name = "LoginidtextBox";
             this.LoginidtextBox.Size = new System.Drawing.Size(304, 52);
             this.LoginidtextBox.TabIndex = 4;
-            this.LoginidtextBox.Text = "IDを入力してください";
             // 
             // PasswordtextBox
             // 
