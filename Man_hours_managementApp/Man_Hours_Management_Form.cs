@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Man_hours_managementApp
 {
-    public partial class Form4 : Form
+    public partial class Man_Hours_Management_Form : Form
     {
-        public Form4()
+        public Man_Hours_Management_Form()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

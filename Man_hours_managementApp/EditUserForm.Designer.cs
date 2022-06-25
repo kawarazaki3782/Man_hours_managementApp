@@ -1,6 +1,6 @@
 ﻿namespace Man_hours_managementApp
 {
-    partial class Form3
+    partial class EditUserForm
     {
         /// <summary>
         /// Required designer variable.

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Man_hours_managementApp
 {
-    public partial class Form3 : Form
+    public partial class EditUserForm : Form
     {
-        public Form3()
+        public EditUserForm()
         {
             InitializeComponent();
         }

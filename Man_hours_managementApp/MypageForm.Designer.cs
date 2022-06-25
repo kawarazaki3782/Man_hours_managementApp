@@ -1,6 +1,6 @@
 ﻿namespace Man_hours_managementApp
 {
-    partial class Form4
+    partial class MypageForm
     {
         /// <summary>
         /// Required designer variable.
@@ -325,5 +325,6 @@
         private Button button4;
         private Button button5;
         private Label label10;
+        private ListView listView1;
     }
 }
