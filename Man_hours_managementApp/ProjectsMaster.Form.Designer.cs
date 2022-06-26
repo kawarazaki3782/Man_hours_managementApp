@@ -30,6 +30,15 @@
         {
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.メンバー = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.メンバー工数 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,18 +48,8 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -64,11 +63,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.textBox9);
+            this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.textBox7);
             this.groupBox1.Controls.Add(this.label6);
@@ -89,9 +84,86 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "入力";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.メンバー,
+            this.メンバー工数});
+            this.dataGridView1.Location = new System.Drawing.Point(60, 217);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.Size = new System.Drawing.Size(350, 188);
+            this.dataGridView1.TabIndex = 24;
+            // 
+            // メンバー
+            // 
+            this.メンバー.HeaderText = "メンバー";
+            this.メンバー.MinimumWidth = 6;
+            this.メンバー.Name = "メンバー";
+            this.メンバー.Width = 150;
+            // 
+            // メンバー工数
+            // 
+            this.メンバー工数.HeaderText = "メンバー工数";
+            this.メンバー工数.MinimumWidth = 6;
+            this.メンバー工数.Name = "メンバー工数";
+            this.メンバー工数.Width = 150;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(212, 116);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 20);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "総工数";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(212, 139);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(123, 27);
+            this.textBox7.TabIndex = 17;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(57, 116);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(24, 20);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "PL";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(57, 139);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(125, 27);
+            this.textBox6.TabIndex = 15;
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(628, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 20);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "登録日";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(628, 54);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(123, 27);
+            this.textBox2.TabIndex = 13;
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(628, 217);
+            this.button1.Location = new System.Drawing.Point(508, 217);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 43);
             this.button1.TabIndex = 7;
@@ -165,102 +237,6 @@
             this.textBox1.TabIndex = 11;
             this.textBox1.Text = "プロジェクトマスタ(新規)";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(628, 54);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(123, 27);
-            this.textBox2.TabIndex = 13;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(628, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 20);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "登録日";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(57, 116);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(24, 20);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "PL";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(57, 139);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(125, 27);
-            this.textBox6.TabIndex = 15;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(212, 116);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 20);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "総工数";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(212, 139);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(123, 27);
-            this.textBox7.TabIndex = 17;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(212, 202);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 20);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "メンバー工数";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(212, 225);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(123, 27);
-            this.textBox8.TabIndex = 21;
-            this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(57, 202);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 20);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "メンバー";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(57, 225);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(125, 27);
-            this.textBox9.TabIndex = 19;
-            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.LightCoral;
-            this.button3.Location = new System.Drawing.Point(365, 225);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(113, 29);
-            this.button3.TabIndex = 23;
-            this.button3.Text = "メンバーを追加";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
             // ProjectsMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -274,6 +250,7 @@
             this.Text = "ProjectsMaster";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,12 +273,10 @@
         private TextBox textBox3;
         private Label label1;
         private TextBox textBox1;
-        private Label label8;
-        private TextBox textBox8;
-        private Label label9;
-        private TextBox textBox9;
         private Label label7;
         private TextBox textBox7;
-        private Button button3;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn メンバー;
+        private DataGridViewTextBoxColumn メンバー工数;
     }
 }

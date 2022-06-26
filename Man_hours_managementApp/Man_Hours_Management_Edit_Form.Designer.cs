@@ -31,6 +31,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,8 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,6 +79,15 @@
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "編集";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(535, 100);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(94, 43);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "削除";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -165,28 +174,21 @@
             this.textBox1.TabIndex = 11;
             this.textBox1.Text = "工数管理(編集)";
             // 
-            // textBox6
+            // label7
             // 
-            this.textBox6.Location = new System.Drawing.Point(219, 135);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(210, 27);
-            this.textBox6.TabIndex = 19;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(535, 100);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 43);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "削除";
-            this.button3.UseVisualStyleBackColor = true;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(219, 138);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(84, 20);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "〇〇〇〇〇";
             // 
             // Man_Hours_Management_Edit_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(887, 497);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
@@ -218,6 +220,6 @@
         private Label label2;
         private Label label1;
         private TextBox textBox1;
-        private TextBox textBox6;
+        private Label label7;
     }
 }

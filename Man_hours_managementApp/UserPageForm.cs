@@ -16,5 +16,10 @@ namespace Man_hours_managementApp
         {
             InitializeComponent();
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
