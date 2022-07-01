@@ -1,5 +1,7 @@
+
 namespace Man_hours_managementApp
 {
+
     internal static class Program
     {
         /// <summary>

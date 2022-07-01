@@ -1,5 +1,6 @@
 ﻿namespace Man_hours_managementApp
 {
+   
     partial class LoginForm
     {
         /// <summary>
@@ -26,6 +27,8 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
+        /// 
+       
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
@@ -109,6 +112,7 @@
             this.LoginidtextBox.Name = "LoginidtextBox";
             this.LoginidtextBox.Size = new System.Drawing.Size(304, 52);
             this.LoginidtextBox.TabIndex = 4;
+            this.LoginidtextBox.TextChanged += new System.EventHandler(this.LoginidtextBox_TextChanged);
             // 
             // PasswordtextBox
             // 
@@ -130,6 +134,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "ログイン";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
