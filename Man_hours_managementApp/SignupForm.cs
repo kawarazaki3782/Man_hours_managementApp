@@ -16,5 +16,20 @@ namespace Man_hours_managementApp
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoginForm loginform = new LoginForm();
+            loginform.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox2.Text = String.Empty;
+            textBox3.Text = String.Empty;
+            textBox4.Text = String.Empty;
+            textBox5.Text = String.Empty;
+        }
     }
 }
