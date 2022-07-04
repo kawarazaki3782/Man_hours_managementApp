@@ -1,6 +1,6 @@
 
 using System.Configuration;
-using System.Data.SqlClient;
+
 
 namespace Man_hours_managementApp
 {
@@ -20,10 +20,8 @@ namespace Man_hours_managementApp
         }   
     }
 
-    public static class Utilites
-    {
-        public static string GetConnectionString()　//接続文字列を返すメソッド
-        {
+    public class CommonUtil{
+        public static string GetConnectionString() { 　//接続文字列を返すメソッド
             return ConfigurationManager.ConnectionStrings["sqlsvr"].ConnectionString;
         }
     }

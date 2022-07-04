@@ -34,37 +34,38 @@ namespace Man_hours_managementApp
             textBox5.Text = String.Empty;
         }
 
+        private void button3_Click_1(object sender, EventArgs e)
+        {
 
-        private void button3_Click(object sender, EventArgs e)
-        { 
-                var connectionString = ConfigurationManager.ConnectionStrings["sqlsvr"].ConnectionString;
+            var connectionString = CommonUtil.GetConnectionString();
 
-                using (var connection = new SqlConnection(connectionString))
-                using (var command = connection.CreateCommand())
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = connection.CreateCommand())
+            {
+                try
                 {
-                    try
-                    {
-                        // データベースの接続開始
-                        connection.Open();
+                    // データベースの接続開始
+                    connection.Open();
 
-                        // SQLの準備
-                        command.CommandText = @"INSERT INTO USERS (NAME) VALUES (@NAME)";
-                        command.Parameters.Add(new SqlParameter("@NAME", textBox2));
+                    // SQLの準備
+                    command.CommandText = @"INSERT INTO Users (name) VALUES (@name)";
+                    command.Parameters.Add(new SqlParameter("@name", textBox2));
 
-                        // SQLの実行
-                        command.ExecuteNonQuery();
-                    }
-                    catch (Exception exception)
-                    {
-                        Console.WriteLine(exception.Message);
-                        throw;
-                    }
-                    finally
-                    {
-                        // データベースの接続終了
-                        connection.Close();
-                    }
-                }        
+                    // SQLの実行
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception.Message);
+                    throw;
+                }
+                finally
+                {
+                    // データベースの接続終了
+                    connection.Close();
+                }
+            }
+
         }
     }
 }
