@@ -49,7 +49,7 @@ namespace Man_hours_managementApp
 
                     // SQLの準備
                     command.CommandText = @"INSERT INTO Users (name) VALUES (@name)";
-                    command.Parameters.Add(new SqlParameter("@name", textBox2));
+                    command.Parameters.Add(new SqlParameter("@name", textBox2.Text));
 
                     // SQLの実行
                     command.ExecuteNonQuery();
