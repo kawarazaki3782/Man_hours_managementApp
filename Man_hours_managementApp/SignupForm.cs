@@ -38,21 +38,29 @@ namespace Man_hours_managementApp
         {
 
             var connectionString = CommonUtil.GetConnectionString();
-
             using (var connection = new SqlConnection(connectionString))
-            using (var command = connection.CreateCommand())
             {
                 try
                 {
-                    // データベースの接続開始
                     connection.Open();
+                    using (var transaction = connection.BeginTransaction())
+                    using (var command = new SqlCommand() { Connection = connection, Transaction = transaction })
+                    {
+                        try
+                        {
 
-                    // SQLの準備
-                    command.CommandText = @"INSERT INTO Users (name) VALUES (@name)";
-                    command.Parameters.Add(new SqlParameter("@name", textBox2.Text));
+                            command.CommandText = @"INSERT INTO dbo.Users (name) VALUES (@name)";
+                            command.Parameters.Add(new SqlParameter("@name", textBox2.Text));
 
-                    // SQLの実行
-                    command.ExecuteNonQuery();
+                            command.ExecuteNonQuery();
+                            transaction.Commit();
+                        }
+                        catch
+                        {
+                            transaction.Rollback();
+                            throw;
+                        }
+                    }
                 }
                 catch (Exception exception)
                 {
@@ -61,7 +69,6 @@ namespace Man_hours_managementApp
                 }
                 finally
                 {
-                    // データベースの接続終了
                     connection.Close();
                 }
             }
