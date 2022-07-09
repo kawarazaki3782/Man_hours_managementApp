@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -43,8 +44,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -53,10 +54,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.commonUtilBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.commonUtilBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button3
@@ -214,8 +217,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.textBox3);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(126, 373);
@@ -223,6 +226,17 @@
             this.groupBox2.Size = new System.Drawing.Size(549, 125);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "第一システム部",
+            "第二システム部"});
+            this.comboBox1.Location = new System.Drawing.Point(77, 59);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(195, 28);
+            this.comboBox1.TabIndex = 16;
             // 
             // label4
             // 
@@ -233,14 +247,6 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 28);
             this.label4.TabIndex = 3;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(77, 41);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(415, 52);
-            this.textBox3.TabIndex = 2;
             // 
             // label5
             // 
@@ -328,6 +334,10 @@
             this.textBox1.TabIndex = 8;
             this.textBox1.Text = "新規登録";
             // 
+            // commonUtilBindingSource
+            // 
+            this.commonUtilBindingSource.DataSource = typeof(Man_hours_managementApp.CommonUtil);
+            // 
             // SignupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -351,6 +361,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.commonUtilBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,7 +385,6 @@
         private Label label9;
         private GroupBox groupBox2;
         private Label label4;
-        private TextBox textBox3;
         private Label label5;
         private Label label6;
         private GroupBox groupBox1;
@@ -383,5 +393,7 @@
         private Label label2;
         private Label label1;
         private TextBox textBox1;
+        private ComboBox comboBox1;
+        private BindingSource commonUtilBindingSource;
     }
 }

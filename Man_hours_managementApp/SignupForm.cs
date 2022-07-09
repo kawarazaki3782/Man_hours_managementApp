@@ -29,7 +29,7 @@ namespace Man_hours_managementApp
         private void button2_Click(object sender, EventArgs e)
         {
             textBox2.Text = String.Empty;
-            textBox3.Text = String.Empty;
+            comboBox1.Text = String.Empty;
             textBox4.Text = String.Empty;
             textBox5.Text = String.Empty;
         }
@@ -49,11 +49,15 @@ namespace Man_hours_managementApp
                         try
                         {
 
-                            command.CommandText = @"INSERT INTO dbo.Users (name) VALUES (@name)";
+                            command.CommandText = @"INSERT INTO Users (name, affiliation, login_id, password) VALUES (@name, @affiliation, @login_id, @password)";
                             command.Parameters.Add(new SqlParameter("@name", textBox2.Text));
+                            command.Parameters.Add(new SqlParameter("@affiliation", comboBox1.Text));
+                            command.Parameters.Add(new SqlParameter("@login_id", textBox4.Text));
+                            command.Parameters.Add(new SqlParameter("@password", textBox5.Text));
 
                             command.ExecuteNonQuery();
                             transaction.Commit();
+                            MessageBox.Show("ユーザー情報を登録しました");
                         }
                         catch
                         {
