@@ -118,9 +118,9 @@
             this.label13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label13.Location = new System.Drawing.Point(308, 94);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(241, 28);
+            this.label13.Size = new System.Drawing.Size(250, 28);
             this.label13.TabIndex = 4;
-            this.label13.Text = "※6～20文字の半角英数字";
+            this.label13.Text = "※20文字以内の半角英数字";
             // 
             // label10
             // 
@@ -136,6 +136,7 @@
             // 
             this.textBox5.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox5.Location = new System.Drawing.Point(116, 41);
+            this.textBox5.MaxLength = 20;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(376, 52);
             this.textBox5.TabIndex = 2;
@@ -181,14 +182,15 @@
             this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label7.Location = new System.Drawing.Point(308, 94);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(241, 28);
+            this.label7.Size = new System.Drawing.Size(250, 28);
             this.label7.TabIndex = 3;
-            this.label7.Text = "※6～20文字の半角英数字";
+            this.label7.Text = "※20文字以内の半角英数字";
             // 
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox4.Location = new System.Drawing.Point(116, 41);
+            this.textBox4.MaxLength = 20;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(376, 52);
             this.textBox4.TabIndex = 2;
@@ -297,6 +299,7 @@
             // 
             this.textBox2.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox2.Location = new System.Drawing.Point(77, 41);
+            this.textBox2.MaxLength = 20;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(415, 52);
             this.textBox2.TabIndex = 2;
