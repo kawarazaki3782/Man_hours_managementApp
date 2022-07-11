@@ -26,4 +26,84 @@ namespace Man_hours_managementApp
         }
     }
 
+    //入力チェッククラス
+    static class InputCheck
+    {
+        //エラーフラグ
+        static public bool isError { get; set; } = false;
+        //エラー項目フォーカスセット
+        static public bool onSetFocus { get; set; } = true;
+        //エラー項目カラーセット
+        static public bool onSetColor { get; set; } = true;
+        //エラー項目にセットする背景色
+        static private Color ErrorbackColor = Color.MistyRose;
+
+        //文字区分
+        public enum StrKind
+        { 
+            mix, //全角半角混在
+            full, //全角のみ
+            half //半角のみ
+        };
+
+        //文字列の入力チェック
+        public static bool isString(ErrorProvider ep,
+                            string itemName,
+                            TextBox c,
+                            bool required,
+                            StrKind strKind = StrKind.mix)
+        {
+            backColorClear(c);
+            string msg = "";
+
+            if (String.IsNullOrEmpty(c.Text))
+            {
+                if(required)
+                {
+                    msg = $"[itemName]は必須項目です。";
+                    errorSet(ep, c, msg);
+
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            return true;
+        }
+        //エラークリア処理
+        public static void errorClear(ErrorProvider ep)
+        {
+            isError = false;
+            ep.Clear();
+        }
+        //エラーメッセージの設定
+        public static void errorSet(ErrorProvider ep, Control c, string msg)
+        { 
+            ep.SetError(c, msg);
+
+            if (onSetFocus && isError == false)
+            {
+                c.Focus();    
+            }
+
+            if (onSetColor)
+            {
+                c.BackColor = ErrorbackColor;
+            }
+
+            isError = true;
+
+        }
+        //エラークリア処理
+        public static void backColorClear(Control c)
+        {
+            if (onSetColor)
+            {
+                c.BackColor = Color.Empty;
+            }
+        }
+    }
+
 }

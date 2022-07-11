@@ -19,6 +19,15 @@ namespace Man_hours_managementApp
             InitializeComponent();
         }
 
+        //ErrorProviderのインスタンス生成
+        ErrorProvider ep = new ErrorProvider();
+
+        //ErrorProviderのアイコンを点滅なしに設定する
+        private void SignupForm_Load(object sender, EventArgs e)
+        { 
+            ep.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             LoginForm loginform = new LoginForm();
@@ -37,6 +46,8 @@ namespace Man_hours_managementApp
         private void button3_Click_1(object sender, EventArgs e)
         {
 
+            InputCheck.errorClear(ep);
+            InputCheck.isString(ep, "必須チェック", textBox2, true);
             var connectionString = CommonUtil.GetConnectionString();
             using (var connection = new SqlConnection(connectionString))
             {
