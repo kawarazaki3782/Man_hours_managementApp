@@ -47,47 +47,58 @@ namespace Man_hours_managementApp
         {
 
             InputCheck.errorClear(ep);
-            InputCheck.isString(ep, "必須チェック", textBox2, true);
-            var connectionString = CommonUtil.GetConnectionString();
-            using (var connection = new SqlConnection(connectionString))
+            InputCheck.isString(ep, "氏名", textBox2, true);
+            InputCheck.isString(ep, "ログインID", textBox4, true);
+            InputCheck.isString(ep, "パスワード", textBox5, true);
+            InputCheck.IsOnlyAlphanumeri(ep, "ログインID", textBox4, true);
+
+            if (InputCheck.isError = true)
             {
-                try
-                {
-                    connection.Open();
-                    using (var transaction = connection.BeginTransaction())
-                    using (var command = new SqlCommand() { Connection = connection, Transaction = transaction })
-                    {
-                        try
-                        {
-
-                            command.CommandText = @"INSERT INTO Users (name, affiliation, login_id, password) VALUES (@name, @affiliation, @login_id, @password)";
-                            command.Parameters.Add(new SqlParameter("@name", textBox2.Text));
-                            command.Parameters.Add(new SqlParameter("@affiliation", comboBox1.Text));
-                            command.Parameters.Add(new SqlParameter("@login_id", textBox4.Text));
-                            command.Parameters.Add(new SqlParameter("@password", textBox5.Text));
-
-                            command.ExecuteNonQuery();
-                            transaction.Commit();
-                            MessageBox.Show("ユーザー情報を登録しました");
-                        }
-                        catch
-                        {
-                            transaction.Rollback();
-                            throw;
-                        }
-                    }
-                }
-                catch (Exception exception)
-                {
-                    Console.WriteLine(exception.Message);
-                    throw;
-                }
-                finally
-                {
-                    connection.Close();
-                }
+                MessageBox.Show("入力に不備があります");
             }
 
+            else
+            {
+                var connectionString = CommonUtil.GetConnectionString();
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        using (var transaction = connection.BeginTransaction())
+                        using (var command = new SqlCommand() { Connection = connection, Transaction = transaction })
+                        {
+                            try
+                            {
+
+                                command.CommandText = @"INSERT INTO Users (name, affiliation, login_id, password) VALUES (@name, @affiliation, @login_id, @password)";
+                                command.Parameters.Add(new SqlParameter("@name", textBox2.Text));
+                                command.Parameters.Add(new SqlParameter("@affiliation", comboBox1.Text));
+                                command.Parameters.Add(new SqlParameter("@login_id", textBox4.Text));
+                                command.Parameters.Add(new SqlParameter("@password", textBox5.Text));
+
+                                command.ExecuteNonQuery();
+                                transaction.Commit();
+                                MessageBox.Show("ユーザー情報を登録しました");
+                            }
+                            catch
+                            {
+                                transaction.Rollback();
+                                throw;
+                            }
+                        }
+                    }
+                    catch (Exception exception)
+                    {
+                        Console.WriteLine(exception.Message);
+                        throw;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
         }
     }
 }

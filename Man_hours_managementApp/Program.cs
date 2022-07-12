@@ -1,6 +1,5 @@
-
 using System.Configuration;
-
+using System.Text.RegularExpressions;
 
 namespace Man_hours_managementApp
 {
@@ -25,7 +24,7 @@ namespace Man_hours_managementApp
             return ConfigurationManager.ConnectionStrings["sqlsvr"].ConnectionString;
         }
     }
-
+    
     //入力チェッククラス
     static class InputCheck
     {
@@ -60,7 +59,7 @@ namespace Man_hours_managementApp
             {
                 if(required)
                 {
-                    msg = $"[itemName]は必須項目です。";
+                    msg = $"{itemName}は必須項目です。";
                     errorSet(ep, c, msg);
 
                     return false;
@@ -72,6 +71,32 @@ namespace Man_hours_managementApp
             }
             return true;
         }
+
+        //半角英数字チェック
+        public static bool IsOnlyAlphanumeri(ErrorProvider ep,
+                            string itemName,
+                            TextBox c,
+                            bool required,
+                            StrKind strKind = StrKind.half)
+        {
+            backColorClear(c);
+            string msg = "";
+            var　result = Regex.IsMatch(c.Text, @"^[0-9a-zA-Z]+$");
+
+            if (result)
+            {
+                return true;
+            }
+
+            else
+            {
+                msg = $"{itemName}は半角英数字で入力してください。";
+                errorSet(ep, c, msg);
+
+                return false;
+            }
+        }
+
         //エラークリア処理
         public static void errorClear(ErrorProvider ep)
         {
