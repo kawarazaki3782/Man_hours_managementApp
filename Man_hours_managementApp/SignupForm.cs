@@ -51,14 +51,18 @@ namespace Man_hours_managementApp
             InputCheck.isString(ep, "ログインID", textBox4, true);
             InputCheck.isString(ep, "パスワード", textBox5, true);
             InputCheck.IsOnlyAlphanumeri(ep, "ログインID", textBox4, true);
+            InputCheck.IsOnlyAlphanumeri(ep, "パスワード", textBox5, true);
 
-            if (InputCheck.isError = true)
+
+            if (InputCheck.isError == true)
             {
-                MessageBox.Show("入力に不備があります");
+                MessageBox.Show("入力に不備があるため登録できません");
             }
 
             else
             {
+                var sut = new PasswordService();
+                sut.HashPassword(textBox5.Text);
                 var connectionString = CommonUtil.GetConnectionString();
                 using (var connection = new SqlConnection(connectionString))
                 {
@@ -76,7 +80,7 @@ namespace Man_hours_managementApp
                                 command.Parameters.Add(new SqlParameter("@affiliation", comboBox1.Text));
                                 command.Parameters.Add(new SqlParameter("@login_id", textBox4.Text));
                                 command.Parameters.Add(new SqlParameter("@password", textBox5.Text));
-
+                               
                                 command.ExecuteNonQuery();
                                 transaction.Commit();
                                 MessageBox.Show("ユーザー情報を登録しました");

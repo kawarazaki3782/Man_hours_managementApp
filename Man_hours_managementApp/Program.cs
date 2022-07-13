@@ -1,5 +1,7 @@
 using System.Configuration;
 using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using System.Security.Cryptography;
 
 namespace Man_hours_managementApp
 {
@@ -22,6 +24,35 @@ namespace Man_hours_managementApp
     public class CommonUtil{
         public static string GetConnectionString() { 　//接続文字列を返すメソッド
             return ConfigurationManager.ConnectionStrings["sqlsvr"].ConnectionString;
+        }
+    }
+
+    public class PasswordService {
+        //ハッシュ化...平文パスワードを渡すとハッシュ化パスワード、使用されたソルトが返る
+        public (string hashedPassword, byte[] salt) HashPassword(string rawPassword)
+        {
+            byte[] salt = GetSalt();
+            string hashed = HashPassword(rawPassword, salt);
+            return (hashed, salt);
+        }
+
+        public bool VerifyPassword(string hashedPassword, string rawPasswrod, byte[] salt) =>
+            hashedPassword == HashPassword(rawPasswrod, salt);
+        private string HashPassword(string rawPassword, byte[] salt) =>
+            Convert.ToBase64String(
+                KeyDerivation.Pbkdf2(
+                    password: rawPassword,
+                    salt: salt,
+                    prf: KeyDerivationPrf.HMACSHA512,
+                    iterationCount: 10000,
+                    numBytesRequested: 256 / 8));
+        private byte[] GetSalt() {
+            using (var gen = RandomNumberGenerator.Create())
+            {
+                var salt = new byte[128 / 8];
+                gen.GetBytes(salt);
+                return salt;
+            }
         }
     }
     
@@ -57,19 +88,15 @@ namespace Man_hours_managementApp
 
             if (String.IsNullOrEmpty(c.Text))
             {
-                if(required)
-                {
-                    msg = $"{itemName}は必須項目です。";
-                    errorSet(ep, c, msg);
-
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
+                msg = $"{itemName}は必須項目です";
+                errorSet(ep, c, msg);
+                return true;
             }
-            return true;
+            else
+            {
+                return false;
+            }
+            
         }
 
         //半角英数字チェック
@@ -83,14 +110,21 @@ namespace Man_hours_managementApp
             string msg = "";
             var　result = Regex.IsMatch(c.Text, @"^[0-9a-zA-Z]+$");
 
-            if (result)
+            if (result == true && String.IsNullOrEmpty(c.Text) == false)
             {
                 return true;
             }
 
+            if (result == false && String.IsNullOrEmpty(c.Text) == true)
+            {
+                msg = $"{itemName}は必須項目です";
+                errorSet(ep, c, msg);
+
+                return false;
+            }
             else
             {
-                msg = $"{itemName}は半角英数字で入力してください。";
+                msg = $"{itemName}は半角英数字で入力してください";
                 errorSet(ep, c, msg);
 
                 return false;
