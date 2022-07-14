@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Security.Cryptography;
 
 namespace Man_hours_managementApp
 {
@@ -53,7 +54,6 @@ namespace Man_hours_managementApp
             InputCheck.IsOnlyAlphanumeri(ep, "ログインID", textBox4, true);
             InputCheck.IsOnlyAlphanumeri(ep, "パスワード", textBox5, true);
 
-
             if (InputCheck.isError == true)
             {
                 MessageBox.Show("入力に不備があるため登録できません");
@@ -61,8 +61,19 @@ namespace Man_hours_managementApp
 
             else
             {
-                var sut = new PasswordService();
-                sut.HashPassword(textBox5.Text);
+                //ハッシュ値を計算
+                SHA256CryptoServiceProvider sha256 = new SHA256CryptoServiceProvider();
+                byte[] beforeByteArray = Encoding.UTF8.GetBytes(textBox5.Text);
+                byte[] afterByteArray = sha256.ComputeHash(beforeByteArray);
+                sha256.Clear();
+
+                //バイト配列を16進数文字列に変換
+                StringBuilder hash = new StringBuilder();
+                foreach (byte b in afterByteArray)
+                { 
+                    hash.Append(b.ToString("x2"));
+                }
+
                 var connectionString = CommonUtil.GetConnectionString();
                 using (var connection = new SqlConnection(connectionString))
                 {
@@ -79,11 +90,14 @@ namespace Man_hours_managementApp
                                 command.Parameters.Add(new SqlParameter("@name", textBox2.Text));
                                 command.Parameters.Add(new SqlParameter("@affiliation", comboBox1.Text));
                                 command.Parameters.Add(new SqlParameter("@login_id", textBox4.Text));
-                                command.Parameters.Add(new SqlParameter("@password", textBox5.Text));
+                                command.Parameters.Add(new SqlParameter("@password", hash.ToString()));
                                
                                 command.ExecuteNonQuery();
                                 transaction.Commit();
                                 MessageBox.Show("ユーザー情報を登録しました");
+                                MypageForm mypageForm = new MypageForm();
+                                mypageForm.Show();
+                                this.Hide();
                             }
                             catch
                             {

@@ -41,7 +41,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,7 +114,6 @@
             this.LoginidtextBox.Name = "LoginidtextBox";
             this.LoginidtextBox.Size = new System.Drawing.Size(304, 52);
             this.LoginidtextBox.TabIndex = 4;
-            this.LoginidtextBox.TextChanged += new System.EventHandler(this.LoginidtextBox_TextChanged);
             // 
             // PasswordtextBox
             // 
@@ -164,11 +165,23 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Location = new System.Drawing.Point(234, 118);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(616, 536);
+            this.groupBox1.Size = new System.Drawing.Size(616, 565);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button3.Location = new System.Drawing.Point(195, 441);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(241, 60);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "閉じる";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox2
             // 
@@ -198,6 +211,7 @@
             this.Controls.Add(this.groupBox2);
             this.Name = "LoginForm";
             this.Text = "login";
+            this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -218,5 +232,6 @@
         private Label label3;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
+        private Button button3;
     }
 }

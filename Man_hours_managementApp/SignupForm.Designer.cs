@@ -116,7 +116,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label13.Location = new System.Drawing.Point(293, 96);
+            this.label13.Location = new System.Drawing.Point(293, 94);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(250, 28);
             this.label13.TabIndex = 4;
@@ -231,13 +231,15 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.ItemHeight = 45;
             this.comboBox1.Items.AddRange(new object[] {
             "第一システム部",
             "第二システム部"});
-            this.comboBox1.Location = new System.Drawing.Point(77, 59);
+            this.comboBox1.Location = new System.Drawing.Point(77, 44);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(415, 28);
+            this.comboBox1.Size = new System.Drawing.Size(417, 53);
             this.comboBox1.TabIndex = 16;
             // 
             // label4
@@ -265,7 +267,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(6, 52);
+            this.label6.Location = new System.Drawing.Point(6, 55);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 35);
             this.label6.TabIndex = 0;

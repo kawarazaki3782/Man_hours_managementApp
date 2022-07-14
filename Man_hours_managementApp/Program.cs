@@ -1,6 +1,5 @@
 using System.Configuration;
 using System.Text.RegularExpressions;
-using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Security.Cryptography;
 
 namespace Man_hours_managementApp
@@ -24,35 +23,6 @@ namespace Man_hours_managementApp
     public class CommonUtil{
         public static string GetConnectionString() { 　//接続文字列を返すメソッド
             return ConfigurationManager.ConnectionStrings["sqlsvr"].ConnectionString;
-        }
-    }
-
-    public class PasswordService {
-        //ハッシュ化...平文パスワードを渡すとハッシュ化パスワード、使用されたソルトが返る
-        public (string hashedPassword, byte[] salt) HashPassword(string rawPassword)
-        {
-            byte[] salt = GetSalt();
-            string hashed = HashPassword(rawPassword, salt);
-            return (hashed, salt);
-        }
-
-        public bool VerifyPassword(string hashedPassword, string rawPasswrod, byte[] salt) =>
-            hashedPassword == HashPassword(rawPasswrod, salt);
-        private string HashPassword(string rawPassword, byte[] salt) =>
-            Convert.ToBase64String(
-                KeyDerivation.Pbkdf2(
-                    password: rawPassword,
-                    salt: salt,
-                    prf: KeyDerivationPrf.HMACSHA512,
-                    iterationCount: 10000,
-                    numBytesRequested: 256 / 8));
-        private byte[] GetSalt() {
-            using (var gen = RandomNumberGenerator.Create())
-            {
-                var salt = new byte[128 / 8];
-                gen.GetBytes(salt);
-                return salt;
-            }
         }
     }
     
