@@ -81,6 +81,7 @@ namespace Man_hours_managementApp
                 MessageBox.Show("パスワードの入力値に誤りがあります");
                 return false;
             }
+            //禁則文字チェック
 
             return true;
 
@@ -91,13 +92,13 @@ namespace Man_hours_managementApp
             var connectionString = CommonUtil.GetConnectionString();
             var connection = new SqlConnection(connectionString);
             SHA256CryptoServiceProvider sha256 = new SHA256CryptoServiceProvider();
-            byte[] beforeByteArray = Encoding.UTF8.GetBytes(PasswordtextBox.Text);
-            byte[] afterByteArray = sha256.ComputeHash(beforeByteArray);
+            byte[] beforebytearray = Encoding.UTF8.GetBytes(PasswordtextBox.Text);
+            byte[] afterbytearray = sha256.ComputeHash(beforebytearray);
             sha256.Clear();
 
             //バイト配列を16進数文字列に変換
             StringBuilder hash = new StringBuilder();
-            foreach (byte b in afterByteArray)
+            foreach (byte b in afterbytearray)
             {
                 hash.Append(b.ToString("x2"));
             }
@@ -105,11 +106,12 @@ namespace Man_hours_managementApp
             try
             {
                 connection.Open();
-                var command = new SqlCommand();
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter();
 
-                command.CommandText = "SELECT password FROM Users WHRER login_id = @login_id";
+                SqlCommand command = connection.CreateCommand();
+
+                command.CommandText = "SELECT password FROM Users WHERE login_id = @login_id";
                 command.Parameters.Add("@login_id", System.Data.SqlDbType.NVarChar, 50);
                 command.Parameters["@login_id"].Value = LoginidtextBox.Text;
 

@@ -33,7 +33,7 @@ namespace Man_hours_managementApp
         {
             LoginForm loginform = new LoginForm();
             loginform.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -97,7 +97,7 @@ namespace Man_hours_managementApp
                                 MessageBox.Show("ユーザー情報を登録しました");
                                 MypageForm mypageForm = new MypageForm();
                                 mypageForm.Show();
-                                this.Hide();
+                                this.Close();
                             }
                             catch
                             {

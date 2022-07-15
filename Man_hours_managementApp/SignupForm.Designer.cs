@@ -69,7 +69,7 @@
             this.button3.Location = new System.Drawing.Point(341, 882);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(119, 46);
-            this.button3.TabIndex = 15;
+            this.button3.TabIndex = 6;
             this.button3.Text = "登録";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
@@ -81,7 +81,7 @@
             this.button2.Location = new System.Drawing.Point(556, 882);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(119, 46);
-            this.button2.TabIndex = 14;
+            this.button2.TabIndex = 7;
             this.button2.Text = "クリア";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -93,7 +93,7 @@
             this.button1.Location = new System.Drawing.Point(126, 882);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(119, 46);
-            this.button1.TabIndex = 13;
+            this.button1.TabIndex = 5;
             this.button1.Text = "もどる";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -135,11 +135,11 @@
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox5.Location = new System.Drawing.Point(116, 41);
+            this.textBox5.Location = new System.Drawing.Point(113, 35);
             this.textBox5.MaxLength = 20;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(376, 52);
-            this.textBox5.TabIndex = 2;
+            this.textBox5.TabIndex = 4;
             // 
             // label11
             // 
@@ -193,7 +193,7 @@
             this.textBox4.MaxLength = 20;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(376, 52);
-            this.textBox4.TabIndex = 2;
+            this.textBox4.TabIndex = 3;
             // 
             // label8
             // 
@@ -240,7 +240,7 @@
             this.comboBox1.Location = new System.Drawing.Point(77, 44);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(417, 53);
-            this.comboBox1.TabIndex = 16;
+            this.comboBox1.TabIndex = 2;
             // 
             // label4
             // 
@@ -303,7 +303,7 @@
             this.textBox2.MaxLength = 20;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(415, 52);
-            this.textBox2.TabIndex = 2;
+            this.textBox2.TabIndex = 1;
             // 
             // label2
             // 

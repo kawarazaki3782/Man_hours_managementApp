@@ -109,11 +109,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LoginidtextBox.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LoginidtextBox.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.LoginidtextBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.LoginidtextBox.Location = new System.Drawing.Point(450, 273);
             this.LoginidtextBox.Name = "LoginidtextBox";
             this.LoginidtextBox.Size = new System.Drawing.Size(304, 52);
-            this.LoginidtextBox.TabIndex = 4;
+            this.LoginidtextBox.TabIndex = 1;
             // 
             // PasswordtextBox
             // 
@@ -123,8 +123,9 @@
             this.PasswordtextBox.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.PasswordtextBox.Location = new System.Drawing.Point(450, 364);
             this.PasswordtextBox.Name = "PasswordtextBox";
+            this.PasswordtextBox.PasswordChar = '●';
             this.PasswordtextBox.Size = new System.Drawing.Size(304, 52);
-            this.PasswordtextBox.TabIndex = 5;
+            this.PasswordtextBox.TabIndex = 2;
             // 
             // button1
             // 
@@ -132,7 +133,7 @@
             this.button1.Location = new System.Drawing.Point(429, 467);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(241, 60);
-            this.button1.TabIndex = 6;
+            this.button1.TabIndex = 3;
             this.button1.Text = "ログイン";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -143,7 +144,7 @@
             this.button2.Location = new System.Drawing.Point(183, 178);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(241, 60);
-            this.button2.TabIndex = 7;
+            this.button2.TabIndex = 5;
             this.button2.Text = "ユーザー登録";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -178,7 +179,7 @@
             this.button3.Location = new System.Drawing.Point(195, 441);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(241, 60);
-            this.button3.TabIndex = 11;
+            this.button3.TabIndex = 4;
             this.button3.Text = "閉じる";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
