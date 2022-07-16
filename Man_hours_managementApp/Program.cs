@@ -17,17 +17,18 @@ namespace Man_hours_managementApp
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();　//アプリケーションの構成プロパティを初期化
             Application.Run(new LoginForm());
-        }   
+        }
     }
 
-    public class CommonUtil{
+    public class CommonUtil
+    {
         public static string GetConnectionString() { 　//接続文字列を返すメソッド
             return ConfigurationManager.ConnectionStrings["sqlsvr"].ConnectionString;
         }
     }
-    
-    //入力チェッククラス
-    static class InputCheck
+
+//入力チェッククラス
+static class InputCheck
     {
         //エラーフラグ
         static public bool isError { get; set; } = false;

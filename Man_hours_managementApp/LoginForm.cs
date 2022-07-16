@@ -51,7 +51,7 @@ namespace Man_hours_managementApp
             }
             else
             {
-                MessageBox.Show("ユーザー名またはパスワードが間違っています");
+                MessageBox.Show("ログインIDまたはパスワードが間違っています");
             }
         }
 

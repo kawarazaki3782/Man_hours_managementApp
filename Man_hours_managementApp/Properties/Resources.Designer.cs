@@ -59,5 +59,25 @@ namespace Man_hours_managementApp.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap ショートカットの女の人の無料アイコン素材_2 {
+            get {
+                object obj = ResourceManager.GetObject("ショートカットの女の人の無料アイコン素材 2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap ショートカットの女の人の無料アイコン素材_21 {
+            get {
+                object obj = ResourceManager.GetObject("ショートカットの女の人の無料アイコン素材 21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -47,8 +47,8 @@
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,9 +81,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(67, 183);
+            this.pictureBox1.Image = global::Man_hours_managementApp.Properties.Resources.ショートカットの女の人の無料アイコン素材_21;
+            this.pictureBox1.Location = new System.Drawing.Point(57, 149);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(125, 90);
+            this.pictureBox1.Size = new System.Drawing.Size(122, 133);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
@@ -95,6 +96,7 @@
             this.button1.TabIndex = 18;
             this.button1.Text = "ユーザー情報編集";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -104,6 +106,7 @@
             this.button2.TabIndex = 19;
             this.button2.Text = "ユーザー一覧";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -113,6 +116,7 @@
             this.button3.TabIndex = 20;
             this.button3.Text = "ログアウト";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -122,6 +126,7 @@
             this.button4.TabIndex = 21;
             this.button4.Text = "工数を入力する";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -131,6 +136,7 @@
             this.button5.TabIndex = 22;
             this.button5.Text = "プロジェクトを登録";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label10
             // 
@@ -199,17 +205,17 @@
             this.columnHeader6.Text = "工数合計";
             this.columnHeader6.Width = 100;
             // 
-            // columnHeader7
-            // 
-            this.columnHeader7.DisplayIndex = 4;
-            this.columnHeader7.Text = "残工数";
-            this.columnHeader7.Width = 100;
-            // 
             // columnHeader2
             // 
             this.columnHeader2.DisplayIndex = 5;
             this.columnHeader2.Text = "予定工数";
             this.columnHeader2.Width = 100;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.DisplayIndex = 4;
+            this.columnHeader7.Text = "残工数";
+            this.columnHeader7.Width = 100;
             // 
             // MypageForm
             // 

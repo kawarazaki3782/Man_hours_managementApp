@@ -15,6 +15,7 @@ namespace Man_hours_managementApp
         public MypageForm()
         {
             InitializeComponent();
+           
         }
 
         //ListViewコントロールを初期化
@@ -25,10 +26,41 @@ namespace Man_hours_managementApp
             listView1.GridLines = true;
             listView1.Sorting = SortOrder.Ascending;
             listView1.View = View.Details;
+        }
 
-            //列(カラム)ヘッダの作成
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ProjectsMaster projectsMaster = new ProjectsMaster();
+            projectsMaster.Show();
+            this.Close();
+        }
 
-        
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();  
+            loginForm.Show();
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Man_Hours_Management_Form man_Hours_Management_Form = new Man_Hours_Management_Form();
+            man_Hours_Management_Form.Show();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            EditUserForm editUserForm = new EditUserForm(); 
+            editUserForm.Show();
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            UserListForm userListForm = new UserListForm();
+            userListForm.Show();
+            this.Close();
         }
     }
 }
