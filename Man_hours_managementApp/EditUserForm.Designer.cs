@@ -32,7 +32,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -87,7 +87,7 @@
             this.textBox4.Location = new System.Drawing.Point(116, 41);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(376, 52);
-            this.textBox4.TabIndex = 2;
+            this.textBox4.TabIndex = 3;
             // 
             // label3
             // 
@@ -99,14 +99,6 @@
             this.label3.Size = new System.Drawing.Size(134, 28);
             this.label3.TabIndex = 3;
             this.label3.Text = "※20文字以内";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(77, 41);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(415, 52);
-            this.textBox3.TabIndex = 2;
             // 
             // label5
             // 
@@ -159,9 +151,10 @@
             this.button3.Location = new System.Drawing.Point(341, 849);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(119, 46);
-            this.button3.TabIndex = 14;
+            this.button3.TabIndex = 6;
             this.button3.Text = "登録";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label8
             // 
@@ -181,9 +174,10 @@
             this.button2.Location = new System.Drawing.Point(556, 849);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(119, 46);
-            this.button2.TabIndex = 13;
+            this.button2.TabIndex = 7;
             this.button2.Text = "クリア";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -192,9 +186,10 @@
             this.button1.Location = new System.Drawing.Point(126, 849);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(119, 46);
-            this.button1.TabIndex = 12;
+            this.button1.TabIndex = 5;
             this.button1.Text = "もどる";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox3
             // 
@@ -225,7 +220,7 @@
             this.textBox5.Location = new System.Drawing.Point(116, 41);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(376, 52);
-            this.textBox5.TabIndex = 2;
+            this.textBox5.TabIndex = 4;
             // 
             // label11
             // 
@@ -274,8 +269,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.textBox3);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(126, 350);
@@ -283,6 +278,19 @@
             this.groupBox2.Size = new System.Drawing.Size(549, 125);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.ItemHeight = 45;
+            this.comboBox1.Items.AddRange(new object[] {
+            "第一システム部",
+            "第二システム部"});
+            this.comboBox1.Location = new System.Drawing.Point(77, 44);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(417, 53);
+            this.comboBox1.TabIndex = 2;
             // 
             // label4
             // 
@@ -312,7 +320,7 @@
             this.textBox2.Location = new System.Drawing.Point(77, 41);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(415, 52);
-            this.textBox2.TabIndex = 2;
+            this.textBox2.TabIndex = 1;
             // 
             // label1
             // 
@@ -325,7 +333,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "氏名";
             // 
-            // Form3
+            // EditUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -338,7 +346,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
-            this.Name = "Form3";
+            this.Name = "EditUserForm";
             this.Text = "Edit_user_information";
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -359,7 +367,6 @@
         private Label label2;
         private TextBox textBox4;
         private Label label3;
-        private TextBox textBox3;
         private Label label5;
         private Label label6;
         private Label label7;
@@ -380,5 +387,6 @@
         private GroupBox groupBox1;
         private TextBox textBox2;
         private Label label1;
+        private ComboBox comboBox1;
     }
 }

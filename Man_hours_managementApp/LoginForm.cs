@@ -41,7 +41,7 @@ namespace Man_hours_managementApp
             }
 
             //îFèÿ
-            Users_Service user = new Users_Service(); 
+            UserService user = new UserService(); 
             ret = user.Authenticate(PasswordtextBox, LoginidtextBox);
             if (ret)
             {

@@ -20,7 +20,7 @@ namespace Man_hours_managementApp
 
         private void MypageForm_Load(object sender, EventArgs e)
         {
-            label12.Text = name;
+            label12.Text = UserSession.GetInstatnce().name;
         }
 
         //ListViewコントロールを初期化

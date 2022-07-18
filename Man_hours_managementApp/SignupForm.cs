@@ -94,6 +94,10 @@ namespace Man_hours_managementApp
                                
                                 command.ExecuteNonQuery();
                                 transaction.Commit();
+                                UserSession.GetInstatnce().name = textBox2.Text;
+                                UserSession.GetInstatnce().affiliation = comboBox1.Text;
+                                UserSession.GetInstatnce().login_id = textBox4.Text;
+                                UserSession.GetInstatnce().password = textBox5.Text;
                                 MessageBox.Show("ユーザー情報を登録しました");
                                 MypageForm mypageForm = new MypageForm();
                                 mypageForm.Show();

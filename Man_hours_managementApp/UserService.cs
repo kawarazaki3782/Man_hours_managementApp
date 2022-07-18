@@ -12,13 +12,8 @@ using System.Windows.Forms;
 
 namespace Man_hours_managementApp
 {
-    public sealed class Users_Service
+    public sealed class UserService
     {
-        public string Name { get; set; }
-        public string Affiliation { get; set; }
-        public string Login_id { get; set; }
-        public string Password { get; set; }
-
         public bool Authenticate(TextBox PasswordtextBox, TextBox LoginidtextBox)
         {
             var connectionString = CommonUtil.GetConnectionString();
@@ -61,7 +56,10 @@ namespace Man_hours_managementApp
                 {
                     return false;
                 }
-                var name = dt.Rows[0]["name"].ToString();
+                UserSession.GetInstatnce().name = dt.Rows[0]["name"].ToString();
+                UserSession.GetInstatnce().affiliation = dt.Rows[0]["affiliation"].ToString();
+                UserSession.GetInstatnce().password = PasswordtextBox.Text;
+                UserSession.GetInstatnce().login_id = dt.Rows[0]["login_id"].ToString();
                 return true;
             }
             catch (Exception e)
