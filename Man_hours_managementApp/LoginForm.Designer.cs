@@ -126,6 +126,7 @@
             this.PasswordtextBox.PasswordChar = '●';
             this.PasswordtextBox.Size = new System.Drawing.Size(304, 52);
             this.PasswordtextBox.TabIndex = 2;
+            this.PasswordtextBox.Enter += new System.EventHandler(this.PasswordtextBox_Enter);
             // 
             // button1
             // 

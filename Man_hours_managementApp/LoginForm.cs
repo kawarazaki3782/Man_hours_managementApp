@@ -41,7 +41,8 @@ namespace Man_hours_managementApp
             }
 
             //認証
-            ret = this.Authenticate();
+            Users_Service user = new Users_Service(); 
+            ret = user.Authenticate(PasswordtextBox, LoginidtextBox);
             if (ret)
             {
                 MessageBox.Show("ログインに成功しました");
@@ -87,61 +88,13 @@ namespace Man_hours_managementApp
 
         }
 
-        private bool Authenticate()
+        private void PasswordtextBox_Enter(object sender, EventArgs e)
         {
-            var connectionString = CommonUtil.GetConnectionString();
-            var connection = new SqlConnection(connectionString);
-            SHA256CryptoServiceProvider sha256 = new SHA256CryptoServiceProvider();
-            byte[] beforebytearray = Encoding.UTF8.GetBytes(PasswordtextBox.Text);
-            byte[] afterbytearray = sha256.ComputeHash(beforebytearray);
-            sha256.Clear();
-
-            //バイト配列を16進数文字列に変換
-            StringBuilder hash = new StringBuilder();
-            foreach (byte b in afterbytearray)
+            if (!String.IsNullOrEmpty(PasswordtextBox.Text))
             {
-                hash.Append(b.ToString("x2"));
-            }
-
-            try
-            {
-                connection.Open();
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter();
-
-                SqlCommand command = connection.CreateCommand();
-
-                command.CommandText = "SELECT password FROM Users WHERE login_id = @login_id";
-                command.Parameters.Add("@login_id", System.Data.SqlDbType.NVarChar, 50);
-                command.Parameters["@login_id"].Value = LoginidtextBox.Text;
-
-                da.SelectCommand = command;
-                da.Fill(dt);
-
-                //検索結果が1件ではない場合
-                if (dt.Rows.Count != 1)
-                {
-                    return false;
-                }
-
-                //パスワードが一致しない場合
-                if (dt.Rows[0]["password"].ToString() != hash.ToString())
-                {
-                    return false;
-                }
-                return true;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("接続エラー");
-                return false;
-
-            }
-            finally
-            { 
-                connection.Close();
+                PasswordtextBox.SelectionStart = 0;
+                PasswordtextBox.SelectionLength = PasswordtextBox.Text.Length;
             }
         }
-           
     }
 }

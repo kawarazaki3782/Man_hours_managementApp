@@ -15,7 +15,12 @@ namespace Man_hours_managementApp
         public MypageForm()
         {
             InitializeComponent();
-           
+            this.Load += MypageForm_Load;
+        }
+
+        private void MypageForm_Load(object sender, EventArgs e)
+        {
+            label12.Text = name;
         }
 
         //ListViewコントロールを初期化
