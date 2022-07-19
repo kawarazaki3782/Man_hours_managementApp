@@ -61,7 +61,6 @@ namespace Man_hours_managementApp
             {
                 MessageBox.Show("入力に不備があるため登録できません");
             }
-
             else
             {
                 //ハッシュ値を計算
@@ -76,7 +75,6 @@ namespace Man_hours_managementApp
                 {
                     hash.Append(b.ToString("x2"));
                 }
-
                 var connectionString = CommonUtil.GetConnectionString();
                 using (var connection = new SqlConnection(connectionString))
                 {
@@ -88,7 +86,6 @@ namespace Man_hours_managementApp
                         {
                             try
                             {
-
                                 command.CommandText = @"UPDATE Users SET name = @name, affiliation = @affiliation, login_id = @login_id, password = @password WHERE login_id = @login_id";
                                 command.Parameters.Add(new SqlParameter("@name", textBox2.Text));
                                 command.Parameters.Add(new SqlParameter("@affiliation", comboBox1.Text));
