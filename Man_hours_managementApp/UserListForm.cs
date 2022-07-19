@@ -22,14 +22,17 @@ namespace Man_hours_managementApp
 
         private void UserListForm_Load(object sender, EventArgs e)
         {
-
+            var connectionString = CommonUtil.GetConnectionString();
+            var dt = new DataTable();
+            using (var connection = new SqlConnection(connectionString)) { 
+                var command = connection.CreateCommand();
+                command.CommandText = "SELECT affiliation, name AS 氏名 FROM Users";
+                var sda = new SqlDataAdapter(command);
+                sda.Fill(dt);
+            }
+            dataGridView1.DataSource = dt;
         }
  
-         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             MypageForm mypageForm = new MypageForm();   
