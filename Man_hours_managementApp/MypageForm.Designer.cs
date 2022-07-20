@@ -93,7 +93,7 @@
             this.button1.Location = new System.Drawing.Point(67, 398);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 40);
-            this.button1.TabIndex = 18;
+            this.button1.TabIndex = 1;
             this.button1.Text = "ユーザー情報編集";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -103,7 +103,7 @@
             this.button2.Location = new System.Drawing.Point(67, 464);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(125, 40);
-            this.button2.TabIndex = 19;
+            this.button2.TabIndex = 2;
             this.button2.Text = "ユーザー一覧";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -113,7 +113,7 @@
             this.button3.Location = new System.Drawing.Point(1098, 58);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(125, 40);
-            this.button3.TabIndex = 20;
+            this.button3.TabIndex = 3;
             this.button3.Text = "ログアウト";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -123,7 +123,7 @@
             this.button4.Location = new System.Drawing.Point(1098, 170);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(125, 40);
-            this.button4.TabIndex = 21;
+            this.button4.TabIndex = 5;
             this.button4.Text = "工数を入力する";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -133,7 +133,7 @@
             this.button5.Location = new System.Drawing.Point(296, 170);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(125, 40);
-            this.button5.TabIndex = 22;
+            this.button5.TabIndex = 4;
             this.button5.Text = "プロジェクトを登録";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
@@ -181,7 +181,7 @@
             this.listView1.Location = new System.Drawing.Point(464, 263);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(636, 219);
-            this.listView1.TabIndex = 26;
+            this.listView1.TabIndex = 6;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
