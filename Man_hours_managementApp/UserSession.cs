@@ -10,6 +10,7 @@ namespace Man_hours_managementApp
     {
         private static UserSession _myinstance = new UserSession();
        
+        public int id { get; set; }
         public string name { get; set; }
         public string affiliation { get; set; }
         public string login_id { get; set; }

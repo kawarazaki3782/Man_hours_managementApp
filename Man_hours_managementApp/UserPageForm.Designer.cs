@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
@@ -39,11 +39,11 @@
             this.label10 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +57,7 @@
             this.columnHeader5,
             this.columnHeader6});
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
             this.listView1.Location = new System.Drawing.Point(375, 169);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(413, 244);
@@ -117,14 +117,6 @@
             this.label4.Size = new System.Drawing.Size(0, 28);
             this.label4.TabIndex = 31;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(112, 169);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(125, 90);
-            this.pictureBox1.TabIndex = 30;
-            this.pictureBox1.TabStop = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -163,18 +155,27 @@
             this.label2.TabIndex = 41;
             this.label2.Text = "〇〇〇〇";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Man_hours_managementApp.Properties.Resources.ショートカットの女の人の無料アイコン素材_21;
+            this.pictureBox1.Location = new System.Drawing.Point(112, 145);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(122, 133);
+            this.pictureBox1.TabIndex = 42;
+            this.pictureBox1.TabStop = false;
+            // 
             // UserPageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(992, 584);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Name = "UserPageForm";
@@ -197,10 +198,10 @@
         private Label label10;
         private Button button1;
         private Label label4;
-        private PictureBox pictureBox1;
         private Label label3;
         private Label label1;
         private Label label5;
         private Label label2;
+        private PictureBox pictureBox1;
     }
 }

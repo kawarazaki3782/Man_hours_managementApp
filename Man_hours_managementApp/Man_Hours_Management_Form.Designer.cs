@@ -34,21 +34,19 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -78,7 +76,6 @@
             this.label1.Size = new System.Drawing.Size(113, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "プロジェクトを選択";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBox2
             // 
@@ -98,71 +95,34 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Location = new System.Drawing.Point(110, 223);
+            this.groupBox1.Location = new System.Drawing.Point(81, 224);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(635, 165);
+            this.groupBox1.Size = new System.Drawing.Size(747, 165);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "入力";
             // 
-            // textBox3
+            // button3
             // 
-            this.textBox3.Location = new System.Drawing.Point(60, 54);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(125, 27);
-            this.textBox3.TabIndex = 7;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(212, 54);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(176, 27);
-            this.textBox4.TabIndex = 8;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(406, 54);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(125, 27);
-            this.textBox5.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(60, 31);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 20);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "日付";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(212, 31);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 20);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "業務内容";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(406, 31);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 20);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "工数";
+            this.button3.Location = new System.Drawing.Point(583, 105);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(94, 43);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "クリア";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(437, 100);
+            this.button1.Location = new System.Drawing.Point(466, 105);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 43);
             this.button1.TabIndex = 7;
@@ -170,48 +130,58 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // listView1
+            // label5
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
-            this.listView1.Location = new System.Drawing.Point(110, 451);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(479, 121);
-            this.listView1.TabIndex = 7;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(552, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 20);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "工数";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // columnHeader1
+            // label4
             // 
-            this.columnHeader1.Text = "登録日";
-            this.columnHeader1.Width = 100;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(338, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 20);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "業務内容";
             // 
-            // columnHeader2
+            // label3
             // 
-            this.columnHeader2.Text = "業務内容";
-            this.columnHeader2.Width = 200;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(60, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 20);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "登録日";
             // 
-            // columnHeader3
+            // textBox5
             // 
-            this.columnHeader3.Text = "工数";
-            this.columnHeader3.Width = 100;
+            this.textBox5.Location = new System.Drawing.Point(552, 54);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(125, 27);
+            this.textBox5.TabIndex = 9;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
-            // columnHeader4
+            // textBox4
             // 
-            this.columnHeader4.Text = "残工数";
-            this.columnHeader4.Width = 100;
+            this.textBox4.Location = new System.Drawing.Point(338, 54);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(176, 27);
+            this.textBox4.TabIndex = 8;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(110, 615);
+            this.button2.Location = new System.Drawing.Point(110, 639);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 29);
             this.button2.TabIndex = 8;
             this.button2.Text = "マイページ";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label6
             // 
@@ -222,14 +192,33 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "履歴";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(155, 428);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.Size = new System.Drawing.Size(392, 188);
+            this.dataGridView1.TabIndex = 10;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(62, 54);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePicker1.TabIndex = 20;
+            // 
             // Man_Hours_Management_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 680);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.listView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox2);
@@ -240,6 +229,7 @@
             this.Text = "Man_Hours_Management_Form";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,14 +248,11 @@
         private Label label3;
         private TextBox textBox5;
         private TextBox textBox4;
-        private TextBox textBox3;
         private Button button1;
-        private ListView listView1;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader3;
-        private ColumnHeader columnHeader4;
         private Button button2;
         private Label label6;
+        private Button button3;
+        private DataGridView dataGridView1;
+        private DateTimePicker dateTimePicker1;
     }
 }
