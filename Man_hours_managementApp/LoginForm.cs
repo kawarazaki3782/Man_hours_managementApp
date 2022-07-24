@@ -17,19 +17,19 @@ namespace Man_hours_managementApp
         }
 
 
-        private void button2_Click(object sender, EventArgs e)
+        private void signup_button_Click(object sender, EventArgs e)
         {
             SignupForm signupForm = new SignupForm();
             signupForm.Show();
             this.Hide();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void close_button_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void login_button_Click(object sender, EventArgs e)
         {
             bool ret = false;
 

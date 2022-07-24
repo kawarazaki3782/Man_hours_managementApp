@@ -33,35 +33,35 @@ namespace Man_hours_managementApp
             listView1.View = View.Details;
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void project_register_button_Click(object sender, EventArgs e)
         {
             ProjectsMaster projectsMaster = new ProjectsMaster();
             projectsMaster.Show();
             this.Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void logout_button_Click(object sender, EventArgs e)
         {
             LoginForm loginForm = new LoginForm();  
             loginForm.Show();
             this.Close();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void man_hour_input_button_Click(object sender, EventArgs e)
         {
             Man_Hours_Management_Form man_Hours_Management_Form = new Man_Hours_Management_Form();
             man_Hours_Management_Form.Show();
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void edituser_button_Click(object sender, EventArgs e)
         {
             EditUserForm editUserForm = new EditUserForm(); 
             editUserForm.Show();
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void userlist_button_Click(object sender, EventArgs e)
         {
             UserListForm userListForm = new UserListForm();
             userListForm.Show();

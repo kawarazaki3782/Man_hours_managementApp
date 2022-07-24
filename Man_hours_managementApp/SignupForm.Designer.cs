@@ -72,7 +72,7 @@
             this.button3.TabIndex = 6;
             this.button3.Text = "登録";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            this.button3.Click += new System.EventHandler(this.register_button_Click_1);
             // 
             // button2
             // 
@@ -84,7 +84,7 @@
             this.button2.TabIndex = 7;
             this.button2.Text = "クリア";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.clear_button_Click);
             // 
             // button1
             // 
@@ -96,7 +96,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "もどる";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.return_button_Click);
             // 
             // groupBox4
             // 

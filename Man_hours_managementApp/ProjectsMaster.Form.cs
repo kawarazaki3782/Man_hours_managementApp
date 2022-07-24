@@ -31,57 +31,42 @@ namespace Man_hours_managementApp
                 var sda = new SqlDataAdapter(command);
                 sda.Fill(dt);
             }
-            //dataGridView1[1, 1].Value = dt;
+            dataGridView1.DataSource = dt;
+            dataGridView1.Columns["メンバー"].DisplayIndex = 0;
+
+            var dt2 = new DataTable();
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var command = connection.CreateCommand();
+                command.CommandText = "SELECT name FROM Users";
+                var pl = new SqlDataAdapter(command);
+                pl.Fill(dt2);
+            }
+            comboBox1.DisplayMember = "name";
+            comboBox1.SelectedIndex = -1;
+            comboBox1.DataSource = dt2;
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
+       
 
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void mypage_button_Click(object sender, EventArgs e)
         {
             MypageForm mypageForm = new MypageForm();
             mypageForm.Show();
             this.Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void clear_button_Click(object sender, EventArgs e)
         {
             textBox2.Text = String.Empty;
             textBox3.Text = String.Empty;
             textBox4.Text = String.Empty;
             textBox5.Text = String.Empty;
-            textBox6.Text = String.Empty;
+            comboBox1.Text = String.Empty;
             textBox7.Text = String.Empty;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void register_button_Click(object sender, EventArgs e)
         {
             var connectionString = CommonUtil.GetConnectionString();
             using (var connection = new SqlConnection(connectionString))
@@ -99,7 +84,7 @@ namespace Man_hours_managementApp
                             command.Parameters.Add(new SqlParameter("@project_id", textBox4.Text));
                             command.Parameters.Add(new SqlParameter("@name", textBox5.Text));
                             command.Parameters.Add(new SqlParameter("@registration_date", dateTimePicker1.Value));
-                            command.Parameters.Add(new SqlParameter("@project_leader", textBox6.Text));
+                            command.Parameters.Add(new SqlParameter("@project_leader", comboBox1.Text));
                             command.Parameters.Add(new SqlParameter("@total", textBox7.Text));
 
                             command.ExecuteNonQuery();
@@ -126,7 +111,6 @@ namespace Man_hours_managementApp
                 }
             
             }
-
         }
     }
 }

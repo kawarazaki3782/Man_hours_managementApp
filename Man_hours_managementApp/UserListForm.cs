@@ -33,7 +33,7 @@ namespace Man_hours_managementApp
             dataGridView1.DataSource = dt;
         }
  
-        private void button1_Click(object sender, EventArgs e)
+        private void mypage_button_Click(object sender, EventArgs e)
         {
             MypageForm mypageForm = new MypageForm();   
             mypageForm.Show();

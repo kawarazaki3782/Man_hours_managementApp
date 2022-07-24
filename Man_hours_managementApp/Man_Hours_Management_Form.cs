@@ -32,7 +32,7 @@ namespace Man_hours_managementApp
             dataGridView1.DataSource = dt;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void register_button_Click(object sender, EventArgs e)
         {
             var connectionString = CommonUtil.GetConnectionString();
             using (var connection = new SqlConnection(connectionString))
@@ -78,14 +78,14 @@ namespace Man_hours_managementApp
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void mypage_button_Click(object sender, EventArgs e)
         {
             MypageForm mypage = new MypageForm();
             mypage.Show();
             this.Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void clear_button_Click(object sender, EventArgs e)
         {
             comboBox1.Text = String.Empty;
             textBox4.Text = String.Empty;

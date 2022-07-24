@@ -33,14 +33,14 @@ namespace Man_hours_managementApp
             ep.BlinkStyle = ErrorBlinkStyle.NeverBlink;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void return_button_Click(object sender, EventArgs e)
         {
             MypageForm mypageForm = new MypageForm();
             mypageForm.Show();
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void clear_button_Click(object sender, EventArgs e)
         {
             textBox2.Text = String.Empty;
             comboBox1.Text = String.Empty;
@@ -48,7 +48,7 @@ namespace Man_hours_managementApp
             textBox5.Text = String.Empty;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void register_button_Click(object sender, EventArgs e)
         {
             InputCheck.errorClear(ep);
             InputCheck.isString(ep, "氏名", textBox2, true);

@@ -137,7 +137,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "ログイン";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.login_button_Click);
             // 
             // button2
             // 
@@ -148,7 +148,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "ユーザー登録";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.signup_button_Click);
             // 
             // label3
             // 
@@ -183,7 +183,7 @@
             this.button3.TabIndex = 4;
             this.button3.Text = "閉じる";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.close_button_Click);
             // 
             // groupBox2
             // 
