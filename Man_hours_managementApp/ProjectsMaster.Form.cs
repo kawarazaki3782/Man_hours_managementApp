@@ -21,7 +21,7 @@ namespace Man_hours_managementApp
         }
 
         private void ProjectsMaster_Load(object sender, EventArgs e)
-        {     
+        {
             var connectionString = CommonUtil.GetConnectionString();
             var dt = new DataTable();
             using (var connection = new SqlConnection(connectionString))
@@ -31,9 +31,7 @@ namespace Man_hours_managementApp
                 var sda = new SqlDataAdapter(command);
                 sda.Fill(dt);
             }
-            dataGridView1.DataSource = dt;
-            dataGridView1.Columns["メンバー"].DisplayIndex = 0;
-
+     
             var dt2 = new DataTable();
             using (var connection = new SqlConnection(connectionString))
             {
@@ -45,6 +43,9 @@ namespace Man_hours_managementApp
             comboBox1.DisplayMember = "name";
             comboBox1.SelectedIndex = -1;
             comboBox1.DataSource = dt2;
+            comboBox2.DisplayMember = "name";
+            comboBox2.SelectedIndex = -1;
+            comboBox2.DataSource = dt2;
         }
 
        
@@ -88,6 +89,13 @@ namespace Man_hours_managementApp
                             command.Parameters.Add(new SqlParameter("@total", textBox7.Text));
 
                             command.ExecuteNonQuery();
+
+                            command.CommandText = @"INSERT INTO Members (customer_name, project_id, name, registration_date, project_leader, total) VALUES (@customer_name, @project_id, @name, @registration_date, @project_leader, @total)";
+
+
+
+
+
                             transaction.Commit();
                             MessageBox.Show("プロジェクトを登録しました");
                             MypageForm mypageForm = new MypageForm();
@@ -111,6 +119,16 @@ namespace Man_hours_managementApp
                 }
             
             }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void add_button_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Add(comboBox2.Text, textBox2.Text);
         }
     }
 }

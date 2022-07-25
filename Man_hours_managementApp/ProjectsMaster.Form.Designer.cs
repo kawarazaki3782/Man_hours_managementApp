@@ -31,6 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -49,6 +54,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.commonUtilBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.メンバー = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.メンバー工数 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -67,6 +73,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.comboBox2);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.dataGridView1);
@@ -89,6 +100,51 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "入力";
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.button4.Location = new System.Drawing.Point(771, 125);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(94, 43);
+            this.button4.TabIndex = 25;
+            this.button4.Text = "追加";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.add_button_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(628, 116);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(85, 20);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "工数(人/月)";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(628, 141);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(123, 27);
+            this.textBox2.TabIndex = 23;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(454, 116);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(115, 20);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "プロジェクトメンバー";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(454, 140);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(151, 28);
+            this.comboBox2.TabIndex = 21;
+            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -108,6 +164,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.メンバー,
             this.メンバー工数});
             this.dataGridView1.Location = new System.Drawing.Point(60, 217);
             this.dataGridView1.Name = "dataGridView1";
@@ -241,6 +298,13 @@
             // 
             this.commonUtilBindingSource.DataSource = typeof(Man_hours_managementApp.CommonUtil);
             // 
+            // メンバー
+            // 
+            this.メンバー.HeaderText = "メンバー";
+            this.メンバー.MinimumWidth = 6;
+            this.メンバー.Name = "メンバー";
+            this.メンバー.Width = 125;
+            // 
             // メンバー工数
             // 
             this.メンバー工数.DataPropertyName = "cost";
@@ -292,6 +356,11 @@
         private DateTimePicker dateTimePicker1;
         private BindingSource commonUtilBindingSource;
         private ComboBox comboBox1;
+        private Label label8;
+        private ComboBox comboBox2;
+        private Button button4;
+        private Label label9;
+        private DataGridViewTextBoxColumn メンバー;
         private DataGridViewTextBoxColumn メンバー工数;
     }
 }
