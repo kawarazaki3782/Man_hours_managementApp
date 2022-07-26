@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+using System.Configuration;
 
 namespace Man_hours_managementApp
 {
@@ -41,11 +41,11 @@ namespace Man_hours_managementApp
                 pl.Fill(dt2);
             }
             comboBox1.DisplayMember = "name";
-            comboBox1.SelectedIndex = -1;
             comboBox1.DataSource = dt2;
+            comboBox1.SelectedIndex = -1;
             comboBox2.DisplayMember = "name";
-            comboBox2.SelectedIndex = -1;
             comboBox2.DataSource = dt2;
+            comboBox2.SelectedIndex = -1;
         }
 
        
@@ -65,6 +65,7 @@ namespace Man_hours_managementApp
             textBox5.Text = String.Empty;
             comboBox1.Text = String.Empty;
             textBox7.Text = String.Empty;
+            dataGridView1.Rows.Clear();
         }
 
         private void register_button_Click(object sender, EventArgs e)
@@ -80,22 +81,28 @@ namespace Man_hours_managementApp
                     {
                         try
                         {
-                            command.CommandText = @"INSERT INTO Projects (customer_name, project_id, name, registration_date, project_leader, total) VALUES (@customer_name, @project_id, @name, @registration_date, @project_leader, @total)";
+                            command.CommandText = @"INSERT INTO Projects (customer_name, id, name, registration_date, project_leader, total) VALUES (@customer_name, @id, @name, @registration_date, @project_leader, @total)";
                             command.Parameters.Add(new SqlParameter("@customer_name", textBox3.Text));
-                            command.Parameters.Add(new SqlParameter("@project_id", textBox4.Text));
+                            command.Parameters.Add(new SqlParameter("@id", textBox4.Text));
                             command.Parameters.Add(new SqlParameter("@name", textBox5.Text));
                             command.Parameters.Add(new SqlParameter("@registration_date", dateTimePicker1.Value));
                             command.Parameters.Add(new SqlParameter("@project_leader", comboBox1.Text));
                             command.Parameters.Add(new SqlParameter("@total", textBox7.Text));
-
                             command.ExecuteNonQuery();
 
-                            command.CommandText = @"INSERT INTO Members (customer_name, project_id, name, registration_date, project_leader, total) VALUES (@customer_name, @project_id, @name, @registration_date, @project_leader, @total)";
-
-
-
-
-
+                            var rowCount = dataGridView1.RowCount;
+                            if (rowCount > 0)
+                            {
+                                for (int i = 0; i <= rowCount; ++i)
+                                {
+                                    command.CommandText = @"INSERT INTO Members (user_id, project_id, estimated_time) VALUES (@user_id, @project_id, @estimated_time)";
+                                    command.Parameters.Add(new SqlParameter("@user_id", dataGridView1[1, i].Value));
+                                    command.Parameters.Add(new SqlParameter("@estimated_time", dataGridView1[2, i].Value));
+                                    command.Parameters.Add(new SqlParameter("@project_id", textBox4.Text));
+                                    command.ExecuteNonQuery();
+                                }
+                                
+                            }
                             transaction.Commit();
                             MessageBox.Show("プロジェクトを登録しました");
                             MypageForm mypageForm = new MypageForm();
@@ -128,7 +135,7 @@ namespace Man_hours_managementApp
 
         private void add_button_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Add(comboBox2.Text, textBox2.Text);
+            dataGridView1.Rows.Add(comboBox2.Text, textBox6.Text, textBox2.Text);
         }
     }
 }

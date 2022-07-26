@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -55,6 +57,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.commonUtilBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.メンバー = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.メンバー工数 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -73,6 +76,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.textBox6);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.textBox2);
@@ -100,10 +105,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "入力";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(628, 116);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(24, 20);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "ID";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(628, 141);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(45, 27);
+            this.textBox6.TabIndex = 26;
+            // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button4.Location = new System.Drawing.Point(771, 125);
+            this.button4.Location = new System.Drawing.Point(815, 125);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(94, 43);
             this.button4.TabIndex = 25;
@@ -114,7 +135,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(628, 116);
+            this.label9.Location = new System.Drawing.Point(689, 116);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(85, 20);
             this.label9.TabIndex = 24;
@@ -122,7 +143,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(628, 141);
+            this.textBox2.Location = new System.Drawing.Point(689, 140);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(123, 27);
             this.textBox2.TabIndex = 23;
@@ -165,12 +186,13 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.メンバー,
+            this.Column1,
             this.メンバー工数});
             this.dataGridView1.Location = new System.Drawing.Point(60, 217);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(392, 188);
+            this.dataGridView1.Size = new System.Drawing.Size(433, 188);
             this.dataGridView1.TabIndex = 8;
             // 
             // label7
@@ -300,15 +322,22 @@
             // 
             // メンバー
             // 
-            this.メンバー.HeaderText = "メンバー";
+            this.メンバー.HeaderText = "プロジェクトメンバー";
             this.メンバー.MinimumWidth = 6;
             this.メンバー.Name = "メンバー";
             this.メンバー.Width = 125;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ID";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 125;
+            // 
             // メンバー工数
             // 
             this.メンバー工数.DataPropertyName = "cost";
-            this.メンバー工数.HeaderText = "メンバー工数(人月)";
+            this.メンバー工数.HeaderText = "工数(人月)";
             this.メンバー工数.MinimumWidth = 6;
             this.メンバー工数.Name = "メンバー工数";
             this.メンバー工数.Width = 150;
@@ -360,7 +389,10 @@
         private ComboBox comboBox2;
         private Button button4;
         private Label label9;
+        private Label label10;
+        private TextBox textBox6;
         private DataGridViewTextBoxColumn メンバー;
+        private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn メンバー工数;
     }
 }
