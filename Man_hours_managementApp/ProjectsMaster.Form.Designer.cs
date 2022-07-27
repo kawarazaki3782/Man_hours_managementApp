@@ -41,6 +41,9 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.メンバー = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.メンバー工数 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,9 +59,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.commonUtilBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.メンバー = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.メンバー工数 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commonUtilBindingSource)).BeginInit();
@@ -195,6 +195,28 @@
             this.dataGridView1.Size = new System.Drawing.Size(433, 188);
             this.dataGridView1.TabIndex = 8;
             // 
+            // メンバー
+            // 
+            this.メンバー.HeaderText = "プロジェクトメンバー";
+            this.メンバー.MinimumWidth = 6;
+            this.メンバー.Name = "メンバー";
+            this.メンバー.Width = 125;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ID";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 125;
+            // 
+            // メンバー工数
+            // 
+            this.メンバー工数.DataPropertyName = "cost";
+            this.メンバー工数.HeaderText = "工数(人月)";
+            this.メンバー工数.MinimumWidth = 6;
+            this.メンバー工数.Name = "メンバー工数";
+            this.メンバー工数.Width = 150;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -319,28 +341,6 @@
             // commonUtilBindingSource
             // 
             this.commonUtilBindingSource.DataSource = typeof(Man_hours_managementApp.CommonUtil);
-            // 
-            // メンバー
-            // 
-            this.メンバー.HeaderText = "プロジェクトメンバー";
-            this.メンバー.MinimumWidth = 6;
-            this.メンバー.Name = "メンバー";
-            this.メンバー.Width = 125;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ID";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
-            // 
-            // メンバー工数
-            // 
-            this.メンバー工数.DataPropertyName = "cost";
-            this.メンバー工数.HeaderText = "工数(人月)";
-            this.メンバー工数.MinimumWidth = 6;
-            this.メンバー工数.Name = "メンバー工数";
-            this.メンバー工数.Width = 150;
             // 
             // ProjectsMaster
             // 

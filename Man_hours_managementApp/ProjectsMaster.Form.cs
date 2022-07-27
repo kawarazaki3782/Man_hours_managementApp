@@ -93,15 +93,15 @@ namespace Man_hours_managementApp
                             var rowCount = dataGridView1.RowCount;
                             if (rowCount > 0)
                             {
-                                for (int i = 0; i <= rowCount; ++i)
+
+                                for (int i = 0; i < rowCount; i++)
                                 {
-                                    command.CommandText = @"INSERT INTO Members (user_id, project_id, estimated_time) VALUES (@user_id, @project_id, @estimated_time)";
-                                    command.Parameters.Add(new SqlParameter("@user_id", dataGridView1[1, i].Value));
-                                    command.Parameters.Add(new SqlParameter("@estimated_time", dataGridView1[2, i].Value));
-                                    command.Parameters.Add(new SqlParameter("@project_id", textBox4.Text));
+                                    command.CommandText = @"INSERT INTO Members (user_id, project_id, estimated_time) VALUES (@user_id0, @project_id0, @estimated_time0),(@user_id1, @project_id1, @estimated_time1),(@user_id2, @project_id2, @estimated_time2)";
+                                    command.Parameters.Add(new SqlParameter("@user_id"+i, dataGridView1[1, i].Value));
+                                    command.Parameters.Add(new SqlParameter("@estimated_time"+i, dataGridView1[2, i].Value));
+                                    command.Parameters.Add(new SqlParameter("@project_id"+i, textBox4.Text));
                                     command.ExecuteNonQuery();
-                                }
-                                
+                                 }
                             }
                             transaction.Commit();
                             MessageBox.Show("プロジェクトを登録しました");
@@ -124,7 +124,6 @@ namespace Man_hours_managementApp
                 {
                     connection.Close();
                 }
-            
             }
         }
 
