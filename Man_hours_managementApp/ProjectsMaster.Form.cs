@@ -89,19 +89,21 @@ namespace Man_hours_managementApp
                             command.Parameters.Add(new SqlParameter("@project_leader", comboBox1.Text));
                             command.Parameters.Add(new SqlParameter("@total", textBox7.Text));
                             command.ExecuteNonQuery();
-
+                          
                             var rowCount = dataGridView1.RowCount;
                             if (rowCount > 0)
                             {
-
+                                command.CommandText = @"INSERT INTO Members (user_id, project_id, estimated_time) VALUES ";
                                 for (int i = 0; i < rowCount; i++)
                                 {
-                                    command.CommandText = @"INSERT INTO Members (user_id, project_id, estimated_time) VALUES (@user_id0, @project_id0, @estimated_time0),(@user_id1, @project_id1, @estimated_time1),(@user_id2, @project_id2, @estimated_time2)";
+                                    command.CommandText += "(@user_id"+i +", @project_id"+i +", @estimated_time"+i +"),";
                                     command.Parameters.Add(new SqlParameter("@user_id"+i, dataGridView1[1, i].Value));
                                     command.Parameters.Add(new SqlParameter("@estimated_time"+i, dataGridView1[2, i].Value));
                                     command.Parameters.Add(new SqlParameter("@project_id"+i, textBox4.Text));
-                                    command.ExecuteNonQuery();
-                                 }
+                                }
+                                //最後の余計なカンマを削除   
+                                command.CommandText = command.CommandText.Substring(0, command.CommandText.Length - 1);
+                                command.ExecuteNonQuery();
                             }
                             transaction.Commit();
                             MessageBox.Show("プロジェクトを登録しました");
