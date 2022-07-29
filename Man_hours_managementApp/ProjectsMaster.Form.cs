@@ -48,8 +48,6 @@ namespace Man_hours_managementApp
             comboBox2.SelectedIndex = -1;
         }
 
-       
-
         private void mypage_button_Click(object sender, EventArgs e)
         {
             MypageForm mypageForm = new MypageForm();
@@ -93,17 +91,29 @@ namespace Man_hours_managementApp
                             var rowCount = dataGridView1.RowCount;
                             if (rowCount > 0)
                             {
-                                command.CommandText = @"INSERT INTO Members (user_id, project_id, estimated_time) VALUES ";
+                                var command2 = new SqlCommand() { Connection = connection, Transaction = transaction };
+                                //command.CommandText = @"INSERT INTO Members (user_id, project_id, estimated_time) VALUES ";
+                                //var command2 = new SqlCommand(@"INSERT INTO Members (user_id, project_id, estimated_time) VALUES",connection,transaction);
+                                StringBuilder sb = new StringBuilder(4096);
                                 for (int i = 0; i < rowCount; i++)
                                 {
-                                    command.CommandText += "(@user_id"+i +", @project_id"+i +", @estimated_time"+i +"),";
-                                    command.Parameters.Add(new SqlParameter("@user_id"+i, dataGridView1[1, i].Value));
-                                    command.Parameters.Add(new SqlParameter("@estimated_time"+i, dataGridView1[2, i].Value));
-                                    command.Parameters.Add(new SqlParameter("@project_id"+i, textBox4.Text));
+                                    //command2.CommandText += "(@user_id"+i+", @project_id"+i+", @estimated_time"+i+"),";
+                                    //command2.Parameters.Add(new SqlParameter("@user_id"+i, dataGridView1[1, i].Value));
+                                    //command2.Parameters.Add(new SqlParameter("@project_id"+i, textBox4.Text));
+                                    //command2.Parameters.Add(new SqlParameter("@estimated_time"+i, dataGridView1[2, i].Value));
+                                    string user_id = "@user_id" + i.ToString();
+                                    string project_id = "@project_id" + i.ToString();
+                                    string estimated_time = "@estimated_time" + i.ToString();
+                                    command2.Parameters.AddWithValue(user_id, dataGridView1[1, i].Value);
+                                    command2.Parameters.AddWithValue(project_id, textBox4.Text);
+                                    command2.Parameters.AddWithValue(estimated_time, dataGridView1[2, i].Value);
+
+                                    sb.Append("INSERT INTO Members(user_id, project_id, estimated_time) VALUES(" + user_id + "," + project_id + "," + estimated_time + ");");
                                 }
                                 //最後の余計なカンマを削除   
-                                command.CommandText = command.CommandText.Substring(0, command.CommandText.Length - 1);
-                                command.ExecuteNonQuery();
+                                //command2.CommandText = command2.CommandText.Substring(0, command2.CommandText.Length - 1);
+                                command2.CommandText = sb.ToString();
+                                command2.ExecuteNonQuery();
                             }
                             transaction.Commit();
                             MessageBox.Show("プロジェクトを登録しました");
