@@ -25,6 +25,7 @@ namespace Man_hours_managementApp
 
         private void ProjectsMaster_Load(object sender, EventArgs e)
         {
+            textBox6.ReadOnly = true;
             var connectionString = CommonUtil.GetConnectionString();
             var dt = new DataTable();
             using (var connection = new SqlConnection(connectionString))
@@ -34,7 +35,7 @@ namespace Man_hours_managementApp
                 var sda = new SqlDataAdapter(command);
                 sda.Fill(dt);
             }
-     
+
             var dt2 = new DataTable();
             using (var connection = new SqlConnection(connectionString))
             {
@@ -63,11 +64,6 @@ namespace Man_hours_managementApp
             ep.BlinkStyle = ErrorBlinkStyle.NeverBlink;
         }
 
-
-
-
-
-
         private void mypage_button_Click(object sender, EventArgs e)
         {
             MypageForm mypageForm = new MypageForm();
@@ -86,64 +82,108 @@ namespace Man_hours_managementApp
             dataGridView1.Rows.Clear();
         }
 
+        private bool Check()
+        {
+            if (textBox3.Text.Length > 30)
+            {
+                MessageBox.Show("顧客名は30文字以内で入力してください");
+                return false;
+            }
+
+            if (textBox4.Text.Length > 30)
+            {
+                MessageBox.Show("プロジェクトIDは30文字以内で入力してください");
+                return false;
+            }
+
+            if (textBox5.Text.Length > 30)
+            {
+                MessageBox.Show("プロジェクト名は30文字以内で入力してください");
+                return false;
+            }
+            return true;
+
+        }
+
         private void register_button_Click(object sender, EventArgs e)
         {
-            var connectionString = CommonUtil.GetConnectionString();
-            using (var connection = new SqlConnection(connectionString))
+            //バリデーション
+            InputCheck.errorClear(ep);
+            InputCheck.IsOnlyAlphanumeri(ep, "プロジェクトID", textBox4, true);
+            InputCheck.isString(ep, "プロジェクト名", textBox5, true);
+            InputCheck.NumbersCheck(ep, "総工数(人/月)", textBox7, true);           
+
+            var ret = this.Check();
+            if (ret == false)
             {
-                try
+                return;
+            }
+
+            if (InputCheck.isError == true)
+            {
+                MessageBox.Show("入力に不備があるため登録できません");
+            }
+
+            else
+            {
+
+                var connectionString = CommonUtil.GetConnectionString();
+                using (var connection = new SqlConnection(connectionString))
                 {
-                    connection.Open();
-                    using (var transaction = connection.BeginTransaction())
-                    using (var command = new SqlCommand() { Connection = connection, Transaction = transaction })
+                    try
                     {
-                        try
+                        connection.Open();
+                        using (var transaction = connection.BeginTransaction())
+                        using (var command = new SqlCommand() { Connection = connection, Transaction = transaction })
                         {
-                            command.CommandText = @"INSERT INTO Projects (customer_name, id, name, registration_date, project_leader, total) VALUES (@customer_name, @id, @name, @registration_date, @project_leader, @total)";
-                            command.Parameters.Add(new SqlParameter("@customer_name", textBox3.Text));
-                            command.Parameters.Add(new SqlParameter("@id", textBox4.Text));
-                            command.Parameters.Add(new SqlParameter("@name", textBox5.Text));
-                            command.Parameters.Add(new SqlParameter("@registration_date", dateTimePicker1.Value));
-                            command.Parameters.Add(new SqlParameter("@project_leader", comboBox1.Text));
-                            command.Parameters.Add(new SqlParameter("@total", textBox7.Text));
-                            command.ExecuteNonQuery();
-                          
-                            var rowCount = dataGridView1.RowCount;
-                            if (rowCount > 0)
+                            try
                             {
-                                var command2 = new SqlCommand(@"INSERT INTO Members (user_id, project_id, estimated_time) VALUES", connection, transaction);
-                                for (int i = 0; i < rowCount; i++)
+                                command.CommandText = @"INSERT INTO Projects (customer_name, id, name, registration_date, project_leader, total) VALUES (@customer_name, @id, @name, @registration_date, @project_leader, @total)";
+                                command.Parameters.Add(new SqlParameter("@customer_name", textBox3.Text));
+                                command.Parameters.Add(new SqlParameter("@id", textBox4.Text));
+                                command.Parameters.Add(new SqlParameter("@name", textBox5.Text));
+                                command.Parameters.Add(new SqlParameter("@registration_date", dateTimePicker1.Value));
+                                command.Parameters.Add(new SqlParameter("@project_leader", comboBox1.Text));
+                                command.Parameters.Add(new SqlParameter("@total", textBox7.Text));
+                                command.ExecuteNonQuery();
+
+                                var rowCount = dataGridView1.RowCount;
+                                if (rowCount > 0)
                                 {
-                                    command2.CommandText += "(@user_id" + i + ", @project_id" + i + ", @estimated_time" + i + "),";
-                                    command2.Parameters.Add(new SqlParameter("@user_id" + i, dataGridView1.Rows[i].Cells[1].Value));
-                                    command2.Parameters.Add(new SqlParameter("@estimated_time" + i, dataGridView1.Rows[i].Cells[2].Value));
-                                    command2.Parameters.Add(new SqlParameter("@project_id" + i, textBox4.Text));
+                                    var command2 = new SqlCommand(@"INSERT INTO Members (user_id, project_id, estimated_time) VALUES", connection, transaction);
+                                    for (int i = 0; i < rowCount; i++)
+                                    {
+                                        command2.CommandText += "(@user_id" + i + ", @project_id" + i + ", @estimated_time" + i + "),";
+                                        command2.Parameters.Add(new SqlParameter("@user_id" + i, dataGridView1.Rows[i].Cells[1].Value));
+                                        command2.Parameters.Add(new SqlParameter("@estimated_time" + i, dataGridView1.Rows[i].Cells[2].Value));
+                                        command2.Parameters.Add(new SqlParameter("@project_id" + i, textBox4.Text));
+                                    }
+                                    command2.CommandText = command2.CommandText.Substring(0, command2.CommandText.Length - 1);
+                                    MessageBox.Show(command2.CommandText);
+                                    // 最後の余計なカンマを削除
+                                    command2.ExecuteNonQuery();
                                 }
-                                command2.CommandText = command2.CommandText.Substring(0, command2.CommandText.Length - 1);
-                                MessageBox.Show(command2.CommandText);
-                                // 最後の余計なカンマを削除
-                                command2.ExecuteNonQuery();
+                                transaction.Commit();
+                                MessageBox.Show("プロジェクトを登録しました");
+                                MypageForm mypageForm = new MypageForm();
+                                mypageForm.Show();
+                                this.Close();
                             }
-                            transaction.Commit();
-                            MessageBox.Show("プロジェクトを登録しました");
-                            MypageForm mypageForm = new MypageForm();
-                            mypageForm.Show();
-                            this.Close();
-                        }
-                        catch
-                        {
-                            transaction.Rollback();
-                            throw;
+                            catch
+                            {
+                                transaction.Rollback();
+                                throw;
+                            }
                         }
                     }
-                }
-                catch
-                {
-                    throw;
-                }
-                finally
-                {
-                    connection.Close();
+                    catch
+                    {
+                        throw;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
                 }
             }
         }
@@ -156,6 +196,21 @@ namespace Man_hours_managementApp
         private void add_button_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Add(comboBox2.Text, textBox6.Text, textBox2.Text);
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var connectionString = CommonUtil.GetConnectionString();
+            var dt4 = new DataTable();
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var command = connection.CreateCommand();
+                command.CommandText = "SELECT id FROM Users Where name =" + comboBox2.Text;
+                var sda = new SqlDataAdapter(command);
+                sda.Fill(dt4);
+            }
+            textBox6.Text = dt4.ToString();
+
         }
     }
 }

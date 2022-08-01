@@ -27,8 +27,8 @@ namespace Man_hours_managementApp
         }
     }
 
-//入力チェッククラス
-static class InputCheck
+    //入力チェッククラス
+    static class InputCheck
     {
         //エラーフラグ
         static public bool isError { get; set; } = false;
@@ -70,7 +70,7 @@ static class InputCheck
             
         }
 
-        //半角英数字チェック
+        //半角英数字と必須チェック
         public static bool IsOnlyAlphanumeri(ErrorProvider ep,
                             string itemName,
                             TextBox c,
@@ -98,6 +98,30 @@ static class InputCheck
                 msg = $"{itemName}は半角英数字で入力してください";
                 errorSet(ep, c, msg);
 
+                return false;
+            }
+        }
+
+        //数字のみチェック
+        public static bool NumbersCheck(ErrorProvider ep,
+                           string itemName,
+                           TextBox c,
+                           bool required,
+                           StrKind strKind = StrKind.half)
+        {
+            backColorClear(c);
+            string msg = "";
+            var result = Regex.IsMatch(c.Text, @"^[0\.00-99\.99]+$");
+
+            if (result == true && String.IsNullOrEmpty(c.Text) == false)
+            {
+                return true;
+            }
+
+            else
+            {
+                msg = $"{itemName}は0.00～99.99の範囲で入力してください";
+                errorSet(ep, c, msg);
                 return false;
             }
         }
