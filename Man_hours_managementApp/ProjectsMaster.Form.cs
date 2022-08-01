@@ -20,6 +20,9 @@ namespace Man_hours_managementApp
             this.Load += ProjectsMaster_Load;
         }
 
+        //ErrorProviderのインスタンスを生成
+        ErrorProvider ep = new ErrorProvider();
+
         private void ProjectsMaster_Load(object sender, EventArgs e)
         {
             var connectionString = CommonUtil.GetConnectionString();
@@ -55,7 +58,15 @@ namespace Man_hours_managementApp
             comboBox1.DisplayMember = "name";
             comboBox1.DataSource = dt3;
             comboBox1.SelectedIndex = -1;
+
+            //ErrorProviderのアイコンを点滅なしに設定する
+            ep.BlinkStyle = ErrorBlinkStyle.NeverBlink;
         }
+
+
+
+
+
 
         private void mypage_button_Click(object sender, EventArgs e)
         {
