@@ -111,7 +111,7 @@ namespace Man_hours_managementApp
         {
             backColorClear(c);
             string msg = "";
-            var result = Regex.IsMatch(c.Text, @"^[0\.00-99\.99]+$");
+            var result = Regex.IsMatch(c.Text, @"^([1-9][0-9]{0,1}|0)(\.[0-9]{1,2})?$");
 
             if (result == true && String.IsNullOrEmpty(c.Text) == false)
             {

@@ -205,12 +205,12 @@ namespace Man_hours_managementApp
             using (var connection = new SqlConnection(connectionString))
             {
                 var command = connection.CreateCommand();
-                command.CommandText = "SELECT id FROM Users Where name =" + comboBox2.Text;
+                command.CommandText = "SELECT id FROM Users Where name =\"" + comboBox2.Text + "\"";
+                MessageBox.Show(command.CommandText);
                 var sda = new SqlDataAdapter(command);
                 sda.Fill(dt4);
+                textBox6.Text = dt4.ToString();
             }
-            textBox6.Text = dt4.ToString();
-
         }
     }
 }
