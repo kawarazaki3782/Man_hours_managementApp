@@ -25,7 +25,7 @@ namespace Man_hours_managementApp
 
         private void ProjectsMaster_Load(object sender, EventArgs e)
         {
-            textBox6.ReadOnly = true;
+            //textBox6.ReadOnly = true;
             var connectionString = CommonUtil.GetConnectionString();
             var dt = new DataTable();
             using (var connection = new SqlConnection(connectionString))
@@ -201,15 +201,15 @@ namespace Man_hours_managementApp
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             var connectionString = CommonUtil.GetConnectionString();
-            var dt4 = new DataTable();
             using (var connection = new SqlConnection(connectionString))
             {
-                var command = connection.CreateCommand();
-                command.CommandText = "SELECT id FROM Users Where name =\"" + comboBox2.Text + "\"";
-                MessageBox.Show(command.CommandText);
+                var command = new SqlCommand() { Connection = connection };
+                command.CommandText = @"SELECT id FROM Users Where name = @name";
+                command.Parameters.Add(new SqlParameter("@name", comboBox2.Text));
                 var sda = new SqlDataAdapter(command);
-                sda.Fill(dt4);
-                textBox6.Text = dt4.ToString();
+                DataSet ds = new DataSet();
+                sda.Fill(ds, "Users");
+                textBox6.Text = ds.ToString();
             }
         }
     }
