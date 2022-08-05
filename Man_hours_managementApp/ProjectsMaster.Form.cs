@@ -209,7 +209,7 @@ namespace Man_hours_managementApp
                 var sda = new SqlDataAdapter(command);
                 DataSet ds = new DataSet();
                 sda.Fill(ds, "Users");
-                textBox6.Text = ds.ToString();
+                textBox6.Text = ds.Columns[0].ToString();
             }
         }
     }
