@@ -201,15 +201,22 @@ namespace Man_hours_managementApp
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             var connectionString = CommonUtil.GetConnectionString();
-            using (var connection = new SqlConnection(connectionString))
+            string sql = @"SELECT id FROM Users Where name = @name";
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                var command = new SqlCommand() { Connection = connection };
-                command.CommandText = @"SELECT id FROM Users Where name = @name";
-                command.Parameters.Add(new SqlParameter("@name", comboBox2.Text));
-                var sda = new SqlDataAdapter(command);
-                DataSet ds = new DataSet();
-                sda.Fill(ds, "Users");
-                textBox6.Text = ds.Columns[0].ToString();
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add(new SqlParameter("@name", comboBox2.Text));
+                var reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        var id = reader["id"] as string;
+                        MessageBox.Show(id);
+                        textBox6.Text = id;
+                    }
+                }           
             }
         }
     }
