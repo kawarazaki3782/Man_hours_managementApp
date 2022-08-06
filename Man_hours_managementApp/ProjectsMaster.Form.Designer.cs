@@ -59,6 +59,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.commonUtilBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commonUtilBindingSource)).BeginInit();
@@ -76,6 +77,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.textBox6);
             this.groupBox1.Controls.Add(this.button4);
@@ -100,7 +102,7 @@
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Location = new System.Drawing.Point(110, 223);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(915, 474);
+            this.groupBox1.Size = new System.Drawing.Size(982, 474);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "入力";
@@ -108,7 +110,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(628, 116);
+            this.label10.Location = new System.Drawing.Point(568, 116);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(24, 20);
             this.label10.TabIndex = 27;
@@ -116,7 +118,7 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(628, 141);
+            this.textBox6.Location = new System.Drawing.Point(568, 139);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(45, 27);
             this.textBox6.TabIndex = 26;
@@ -124,7 +126,7 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button4.Location = new System.Drawing.Point(815, 125);
+            this.button4.Location = new System.Drawing.Point(757, 126);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(94, 43);
             this.button4.TabIndex = 25;
@@ -135,7 +137,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(689, 116);
+            this.label9.Location = new System.Drawing.Point(628, 116);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(85, 20);
             this.label9.TabIndex = 24;
@@ -143,7 +145,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(689, 140);
+            this.textBox2.Location = new System.Drawing.Point(628, 139);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(123, 27);
             this.textBox2.TabIndex = 23;
@@ -151,7 +153,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(454, 116);
+            this.label8.Location = new System.Drawing.Point(406, 118);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(115, 20);
             this.label8.TabIndex = 22;
@@ -161,7 +163,7 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(454, 140);
+            this.comboBox2.Location = new System.Drawing.Point(406, 141);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(151, 28);
             this.comboBox2.TabIndex = 21;
@@ -259,7 +261,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 43);
             this.button3.TabIndex = 10;
-            this.button3.Text = "クリア";
+            this.button3.Text = "オールクリア";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.clear_button_Click);
             // 
@@ -344,6 +346,16 @@
             // 
             this.commonUtilBindingSource.DataSource = typeof(Man_hours_managementApp.CommonUtil);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(857, 126);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(94, 43);
+            this.button5.TabIndex = 28;
+            this.button5.Text = "行の削除";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // ProjectsMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -396,5 +408,6 @@
         private DataGridViewTextBoxColumn メンバー;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn メンバー工数;
+        private Button button5;
     }
 }

@@ -25,7 +25,7 @@ namespace Man_hours_managementApp
 
         private void ProjectsMaster_Load(object sender, EventArgs e)
         {
-            //textBox6.ReadOnly = true;
+            textBox6.ReadOnly = true;
             var connectionString = CommonUtil.GetConnectionString();
             var dt = new DataTable();
             using (var connection = new SqlConnection(connectionString))
@@ -77,7 +77,9 @@ namespace Man_hours_managementApp
             textBox3.Text = String.Empty;
             textBox4.Text = String.Empty;
             textBox5.Text = String.Empty;
+            textBox6.Text = String.Empty;       
             comboBox1.Text = String.Empty;
+            comboBox2.Text = String.Empty;
             textBox7.Text = String.Empty;
             dataGridView1.Rows.Clear();
         }
@@ -212,12 +214,17 @@ namespace Man_hours_managementApp
                 {
                     while (reader.Read())
                     {
-                        var id = reader["id"] as string;
-                        MessageBox.Show(id);
-                        textBox6.Text = id;
+                        var id = reader["id"];
+                        textBox6.Text = id.ToString();
                     }
                 }           
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            int idx = this.dataGridView1.Rows.Count - 1;
+            this.dataGridView1.Rows.RemoveAt(idx);  
         }
     }
 }
