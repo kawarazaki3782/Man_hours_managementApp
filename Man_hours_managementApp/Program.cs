@@ -1,6 +1,7 @@
 using System.Configuration;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography;
+using System.Data.SqlClient;
 
 namespace Man_hours_managementApp
 {
@@ -90,14 +91,12 @@ namespace Man_hours_managementApp
             {
                 msg = $"{itemName}は必須項目です";
                 errorSet(ep, c, msg);
-
                 return false;
             }
             else
             {
                 msg = $"{itemName}は半角英数字で入力してください";
                 errorSet(ep, c, msg);
-
                 return false;
             }
         }
@@ -125,9 +124,39 @@ namespace Man_hours_managementApp
                 return false;
             }
         }
+        //プロジェクトIDの重複チェック
+        public static bool ProjectsidCheck(ErrorProvider ep,
+                           string itemName,
+                           TextBox c,
+                           bool required,
+                           StrKind strKind = StrKind.half)
 
-        //エラークリア処理
-        public static void errorClear(ErrorProvider ep)
+        {
+            backColorClear(c);
+            string msg = "";
+            var connectionString1 = CommonUtil.GetConnectionString();
+            string sql = @"SELECT id FROM Projects Where id = @id";
+            using (SqlConnection conn = new SqlConnection(connectionString1))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add(new SqlParameter("id",c.Text));
+                var reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    msg = $"{itemName}が重複しています";
+                    errorSet(ep, c, msg);
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+
+            //エラークリア処理
+            public static void errorClear(ErrorProvider ep)
         {
             isError = false;
             ep.Clear();

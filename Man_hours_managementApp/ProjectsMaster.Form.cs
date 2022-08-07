@@ -106,14 +106,16 @@ namespace Man_hours_managementApp
             return true;
 
         }
-
+       
         private void register_button_Click(object sender, EventArgs e)
         {
             //バリデーション
             InputCheck.errorClear(ep);
             InputCheck.IsOnlyAlphanumeri(ep, "プロジェクトID", textBox4, true);
             InputCheck.isString(ep, "プロジェクト名", textBox5, true);
-            InputCheck.NumbersCheck(ep, "総工数(人/月)", textBox7, true);           
+            InputCheck.NumbersCheck(ep, "総工数(人/月)", textBox7, true);
+            InputCheck.NumbersCheck(ep, "工数(人/月)", textBox2, true);
+            InputCheck.ProjectsidCheck(ep, "プロジェクトID", textBox4, true);
 
             var ret = this.Check();
             if (ret == false)
@@ -224,7 +226,10 @@ namespace Man_hours_managementApp
         private void button5_Click(object sender, EventArgs e)
         {
             int idx = this.dataGridView1.Rows.Count - 1;
-            this.dataGridView1.Rows.RemoveAt(idx);  
+            if (dataGridView1.Rows.Count > 0)
+            {
+                dataGridView1.Rows.RemoveAt(idx);
+            }
         }
     }
 }
