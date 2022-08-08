@@ -38,7 +38,7 @@ namespace Man_hours_managementApp
 
                 SqlCommand command = connection.CreateCommand();
 
-                command.CommandText = "SELECT id, password, name, affiliation, login_id FROM Users WHERE login_id = @login_id";
+                command.CommandText = "SELECT id, password, name, affiliation, login_id, admin FROM Users WHERE login_id = @login_id";
                 command.Parameters.Add("@login_id", System.Data.SqlDbType.NVarChar, 50);
                 command.Parameters["@login_id"].Value = LoginidtextBox.Text;
 
@@ -62,6 +62,8 @@ namespace Man_hours_managementApp
                 UserSession.GetInstatnce().affiliation = dt.Rows[0]["affiliation"].ToString();
                 UserSession.GetInstatnce().password = PasswordtextBox.Text;
                 UserSession.GetInstatnce().login_id = dt.Rows[0]["login_id"].ToString();
+                var admin = Convert.ToBoolean(dt.Rows[0]["admin"]);
+                UserSession.GetInstatnce().admin = admin;                 
                 return true;
             }
             catch (Exception e)

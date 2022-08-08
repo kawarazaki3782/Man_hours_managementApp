@@ -16,7 +16,6 @@ namespace Man_hours_managementApp
             InitializeComponent();
         }
 
-
         private void signup_button_Click(object sender, EventArgs e)
         {
             SignupForm signupForm = new SignupForm();

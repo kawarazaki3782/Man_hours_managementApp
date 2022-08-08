@@ -98,6 +98,18 @@ namespace Man_hours_managementApp
                                 UserSession.GetInstatnce().affiliation = comboBox1.Text;
                                 UserSession.GetInstatnce().login_id = textBox4.Text;
                                 UserSession.GetInstatnce().password = textBox5.Text;
+
+                                DataTable dt = new DataTable();
+                                SqlDataAdapter da = new SqlDataAdapter();
+
+                                SqlCommand command2 = connection.CreateCommand();
+                                command2.CommandText = @"SELECT admin From Users Where login_id = @login_id";
+                                command2.Parameters.Add(new SqlParameter("@login_id", textBox4.Text));
+                                da.SelectCommand = command2;
+                                da.Fill(dt);
+
+                                var admin = Convert.ToBoolean(dt.Rows[0]["admin"]);
+                                UserSession.GetInstatnce().admin = admin;
                                 MessageBox.Show("ユーザー情報を登録しました");
                                 MypageForm mypageForm = new MypageForm();
                                 mypageForm.Show();

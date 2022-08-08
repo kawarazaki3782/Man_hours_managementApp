@@ -21,6 +21,11 @@ namespace Man_hours_managementApp
         private void MypageForm_Load(object sender, EventArgs e)
         {
             label12.Text = UserSession.GetInstatnce().name;
+            var admin = UserSession.GetInstatnce().admin;
+            if (admin == false)
+            {
+                button5.Visible = false;
+            }
         }
 
         //ListViewコントロールを初期化

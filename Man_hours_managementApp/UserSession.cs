@@ -15,8 +15,7 @@ namespace Man_hours_managementApp
         public string affiliation { get; set; }
         public string login_id { get; set; }
         public string password { get; set; }
-
-        private UserSession(){}
+        public bool admin { get; set; }
 
         public static UserSession GetInstatnce(){ 
             return _myinstance;
