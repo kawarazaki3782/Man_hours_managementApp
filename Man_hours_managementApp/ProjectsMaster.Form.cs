@@ -231,5 +231,12 @@ namespace Man_hours_managementApp
                 dataGridView1.Rows.RemoveAt(idx);
             }
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ProjectsMaster_List projectsMaster_List = new ProjectsMaster_List();
+            projectsMaster_List.Show();
+            this.Close();
+        }
     }
 }

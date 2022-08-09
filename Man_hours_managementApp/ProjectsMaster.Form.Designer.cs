@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
@@ -59,7 +60,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.commonUtilBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commonUtilBindingSource)).BeginInit();
@@ -106,6 +107,16 @@
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "入力";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(857, 126);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(94, 43);
+            this.button5.TabIndex = 28;
+            this.button5.Text = "行の削除";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label10
             // 
@@ -346,21 +357,22 @@
             // 
             this.commonUtilBindingSource.DataSource = typeof(Man_hours_managementApp.CommonUtil);
             // 
-            // button5
+            // button6
             // 
-            this.button5.Location = new System.Drawing.Point(857, 126);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(94, 43);
-            this.button5.TabIndex = 28;
-            this.button5.Text = "行の削除";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button6.Location = new System.Drawing.Point(248, 170);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(130, 29);
+            this.button6.TabIndex = 16;
+            this.button6.Text = "プロジェクト一覧";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // ProjectsMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1119, 734);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -409,5 +421,6 @@
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn メンバー工数;
         private Button button5;
+        private Button button6;
     }
 }
