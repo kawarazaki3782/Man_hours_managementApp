@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Man_hours_managementApp
 {
@@ -16,13 +17,36 @@ namespace Man_hours_managementApp
         {
             InitializeComponent();
             this.Load += ProjectMaster_Edit_Form_Load;
-
         }
 
         private void ProjectMaster_Edit_Form_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(ProjectMaster_Edit_Form.Project_id);
+            var connectionString = CommonUtil.GetConnectionString();   
+            using(var connection = new SqlConnection(connectionString))
+            {   
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = @"SELECT * FROM Projects Where id = @id";
+                command.Parameters.Add(new SqlParameter("@id", this.Project_id));
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        var id = reader["id"];
+                        textBox4.Text = id.ToString();
+                    }
+                }
+            }
+
         }
         public int Project_id { get; set; }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ProjectsMaster_List projectsMaster_List = new ProjectsMaster_List();
+            projectsMaster_List.Show();
+            this.Close();
+        }
     }
 }

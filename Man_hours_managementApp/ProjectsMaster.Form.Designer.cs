@@ -325,14 +325,14 @@
             this.textBox4.Location = new System.Drawing.Point(212, 54);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(176, 27);
-            this.textBox4.TabIndex = 3;
+            this.textBox4.TabIndex = 4;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(60, 54);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(125, 27);
-            this.textBox3.TabIndex = 2;
+            this.textBox3.TabIndex = 3;
             // 
             // label1
             // 
@@ -362,7 +362,7 @@
             this.button6.Location = new System.Drawing.Point(248, 170);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(130, 29);
-            this.button6.TabIndex = 16;
+            this.button6.TabIndex = 2;
             this.button6.Text = "プロジェクト一覧";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);

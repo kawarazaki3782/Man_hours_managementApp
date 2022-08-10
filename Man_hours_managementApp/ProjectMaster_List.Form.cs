@@ -37,9 +37,15 @@ namespace Man_hours_managementApp
         {
             var project_id = dataGridView1.CurrentRow.Cells[0].Value;
             ProjectMaster_Edit_Form projectmaster_Edit_Form = new ProjectMaster_Edit_Form();
-            projectmaster_Edit_Form.Project_id = (int)project_id;
+            projectmaster_Edit_Form.Project_id = Convert.ToInt32(project_id);
             projectmaster_Edit_Form.Show();
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MypageForm mypage = new MypageForm();
+            mypage.Show();
         }
     }
 }
