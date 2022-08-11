@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Numerics;
 
 namespace Man_hours_managementApp
 {
@@ -21,25 +22,34 @@ namespace Man_hours_managementApp
 
         private void ProjectMaster_Edit_Form_Load(object sender, EventArgs e)
         {
-            var connectionString = CommonUtil.GetConnectionString();   
-            using(var connection = new SqlConnection(connectionString))
-            {   
-                connection.Open();
-                var command = connection.CreateCommand();
-                command.CommandText = @"SELECT * FROM Projects Where id = @id";
-                command.Parameters.Add(new SqlParameter("@id", this.Project_id));
-                var reader = command.ExecuteReader();
-                if (reader.HasRows)
+            DataTable dt = new DataTable();
+            var connectionString = CommonUtil.GetConnectionString();
+            using (var connection = new SqlConnection(connectionString))
+            {
+                try
                 {
-                    while (reader.Read())
-                    {
-                        var id = reader["id"];
-                        textBox4.Text = id.ToString();
-                    }
+                    connection.Open();
+                    var command = connection.CreateCommand();
+                    command.CommandText = @"SELECT * FROM Projects Where id = @id";
+                    command.Parameters.Add(new SqlParameter("@id", this.Project_id));
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(dt);
+                    MessageBox.Show(dt.ToString());
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception.Message);
+                    throw;
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
-
         }
+        
+
+
         public int Project_id { get; set; }
 
         private void button3_Click(object sender, EventArgs e)
