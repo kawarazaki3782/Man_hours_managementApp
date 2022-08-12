@@ -35,9 +35,9 @@ namespace Man_hours_managementApp
         //dataGridViewのセルをクリックし、project_idを編集画面に渡す
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var project_id = dataGridView1.CurrentRow.Cells[0].Value;
+            string project_id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             ProjectMaster_Edit_Form projectmaster_Edit_Form = new ProjectMaster_Edit_Form();
-            projectmaster_Edit_Form.Project_id = Convert.ToInt32(project_id);
+            projectmaster_Edit_Form.Project_id = project_id;
             projectmaster_Edit_Form.Show();
             this.Close();
         }
