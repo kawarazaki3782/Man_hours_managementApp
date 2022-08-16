@@ -117,6 +117,11 @@ namespace Man_hours_managementApp
                 return true;
             }
 
+            if (result == false && String.IsNullOrEmpty(c.Text) == true)
+            {
+                return true;
+            }
+
             else
             {
                 msg = $"{itemName}‚Í0.00`99.99‚Ì”ÍˆÍ‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢";

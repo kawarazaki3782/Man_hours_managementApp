@@ -85,6 +85,7 @@ namespace Man_hours_managementApp
                     textBox7.Text = dt.Rows[0][3].ToString();
                     textBox3.Text = dt.Rows[0][4].ToString();
                     dateTimePicker1.Text = dt.Rows[0][6].ToString();
+                    dateTimePicker2.Text = dt.Rows[0][5].ToString();
 
                     var command2 = connection.CreateCommand();
                     command2.CommandText = @"SELECT user_id AS ID, estimated_time AS 工数 FROM Members Where project_id = @project_id";
@@ -107,7 +108,6 @@ namespace Man_hours_managementApp
                     dataGridView1.Columns["プロジェクトメンバー"].DisplayIndex = 0;
                     dataGridView1.Columns["ID"].DisplayIndex = 1;
                     dataGridView1.Columns["工数"].DisplayIndex = 2;
-
 
                 }
                 catch (Exception exception)
@@ -273,33 +273,34 @@ namespace Man_hours_managementApp
                         {
                             try
                             {
-                                command.CommandText = @"UPDATE Projects SET customer_name = @customer_name, id = @id, name = @name, registration_date = @registration_date, project_leader = @project_leader, total = @total, end_date = @end_date";
+                                command.CommandText = @"UPDATE Projects SET customer_name = @customer_name, name = @name, registration_date = @registration_date, project_leader = @project_leader, total = @total, end_date = @end_date Where id = @id";
                                 command.Parameters.Add(new SqlParameter("@customer_name", textBox3.Text));
-                                command.Parameters.Add(new SqlParameter("@id", textBox4.Text));
                                 command.Parameters.Add(new SqlParameter("@name", textBox5.Text));
                                 command.Parameters.Add(new SqlParameter("@registration_date", dateTimePicker1.Value));
                                 command.Parameters.Add(new SqlParameter("@project_leader", comboBox1.Text));
                                 command.Parameters.Add(new SqlParameter("@total", textBox7.Text));
                                 command.Parameters.Add(new SqlParameter("@end_date", dateTimePicker2.Value));
+                                command.Parameters.Add(new SqlParameter("@id", this.Project_id));
                                 command.ExecuteNonQuery();
 
                                 var rowCount = dataGridView1.RowCount;
                                 if (rowCount > 0)
                                 {
-                                    var command2 = new SqlCommand(@"UPDATE Members SET", connection, transaction);
+                                    var command2 = new SqlCommand() { Connection = connection, Transaction = transaction};
                                     for (int i = 0; i < rowCount; i++)
                                     {
-                                        command2.CommandText += "(@user_id" + i + ", @project_id" + i + ", @estimated_time" + i + "),";
+                                        var estimeted_time = dataGridView1.Rows[i].Cells[2].Value;
+                                        command2.CommandText = @"UPDATE Members SET user_id = @user_id" + i + ",project_id = @project_id" + i + ",estimated_time = @estimated_time" + i + " WHERE project_id = @project_id";
                                         command2.Parameters.Add(new SqlParameter("@user_id" + i, dataGridView1.Rows[i].Cells[1].Value));
-                                        command2.Parameters.Add(new SqlParameter("@estimated_time" + i, dataGridView1.Rows[i].Cells[2].Value));
+                                        command2.Parameters.Add(new SqlParameter("@estimated_time" + i, Convert.ToSingle(estimeted_time)));
                                         command2.Parameters.Add(new SqlParameter("@project_id" + i, textBox4.Text));
+                                        command2.Parameters.Add(new SqlParameter("@project_id", this.Project_id));
+                                        MessageBox.Show(command2.CommandText);
+                                        command2.ExecuteNonQuery();
                                     }
-                                    command2.CommandText = command2.CommandText.Substring(0, command2.CommandText.Length - 1);
-                                    MessageBox.Show(command2.CommandText);
-                                    command2.ExecuteNonQuery();
                                 }
                                 transaction.Commit();
-                                MessageBox.Show("プロデューサーを編集しました");
+                                MessageBox.Show("プロジェクトを編集しました");
                                 MypageForm mypageForm = new MypageForm();
                                 mypageForm.Show();
                                 this.Close();
