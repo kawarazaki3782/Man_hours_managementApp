@@ -58,6 +58,7 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -103,6 +104,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.dateTimePicker2);
@@ -349,6 +351,15 @@
             this.textBox3.Size = new System.Drawing.Size(125, 27);
             this.textBox3.TabIndex = 3;
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(747, 217);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(153, 43);
+            this.button7.TabIndex = 32;
+            this.button7.Text = "プロジェクトの削除";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
             // ProjectMaster_Edit_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -404,5 +415,6 @@
         private DataGridViewTextBoxColumn メンバー;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn メンバー工数;
+        private Button button7;
     }
 }

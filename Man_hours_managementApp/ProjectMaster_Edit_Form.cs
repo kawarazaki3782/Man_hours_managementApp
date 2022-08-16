@@ -26,6 +26,7 @@ namespace Man_hours_managementApp
         private void ProjectMaster_Edit_Form_Load(object sender, EventArgs e)
         {
             textBox6.ReadOnly = true;
+            textBox4.ReadOnly = true;
 
             //完了日の表示、非表示切り替え
             this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
@@ -184,7 +185,6 @@ namespace Man_hours_managementApp
         {
             textBox2.Text = String.Empty;
             textBox3.Text = String.Empty;
-            textBox4.Text = String.Empty;
             textBox5.Text = String.Empty;
             textBox6.Text = String.Empty;
             comboBox1.Text = String.Empty;
@@ -245,11 +245,9 @@ namespace Man_hours_managementApp
         {
             //バリデーション
             InputCheck.errorClear(ep);
-            InputCheck.IsOnlyAlphanumeri(ep, "プロジェクトID", textBox4, true);
             InputCheck.isString(ep, "プロジェクト名", textBox5, true);
             InputCheck.NumbersCheck(ep, "総工数(人/月)", textBox7, true);
             InputCheck.NumbersCheck(ep, "工数(人/月)", textBox2, true);
-            InputCheck.ProjectsidCheck(ep, "プロジェクトID", textBox4, true);
 
             var ret = this.Check();
             if (ret == false)
