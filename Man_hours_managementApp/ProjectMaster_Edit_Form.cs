@@ -289,7 +289,7 @@ namespace Man_hours_managementApp
                                     var command2 = new SqlCommand() { Connection = connection, Transaction = transaction};
                                     for (int i = 0; i < rowCount; i++)
                                     {
-                                        var estimeted_time = dataGridView1.Rows[i].Cells[2].Value;
+                                        var estimeted_time = dataGridView1.Rows[i].Cells[2].Value.ToString();
                                         command2.CommandText = @"UPDATE Members SET user_id = @user_id" + i + ",project_id = @project_id" + i + ",estimated_time = @estimated_time" + i + " WHERE project_id = @project_id";
                                         command2.Parameters.Add(new SqlParameter("@user_id" + i, dataGridView1.Rows[i].Cells[1].Value));
                                         command2.Parameters.Add(new SqlParameter("@estimated_time" + i, Convert.ToSingle(estimeted_time)));
