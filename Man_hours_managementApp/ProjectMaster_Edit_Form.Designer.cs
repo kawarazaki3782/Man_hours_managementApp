@@ -33,6 +33,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -58,7 +59,6 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button7 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -137,6 +137,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "入力";
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(747, 217);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(153, 43);
+            this.button7.TabIndex = 32;
+            this.button7.Text = "プロジェクトの削除";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -174,6 +184,7 @@
             this.button5.TabIndex = 28;
             this.button5.Text = "行の削除";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label10
             // 
@@ -350,15 +361,6 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(125, 27);
             this.textBox3.TabIndex = 3;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(747, 217);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(153, 43);
-            this.button7.TabIndex = 32;
-            this.button7.Text = "プロジェクトの削除";
-            this.button7.UseVisualStyleBackColor = true;
             // 
             // ProjectMaster_Edit_Form
             // 

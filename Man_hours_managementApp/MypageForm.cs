@@ -28,15 +28,6 @@ namespace Man_hours_managementApp
             }
         }
 
-        //ListViewコントロールを初期化
-        private void InitializeListView()
-        {
-            //ListViewコントロールのプロパティを設定
-            listView1.FullRowSelect = true;
-            listView1.GridLines = true;
-            listView1.Sorting = SortOrder.Ascending;
-            listView1.View = View.Details;
-        }
 
         private void project_register_button_Click(object sender, EventArgs e)
         {

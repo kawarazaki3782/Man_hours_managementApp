@@ -289,10 +289,11 @@ namespace Man_hours_managementApp
                                     var command2 = new SqlCommand() { Connection = connection, Transaction = transaction};
                                     for (int i = 0; i < rowCount; i++)
                                     {
-                                        var estimeted_time = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                                        var estimated_time = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                                        MessageBox.Show(estimated_time);
                                         command2.CommandText = @"UPDATE Members SET user_id = @user_id" + i + ",project_id = @project_id" + i + ",estimated_time = @estimated_time" + i + " WHERE project_id = @project_id";
-                                        command2.Parameters.Add(new SqlParameter("@user_id" + i, dataGridView1.Rows[i].Cells[1].Value));
-                                        command2.Parameters.Add(new SqlParameter("@estimated_time" + i, Convert.ToSingle(estimeted_time)));
+                                        command2.Parameters.Add(new SqlParameter("@user_id" + i, dataGridView1.Rows[i].Cells[0].Value));
+                                        command2.Parameters.Add(new SqlParameter("@estimated_time" + i, Convert.ToSingle(estimated_time)));
                                         command2.Parameters.Add(new SqlParameter("@project_id" + i, textBox4.Text));
                                         command2.Parameters.Add(new SqlParameter("@project_id", this.Project_id));
                                         MessageBox.Show(command2.CommandText);
@@ -320,6 +321,98 @@ namespace Man_hours_managementApp
                     { 
                         connection.Close();
                     }
+                }
+            }
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            var connectionString = CommonUtil.GetConnectionString();
+            using (var connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (var transaction = connection.BeginTransaction())
+                    using (var command = new SqlCommand() { Connection = connection, Transaction = transaction })
+                    {
+                        try
+                        {
+                            command.CommandText = @"DELETE FROM Projects WHERE id = @id";
+                            command.Parameters.Add(new SqlParameter("@id ", this.Project_id));
+                            command.ExecuteNonQuery();
+
+                            var rowCount = dataGridView1.RowCount;
+                            if (rowCount > 0)
+                            {
+                                var command2 = new SqlCommand(@"DELETE FROM Members WHERE project_id = @project_id", connection, transaction);
+                                command2.Parameters.Add(new SqlParameter("@project_id", this.Project_id));
+                                command2.ExecuteNonQuery();
+                            }
+                            transaction.Commit();
+                            MessageBox.Show("プロジェクトを削除しました");
+                            ProjectsMaster_List projectsMaster_List = new ProjectsMaster_List();
+                            projectsMaster_List.Show();
+                            this.Close();
+                        }
+                        catch
+                        {
+                            transaction.Rollback();
+                            throw;
+                        }
+                    }
+                }
+                catch
+                {
+                    throw;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var connectionString = CommonUtil.GetConnectionString();
+            using (var connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (var transaction = connection.BeginTransaction())
+                    using (var command = new SqlCommand() { Connection = connection, Transaction = transaction })
+                    {
+                        try
+                        {
+                            var rowCount = dataGridView1.RowCount;
+                            if (rowCount > 0)
+                            {
+                                var command2 = new SqlCommand(@"DELETE FROM Members WHERE project_id = @project_id AND user_id = @user_id", connection, transaction);
+                                command2.Parameters.Add(new SqlParameter("@project_id", this.Project_id));
+                                command2.Parameters.Add(new SqlParameter("@user_id", dataGridView1.Rows[0].Cells[0].Value));
+                                command2.ExecuteNonQuery();
+                            }
+                            transaction.Commit();
+                            MessageBox.Show("1行目のプロジェクトメンバーを削除しました");
+                            }
+                        catch
+                        {
+                            transaction.Rollback();
+                            throw;
+                        }
+                    }
+                }
+                catch
+                {
+                    throw;
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
 
