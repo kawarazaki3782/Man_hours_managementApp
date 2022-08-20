@@ -328,50 +328,53 @@ namespace Man_hours_managementApp
 
         private void button7_Click(object sender, EventArgs e)
         {
-            var connectionString = CommonUtil.GetConnectionString();
-            using (var connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    using (var transaction = connection.BeginTransaction())
-                    using (var command = new SqlCommand() { Connection = connection, Transaction = transaction })
-                    {
-                        try
-                        {
-                            command.CommandText = @"DELETE FROM Projects WHERE id = @id";
-                            command.Parameters.Add(new SqlParameter("@id ", this.Project_id));
-                            command.ExecuteNonQuery();
+            Projects_Delete_Form projects_Delete_Form = new Projects_Delete_Form();
+            projects_Delete_Form.Show();
+            this.Close();
+            //var connectionString = CommonUtil.GetConnectionString();
+            //using (var connection = new SqlConnection(connectionString))
+            //{
+            //    try
+            //    {
+            //        connection.Open();
+            //        using (var transaction = connection.BeginTransaction())
+            //        using (var command = new SqlCommand() { Connection = connection, Transaction = transaction })
+            //        {
+            //            try
+            //            {
+            //                command.CommandText = @"DELETE FROM Projects WHERE id = @id";
+            //                command.Parameters.Add(new SqlParameter("@id ", this.Project_id));
+            //                command.ExecuteNonQuery();
 
-                            var rowCount = dataGridView1.RowCount;
-                            if (rowCount > 0)
-                            {
-                                var command2 = new SqlCommand(@"DELETE FROM Members WHERE project_id = @project_id", connection, transaction);
-                                command2.Parameters.Add(new SqlParameter("@project_id", this.Project_id));
-                                command2.ExecuteNonQuery();
-                            }
-                            transaction.Commit();
-                            MessageBox.Show("プロジェクトを削除しました");
-                            ProjectsMaster_List projectsMaster_List = new ProjectsMaster_List();
-                            projectsMaster_List.Show();
-                            this.Close();
-                        }
-                        catch
-                        {
-                            transaction.Rollback();
-                            throw;
-                        }
-                    }
-                }
-                catch
-                {
-                    throw;
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
+            //                var rowCount = dataGridView1.RowCount;
+            //                if (rowCount > 0)
+            //                {
+            //                    var command2 = new SqlCommand(@"DELETE FROM Members WHERE project_id = @project_id", connection, transaction);
+            //                    command2.Parameters.Add(new SqlParameter("@project_id", this.Project_id));
+            //                    command2.ExecuteNonQuery();
+            //                }
+            //                transaction.Commit();
+            //                MessageBox.Show("プロジェクトを削除しました");
+            //                ProjectsMaster_List projectsMaster_List = new ProjectsMaster_List();
+            //                projectsMaster_List.Show();
+            //                this.Close();
+            //            }
+            //            catch
+            //            {
+            //                transaction.Rollback();
+            //                throw;
+            //            }
+            //        }
+            //    }
+            //    catch
+            //    {
+            //        throw;
+            //    }
+            //    finally
+            //    {
+            //        connection.Close();
+            //    }
+            //}
 
         }
 

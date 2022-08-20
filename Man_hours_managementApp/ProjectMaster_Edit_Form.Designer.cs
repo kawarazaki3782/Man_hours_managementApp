@@ -104,7 +104,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.dateTimePicker2);
@@ -139,9 +138,9 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(747, 217);
+            this.button7.Location = new System.Drawing.Point(520, 134);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(153, 43);
+            this.button7.Size = new System.Drawing.Size(153, 29);
             this.button7.TabIndex = 32;
             this.button7.Text = "プロジェクトの削除";
             this.button7.UseVisualStyleBackColor = true;
@@ -367,6 +366,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1046, 787);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
