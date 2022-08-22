@@ -33,6 +33,7 @@ namespace Man_hours_managementApp
             }
             dt.Columns.Add("削除対象", typeof(bool));
             dataGridView1.DataSource = dt;
+            dataGridView1.Columns["削除対象"].DisplayIndex = 0;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -51,7 +52,7 @@ namespace Man_hours_managementApp
                             for (int i = 0; i < dataGridView1.RowCount; i++)
                             {
                                 //チェックが入っている場合
-                                if (Convert.ToBoolean(dataGridView1.Rows[i].Cells[7].Value) == true)
+                                if (dataGridView1.Rows[i].Cells[7].Value != DBNull.Value && Convert.ToBoolean(dataGridView1.Rows[i].Cells[7].Value) == true)
                                 {
                                     //行削除
                                     command.CommandText = @"DELETE FROM Projects WHERE id = @id" + i;
@@ -62,6 +63,9 @@ namespace Man_hours_managementApp
                             }
                             transaction.Commit();
                             MessageBox.Show("プロジェクトを削除しました");
+                            ProjectsMaster_List projectsMaster_List = new ProjectsMaster_List();
+                            projectsMaster_List.Show();
+                            this.Close();
                         }
                         catch
                         {
@@ -79,6 +83,13 @@ namespace Man_hours_managementApp
                     connection.Close();
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MypageForm mypage = new MypageForm();
+            mypage.Show();
+            this.Close();
         }
     }
 }
