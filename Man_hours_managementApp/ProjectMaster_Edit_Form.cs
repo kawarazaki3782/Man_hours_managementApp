@@ -93,6 +93,7 @@ namespace Man_hours_managementApp
                     SqlDataAdapter adapter2 = new SqlDataAdapter(command2);
                     adapter2.Fill(dt2);
                     dt2.Columns.Add("プロジェクトメンバー", typeof(string));
+                    dt2.Columns.Add("削除対象", typeof(bool));
                     var rowCount = dt2.Rows.Count;
                     if (rowCount > 0)
                     { 
@@ -108,6 +109,7 @@ namespace Man_hours_managementApp
                     dataGridView1.Columns["プロジェクトメンバー"].DisplayIndex = 0;
                     dataGridView1.Columns["ID"].DisplayIndex = 1;
                     dataGridView1.Columns["工数"].DisplayIndex = 2;
+                    dataGridView1.Columns["削除対象"].DisplayIndex = 3;
 
                 }
                 catch (Exception exception)
@@ -331,51 +333,6 @@ namespace Man_hours_managementApp
             Projects_Delete_Form projects_Delete_Form = new Projects_Delete_Form();
             projects_Delete_Form.Show();
             this.Close();
-            //var connectionString = CommonUtil.GetConnectionString();
-            //using (var connection = new SqlConnection(connectionString))
-            //{
-            //    try
-            //    {
-            //        connection.Open();
-            //        using (var transaction = connection.BeginTransaction())
-            //        using (var command = new SqlCommand() { Connection = connection, Transaction = transaction })
-            //        {
-            //            try
-            //            {
-            //                command.CommandText = @"DELETE FROM Projects WHERE id = @id";
-            //                command.Parameters.Add(new SqlParameter("@id ", this.Project_id));
-            //                command.ExecuteNonQuery();
-
-            //                var rowCount = dataGridView1.RowCount;
-            //                if (rowCount > 0)
-            //                {
-            //                    var command2 = new SqlCommand(@"DELETE FROM Members WHERE project_id = @project_id", connection, transaction);
-            //                    command2.Parameters.Add(new SqlParameter("@project_id", this.Project_id));
-            //                    command2.ExecuteNonQuery();
-            //                }
-            //                transaction.Commit();
-            //                MessageBox.Show("プロジェクトを削除しました");
-            //                ProjectsMaster_List projectsMaster_List = new ProjectsMaster_List();
-            //                projectsMaster_List.Show();
-            //                this.Close();
-            //            }
-            //            catch
-            //            {
-            //                transaction.Rollback();
-            //                throw;
-            //            }
-            //        }
-            //    }
-            //    catch
-            //    {
-            //        throw;
-            //    }
-            //    finally
-            //    {
-            //        connection.Close();
-            //    }
-            //}
-
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -391,17 +348,20 @@ namespace Man_hours_managementApp
                     {
                         try
                         {
-                            var rowCount = dataGridView1.RowCount;
-                            if (rowCount > 0)
+                            for (int i = 0; i < dataGridView1.RowCount; i++)
                             {
-                                var command2 = new SqlCommand(@"DELETE FROM Members WHERE project_id = @project_id AND user_id = @user_id", connection, transaction);
-                                command2.Parameters.Add(new SqlParameter("@project_id", this.Project_id));
-                                command2.Parameters.Add(new SqlParameter("@user_id", dataGridView1.Rows[0].Cells[0].Value));
-                                command2.ExecuteNonQuery();
+                                if (dataGridView1.Rows[i].Cells[3].Value != DBNull.Value && Convert.ToBoolean(dataGridView1.Rows[i].Cells[3].Value) == true)
+                                {
+                                    command.CommandText = @"DELETE FROM Members WHERE user_id = @user_id" + i;
+                                    command.Parameters.Add(new SqlParameter("@user_id" + i, dataGridView1.Rows[i].Cells[0].Value));
+                                    command.ExecuteNonQuery();
+                                    MessageBox.Show(command.CommandText);
+                                }
                             }
                             transaction.Commit();
-                            MessageBox.Show("1行目のプロジェクトメンバーを削除しました");
-                            }
+                            MessageBox.Show("プロジェクトメンバーを削除しました");
+                            this.Show();
+                        }
                         catch
                         {
                             transaction.Rollback();
@@ -418,7 +378,33 @@ namespace Man_hours_managementApp
                     connection.Close();
                 }
             }
+        }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Add(comboBox2.Text, textBox6.Text, textBox2.Text);
+        }
+
+        private void comnoBox2_SelectedIndexChanged(object sender, EventArgs e)
+        { 
+            var connectionString = CommonUtil.GetConnectionString();
+            string sql = @"SELECT id FROM Users WHERE name = @name";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            { 
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add(new SqlParameter("@name", comboBox2.Text));
+                var reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        var id = reader["id"];
+                        textBox6.Text = id.ToString();
+                    }
+                }
+
+            }
         }
     }
 }
