@@ -28,6 +28,7 @@ namespace Man_hours_managementApp
             textBox6.ReadOnly = true;
             textBox4.ReadOnly = true;
 
+
             //完了日の表示、非表示切り替え
             this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             this.dateTimePicker2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dateTimePicker2_KeyDown);
@@ -196,29 +197,6 @@ namespace Man_hours_managementApp
             dataGridView1.DataSource = dt;
         }
 
-        //プロジェクトメンバーで選択されたメンバーのIDを自動取得
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var connectionString = CommonUtil.GetConnectionString();
-            string sql = @"SELECT id FROM Users Where name = @name";
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            { 
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.Add(new SqlParameter("@name", comboBox2.Text));
-                var reader = cmd.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        var id = reader["id"];
-                        textBox6.Text = id.ToString();
-                    }
-                }
-            }
-
-        }
-
         //入力チェックメソッド
         private bool Check()
         {
@@ -385,12 +363,13 @@ namespace Man_hours_managementApp
             dataGridView1.Rows.Add(comboBox2.Text, textBox6.Text, textBox2.Text);
         }
 
-        private void comnoBox2_SelectedIndexChanged(object sender, EventArgs e)
-        { 
+        //プロジェクトメンバーで選択されたメンバーのIDを自動取得
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
             var connectionString = CommonUtil.GetConnectionString();
-            string sql = @"SELECT id FROM Users WHERE name = @name";
+            string sql = @"SELECT id FROM Users Where name = @name";
             using (SqlConnection conn = new SqlConnection(connectionString))
-            { 
+            {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.Add(new SqlParameter("@name", comboBox2.Text));
@@ -403,8 +382,8 @@ namespace Man_hours_managementApp
                         textBox6.Text = id.ToString();
                     }
                 }
-
             }
+
         }
     }
 }
