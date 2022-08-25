@@ -26,7 +26,7 @@ namespace Man_hours_managementApp
             var dt = new DataTable();
             using (var connection = new SqlConnection(connectionString)) { 
                 var command = connection.CreateCommand();
-                command.CommandText = "SELECT affiliation, name AS 氏名 FROM Users";
+                command.CommandText = "SELECT affiliation, id, name AS 氏名 FROM Users";
                 var sda = new SqlDataAdapter(command);
                 sda.Fill(dt);
             }
@@ -35,8 +35,11 @@ namespace Man_hours_managementApp
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string user_id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            if (user_id == UserSession.GetInstatnce().id.ToString())
+            string user_id = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            string name = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            string affiliation = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            string login_user_id = UserSession.GetInstatnce().id.ToString();
+            if (user_id == login_user_id)
             {
                 MypageForm mypageForm = new MypageForm();
                 mypageForm.Show();
@@ -45,6 +48,8 @@ namespace Man_hours_managementApp
             {
                 UserPageForm userPageForm = new UserPageForm();
                 userPageForm.User_id = user_id;
+                userPageForm.User_name = name;
+                userPageForm.User_affiliation = affiliation;
                 userPageForm.Show();
                 this.Close();
             }
