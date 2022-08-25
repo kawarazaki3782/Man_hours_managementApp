@@ -21,5 +21,7 @@ namespace Man_hours_managementApp
         {
 
         }
+
+        public string User_id { get; set; }
     }
 }

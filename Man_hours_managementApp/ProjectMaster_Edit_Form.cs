@@ -94,7 +94,6 @@ namespace Man_hours_managementApp
                     SqlDataAdapter adapter2 = new SqlDataAdapter(command2);
                     adapter2.Fill(dt2);
                     dt2.Columns.Add("プロジェクトメンバー", typeof(string));
-                    dt2.Columns.Add("削除対象", typeof(bool));
                     var rowCount = dt2.Rows.Count;
                     if (rowCount > 0)
                     { 
@@ -110,8 +109,6 @@ namespace Man_hours_managementApp
                     dataGridView1.Columns["プロジェクトメンバー"].DisplayIndex = 0;
                     dataGridView1.Columns["ID"].DisplayIndex = 1;
                     dataGridView1.Columns["工数"].DisplayIndex = 2;
-                    dataGridView1.Columns["削除対象"].DisplayIndex = 3;
-
                 }
                 catch (Exception exception)
                 {
@@ -263,22 +260,26 @@ namespace Man_hours_managementApp
                                 command.Parameters.Add(new SqlParameter("@id", this.Project_id));
                                 command.ExecuteNonQuery();
 
+                                var command2 = new SqlCommand() { Connection = connection, Transaction = transaction };
+                                command2.CommandText = @"DELETE FROM Members WHERE project_id = @project_id";
+                                command2.Parameters.Add(new SqlParameter("@project_id", this.Project_id));
+                                command2.ExecuteNonQuery();
+
                                 var rowCount = dataGridView1.RowCount;
                                 if (rowCount > 0)
                                 {
-                                    var command2 = new SqlCommand() { Connection = connection, Transaction = transaction};
+                                    var command3 = new SqlCommand(@"INSERT INTO Members (user_id, project_id, estimated_time) VALUES", connection, transaction);
                                     for (int i = 0; i < rowCount; i++)
                                     {
-                                        var estimated_time = dataGridView1.Rows[i].Cells[1].Value.ToString();
-                                        MessageBox.Show(estimated_time);
-                                        command2.CommandText = @"UPDATE Members SET user_id = @user_id" + i + ",project_id = @project_id" + i + ",estimated_time = @estimated_time" + i + " WHERE project_id = @project_id";
-                                        command2.Parameters.Add(new SqlParameter("@user_id" + i, dataGridView1.Rows[i].Cells[0].Value));
-                                        command2.Parameters.Add(new SqlParameter("@estimated_time" + i, Convert.ToSingle(estimated_time)));
-                                        command2.Parameters.Add(new SqlParameter("@project_id" + i, textBox4.Text));
-                                        command2.Parameters.Add(new SqlParameter("@project_id", this.Project_id));
-                                        MessageBox.Show(command2.CommandText);
-                                        command2.ExecuteNonQuery();
+                                        command3.CommandText += "(@user_id" + i + ", @project_id" + i + ", @estimated_time" + i + "),";
+                                        command3.Parameters.Add(new SqlParameter("@user_id" + i, dataGridView1.Rows[i].Cells[0].Value));
+                                        command3.Parameters.Add(new SqlParameter("@estimated_time" + i, dataGridView1.Rows[i].Cells[1].Value));
+                                        command3.Parameters.Add(new SqlParameter("@project_id" + i, textBox4.Text));
                                     }
+                                    command3.CommandText = command3.CommandText.Substring(0, command3.CommandText.Length - 1);
+                                    MessageBox.Show(command3.CommandText);
+                                    // 最後の余計なカンマを削除
+                                    command3.ExecuteNonQuery();
                                 }
                                 transaction.Commit();
                                 MessageBox.Show("プロジェクトを編集しました");
@@ -315,52 +316,25 @@ namespace Man_hours_managementApp
 
         private void button5_Click(object sender, EventArgs e)
         {
-            var connectionString = CommonUtil.GetConnectionString();
-            using (var connection = new SqlConnection(connectionString))
+          int idx = this.dataGridView1.Rows.Count - 1;
+            if (dataGridView1.Rows.Count > 0)
             {
-                try
-                {
-                    connection.Open();
-                    using (var transaction = connection.BeginTransaction())
-                    using (var command = new SqlCommand() { Connection = connection, Transaction = transaction })
-                    {
-                        try
-                        {
-                            for (int i = 0; i < dataGridView1.RowCount; i++)
-                            {
-                                if (dataGridView1.Rows[i].Cells[3].Value != DBNull.Value && Convert.ToBoolean(dataGridView1.Rows[i].Cells[3].Value) == true)
-                                {
-                                    command.CommandText = @"DELETE FROM Members WHERE user_id = @user_id" + i;
-                                    command.Parameters.Add(new SqlParameter("@user_id" + i, dataGridView1.Rows[i].Cells[0].Value));
-                                    command.ExecuteNonQuery();
-                                    MessageBox.Show(command.CommandText);
-                                }
-                            }
-                            transaction.Commit();
-                            MessageBox.Show("プロジェクトメンバーを削除しました");
-                            this.Show();
-                        }
-                        catch
-                        {
-                            transaction.Rollback();
-                            throw;
-                        }
-                    }
-                }
-                catch
-                {
-                    throw;
-                }
-                finally
-                {
-                    connection.Close();
-                }
+                dataGridView1.Rows.RemoveAt(idx);
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Add(comboBox2.Text, textBox6.Text, textBox2.Text);
+            if (dataGridView1.Rows.Count > 0)
+            {
+                DataTable dt = (DataTable)dataGridView1.DataSource;
+                dt.Rows.Add(textBox6.Text, textBox2.Text, comboBox2.Text);
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = dt;
+                dataGridView1.Columns["プロジェクトメンバー"].DisplayIndex = 0;
+                dataGridView1.Columns["ID"].DisplayIndex = 1;
+                dataGridView1.Columns["工数"].DisplayIndex = 2;
+            }
         }
 
         //プロジェクトメンバーで選択されたメンバーのIDを自動取得

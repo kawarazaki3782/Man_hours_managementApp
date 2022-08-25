@@ -32,6 +32,23 @@ namespace Man_hours_managementApp
             }
             dataGridView1.DataSource = dt;
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string user_id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            if (user_id == UserSession.GetInstatnce().id.ToString())
+            {
+                MypageForm mypageForm = new MypageForm();
+                mypageForm.Show();
+            }
+            else
+            {
+                UserPageForm userPageForm = new UserPageForm();
+                userPageForm.User_id = user_id;
+                userPageForm.Show();
+                this.Close();
+            }
+        }
  
         private void mypage_button_Click(object sender, EventArgs e)
         {
