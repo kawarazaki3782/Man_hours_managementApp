@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Man_hours_managementApp
 {
@@ -26,6 +27,18 @@ namespace Man_hours_managementApp
             {
                 button5.Visible = false;
             }
+
+            var connectionString = CommonUtil.GetConnectionString();
+            var dt = new DataTable();
+            using (var connection = new SqlConnection(connectionString))
+            { 
+                var command = connection.CreateCommand();
+                command.CommandText = "SELECT id AS プロジェクトID, name AS プロジェクト名, total AS 総工数, end_date AS 終了日  FROM Projects WHERE id IN(SELECT project_id FROM Members WHERE user_id = @user_id)";
+                command.Parameters.Add(new SqlParameter("@user_id", UserSession.GetInstatnce().id));
+                var sda = new SqlDataAdapter(command);
+                sda.Fill(dt);
+            }
+            dataGridView1.DataSource = dt;            
         }
 
 

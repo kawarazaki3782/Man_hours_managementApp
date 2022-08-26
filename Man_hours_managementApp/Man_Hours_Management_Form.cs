@@ -22,13 +22,53 @@ namespace Man_hours_managementApp
         private void Man_Hours_Management_Form_Load(object sender, EventArgs e)
         {
             var connectionString = CommonUtil.GetConnectionString();
+            var dt2 = new DataTable();
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var command2 = connection.CreateCommand();
+                command2.CommandText = "SELECT name FROM Projects WHERE id IN(SELECT project_id FROM Members WHERE user_id = @user_id)";
+                command2.Parameters.Add(new SqlParameter("@user_id", UserSession.GetInstatnce().id));
+                var my_projects = new SqlDataAdapter(command2);
+                my_projects.Fill(dt2);
+            }
+            comboBox1.DisplayMember = "name";
+            comboBox1.DataSource = dt2;
+
+            textBox2.ReadOnly = true;
+            textBox3.ReadOnly = true;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var connectionString = CommonUtil.GetConnectionString();
+            using (var connection = new SqlConnection(connectionString))
+            { 
+                connection.Open();  
+                var command3 = connection.CreateCommand();
+                command3.CommandText = @"SELECT id, total FROM Projects WHERE name = @name";
+                command3.Parameters.Add(new SqlParameter("@name", comboBox1.Text));
+               
+                var reader = command3.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        var id = reader["id"];
+                        textBox2.Text = id.ToString();
+                        var total = reader["total"];
+                        textBox3.Text = total.ToString();   
+                    }
+                }
+            }
             var dt = new DataTable();
-            using (var connection = new SqlConnection(connectionString)) { 
+            using (var connection = new SqlConnection(connectionString))
+            {
                 var command = connection.CreateCommand();
-                command.CommandText = "SELECT registration_date AS 登録日, name AS 業務内容, cost AS 工数 FROM Costs";
+                command.CommandText = "SELECT registration_date AS 登録日, name AS 業務内容, cost AS 工数 FROM Costs WHERE project_id = @project_id";
+                command.Parameters.Add(new SqlParameter("@project_id", textBox2.Text));
                 var sda = new SqlDataAdapter(command);
                 sda.Fill(dt);
-               }
+            }
             dataGridView1.DataSource = dt;
         }
 
@@ -46,8 +86,8 @@ namespace Man_hours_managementApp
                         try
                         {
                             int user_id = UserSession.GetInstatnce().id;
-                            command.CommandText = @"INSERT INTO Costs (user_id, name, cost, registration_date) VALUES (@user_id, @name, @cost, @registration_date)";
-                            //command.Parameters.Add(new SqlParameter("@project_id", hoge));
+                            command.CommandText = @"INSERT INTO Costs (project_id, user_id, name, cost, registration_date) VALUES (@project_id, @user_id, @name, @cost, @registration_date)";
+                            command.Parameters.Add(new SqlParameter("@project_id", textBox2.Text));
                             command.Parameters.Add(new SqlParameter("@user_id", user_id));
                             command.Parameters.Add(new SqlParameter("@name", textBox4.Text));
                             command.Parameters.Add(new SqlParameter("@cost", float.Parse(textBox5.Text)));
@@ -56,9 +96,6 @@ namespace Man_hours_managementApp
                             command.ExecuteNonQuery();
                             transaction.Commit();
                             MessageBox.Show("工数を登録しました");
-                            MypageForm mypageForm = new MypageForm();
-                            mypageForm.Show();
-                            this.Close();
                         }
                         catch
                         {
@@ -72,10 +109,20 @@ namespace Man_hours_managementApp
                     throw;
                 }
                 finally
-                { 
+                {
                     connection.Close();
                 }
             }
+            var dt = new DataTable();
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var command = connection.CreateCommand();
+                command.CommandText = "SELECT registration_date AS 登録日, name AS 業務内容, cost AS 工数 FROM Costs WHERE project_id = @project_id";
+                command.Parameters.Add(new SqlParameter("@project_id", textBox2.Text));
+                var sda = new SqlDataAdapter(command);
+                sda.Fill(dt);
+            }
+            dataGridView1.DataSource = dt;
         }
 
         private void mypage_button_Click(object sender, EventArgs e)
@@ -90,16 +137,6 @@ namespace Man_hours_managementApp
             comboBox1.Text = String.Empty;
             textBox4.Text = String.Empty;
             textBox5.Text = String.Empty;
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
