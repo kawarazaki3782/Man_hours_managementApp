@@ -31,6 +31,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -38,11 +39,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,9 +63,11 @@
             this.button2.TabIndex = 17;
             this.button2.Text = "マイページ";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label5);
@@ -72,17 +75,23 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Location = new System.Drawing.Point(126, 189);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(635, 165);
+            this.groupBox1.Size = new System.Drawing.Size(749, 165);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "編集";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(21, 57);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePicker1.TabIndex = 14;
+            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(535, 100);
+            this.button3.Location = new System.Drawing.Point(619, 103);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 43);
             this.button3.TabIndex = 13;
@@ -91,7 +100,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(437, 100);
+            this.button1.Location = new System.Drawing.Point(521, 103);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 43);
             this.button1.TabIndex = 7;
@@ -101,7 +110,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(406, 31);
+            this.label5.Location = new System.Drawing.Point(490, 34);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 20);
             this.label5.TabIndex = 12;
@@ -110,7 +119,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(212, 31);
+            this.label4.Location = new System.Drawing.Point(296, 34);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 20);
             this.label4.TabIndex = 11;
@@ -119,7 +128,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(60, 31);
+            this.label3.Location = new System.Drawing.Point(21, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 20);
             this.label3.TabIndex = 10;
@@ -127,24 +136,17 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(406, 54);
+            this.textBox5.Location = new System.Drawing.Point(490, 57);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(125, 27);
             this.textBox5.TabIndex = 9;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(212, 54);
+            this.textBox4.Location = new System.Drawing.Point(296, 57);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(176, 27);
             this.textBox4.TabIndex = 8;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(60, 54);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(125, 27);
-            this.textBox3.TabIndex = 7;
             // 
             // label2
             // 
@@ -168,7 +170,7 @@
             this.textBox1.BackColor = System.Drawing.SystemColors.Control;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(342, 17);
+            this.textBox1.Location = new System.Drawing.Point(396, 39);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(223, 45);
             this.textBox1.TabIndex = 11;
@@ -183,11 +185,22 @@
             this.label7.TabIndex = 19;
             this.label7.Text = "〇〇〇〇〇";
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(266, 390);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(94, 29);
+            this.button4.TabIndex = 20;
+            this.button4.Text = "工数管理へ";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            // 
             // Man_Hours_Management_Edit_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(887, 497);
+            this.ClientSize = new System.Drawing.Size(973, 497);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button2);
@@ -216,10 +229,11 @@
         private Label label3;
         private TextBox textBox5;
         private TextBox textBox4;
-        private TextBox textBox3;
         private Label label2;
         private Label label1;
         private TextBox textBox1;
         private Label label7;
+        private DateTimePicker dateTimePicker1;
+        private Button button4;
     }
 }

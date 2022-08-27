@@ -26,14 +26,14 @@ namespace Man_hours_managementApp
             using (var connection = new SqlConnection(connectionString))
             {
                 var command2 = connection.CreateCommand();
-                command2.CommandText = "SELECT name FROM Projects WHERE id IN(SELECT project_id FROM Members WHERE user_id = @user_id)";
+                command2.CommandText = @"SELECT name FROM Projects WHERE id IN(SELECT project_id FROM Members WHERE user_id = @user_id)";
                 command2.Parameters.Add(new SqlParameter("@user_id", UserSession.GetInstatnce().id));
                 var my_projects = new SqlDataAdapter(command2);
                 my_projects.Fill(dt2);
             }
             comboBox1.DisplayMember = "name";
             comboBox1.DataSource = dt2;
-
+         
             textBox2.ReadOnly = true;
             textBox3.ReadOnly = true;
         }
@@ -64,7 +64,7 @@ namespace Man_hours_managementApp
             using (var connection = new SqlConnection(connectionString))
             {
                 var command = connection.CreateCommand();
-                command.CommandText = "SELECT registration_date AS 登録日, name AS 業務内容, cost AS 工数 FROM Costs WHERE project_id = @project_id";
+                command.CommandText = @"SELECT id AS ID, registration_date AS 登録日, name AS 業務内容, cost AS 工数 FROM Costs WHERE project_id = @project_id";
                 command.Parameters.Add(new SqlParameter("@project_id", textBox2.Text));
                 var sda = new SqlDataAdapter(command);
                 sda.Fill(dt);
@@ -117,7 +117,7 @@ namespace Man_hours_managementApp
             using (var connection = new SqlConnection(connectionString))
             {
                 var command = connection.CreateCommand();
-                command.CommandText = "SELECT registration_date AS 登録日, name AS 業務内容, cost AS 工数 FROM Costs WHERE project_id = @project_id";
+                command.CommandText = "SELECT id AS ID, registration_date AS 登録日, name AS 業務内容, cost AS 工数 FROM Costs WHERE project_id = @project_id";
                 command.Parameters.Add(new SqlParameter("@project_id", textBox2.Text));
                 var sda = new SqlDataAdapter(command);
                 sda.Fill(dt);
@@ -131,12 +131,21 @@ namespace Man_hours_managementApp
             mypage.Show();
             this.Close();
         }
-
         private void clear_button_Click(object sender, EventArgs e)
         {
             comboBox1.Text = String.Empty;
             textBox4.Text = String.Empty;
             textBox5.Text = String.Empty;
+        }
+
+        //クリックしたセルのcost_idを編集画面のプロパティに設定
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        { 
+            string cost_id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            Man_Hours_Management_Edit_Form man_Hours_Management_Edit = new Man_Hours_Management_Edit_Form();
+            man_Hours_Management_Edit.Cost_id = cost_id;
+            man_Hours_Management_Edit.Show();
+            this.Close();
         }
     }
 }
