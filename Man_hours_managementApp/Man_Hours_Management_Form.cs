@@ -19,6 +19,9 @@ namespace Man_hours_managementApp
             this.Load += Man_Hours_Management_Form_Load;
         }
 
+        //ErrorProviderのインスタンスを生成
+        ErrorProvider ep = new ErrorProvider();
+
         private void Man_Hours_Management_Form_Load(object sender, EventArgs e)
         {
             var connectionString = CommonUtil.GetConnectionString();
@@ -37,6 +40,18 @@ namespace Man_hours_managementApp
             textBox2.ReadOnly = true;
             textBox3.ReadOnly = true;
         }
+
+        //文字数入力チェック
+        private bool Check()
+        {
+            if (textBox4.Text.Length > 30)
+            {
+                MessageBox.Show("業務内容は30文字以内で入力してください");
+                return false;
+            }
+            return true;
+        }
+
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {

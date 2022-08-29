@@ -71,6 +71,28 @@ namespace Man_hours_managementApp
             
         }
 
+        //数字のみ必須チェック
+        public static bool RequiredNumber(ErrorProvider ep,
+                           string itemName,
+                           TextBox c,
+                           bool required,
+                           StrKind strKind = StrKind.half)
+        {
+            backColorClear(c);
+            string msg = "";
+
+            if (String.IsNullOrEmpty(c.Text))
+            {
+                msg = $"{itemName}は必須項目です";
+                errorSet(ep, c, msg);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         //半角英数字と必須チェック
         public static bool IsOnlyAlphanumeri(ErrorProvider ep,
                             string itemName,

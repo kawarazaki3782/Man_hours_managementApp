@@ -22,6 +22,23 @@ namespace Man_hours_managementApp
         private void UserPageForm_Load(object sender, EventArgs e)
         {
             label2.Text = this.User_name;
+            var admin = UserSession.GetInstatnce().admin;
+            if (admin == false)
+            {
+                button1.Visible = false;
+            }
+
+            var connectionString = CommonUtil.GetConnectionString();
+            var dt = new DataTable();
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var command = connection.CreateCommand();
+                command.CommandText = "SELECT id AS プロジェクトID, name AS プロジェクト名, total AS 総工数, end_date AS 終了日 FROM Projects WHERE id IN(SELECT project_id FROM Members WHERE user_id = @user_id)";
+                command.Parameters.Add(new SqlParameter("@user_id", UserSession.GetInstatnce().id));
+                var sda = new SqlDataAdapter(command);
+                sda.Fill(dt);
+            }
+            dataGridView1.DataSource = dt;
         }
 
         private void label3_Click(object sender, EventArgs e)
