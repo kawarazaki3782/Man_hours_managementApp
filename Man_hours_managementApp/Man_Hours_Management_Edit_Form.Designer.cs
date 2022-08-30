@@ -63,7 +63,7 @@
             this.button2.TabIndex = 17;
             this.button2.Text = "マイページ";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.mypage_button_Click);
             // 
             // groupBox1
             // 
@@ -97,7 +97,7 @@
             this.button3.TabIndex = 13;
             this.button3.Text = "削除";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.clear_button_Click);
             // 
             // button1
             // 
@@ -107,7 +107,7 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "登録";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.register_button_Click);
             // 
             // label5
             // 
@@ -195,7 +195,7 @@
             this.button4.TabIndex = 20;
             this.button4.Text = "工数管理へ";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            this.button4.Click += new System.EventHandler(this.management_button_Click);
             // 
             // Man_Hours_Management_Edit_Form
             // 

@@ -22,11 +22,22 @@ namespace Man_hours_managementApp
         //ErrorProviderのインスタンスを生成
         ErrorProvider ep = new ErrorProvider();
 
-        private void button2_Click(object sender, EventArgs e)
+        private void mypage_button_Click(object sender, EventArgs e)
         {
            MypageForm mypage = new MypageForm();
            mypage.Show();
            this.Close();
+        }
+
+        //文字数入力チェック
+        private bool Check()
+        {
+            if (textBox4.Text.Length > 30)
+            {
+                MessageBox.Show("業務内容は30文字以内で入力してください");
+                return false;
+            }
+            return true;
         }
 
         public string Cost_id { get; set; }
@@ -55,17 +66,20 @@ namespace Man_hours_managementApp
                 dateTimePicker1.Text = dt.Rows[0][0].ToString();
                 textBox4.Text = dt.Rows[0][1].ToString();
                 textBox5.Text = dt.Rows[0][2].ToString();
+
+                //ErrorProviderのアイコンを点滅なしに設定する
+                ep.BlinkStyle = ErrorBlinkStyle.NeverBlink;
             }
         }
 
-        private void button4_Click_1(object sender, EventArgs e)
+        private void management_button_Click(object sender, EventArgs e)
         {
             Man_Hours_Management_Form man_Hours_Management_Form = new Man_Hours_Management_Form();
             man_Hours_Management_Form.Show();
             this.Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void clear_button_Click(object sender, EventArgs e)
         {
             var connectionString = CommonUtil.GetConnectionString();
             using (var connection = new SqlConnection(connectionString))
@@ -104,46 +118,67 @@ namespace Man_hours_managementApp
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void register_button_Click(object sender, EventArgs e)
         {
-            var connectionString = CommonUtil.GetConnectionString();
-            using (var connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    using (var transaction = connection.BeginTransaction())
-                    using (var command = new SqlCommand() { Connection = connection, Transaction = transaction })
-                    {
-                        try
-                        {
-                            command.CommandText = @"UPDATE Costs SET registration_date = @registration_date, name = @name, cost = @cost WHERE id = @id";
-                            command.Parameters.Add(new SqlParameter("@registration_date", dateTimePicker1.Value));
-                            command.Parameters.Add(new SqlParameter("@name", textBox4.Text));
-                            command.Parameters.Add(new SqlParameter("@cost", float.Parse(textBox5.Text)));
-                            command.Parameters.Add(new SqlParameter("@id", this.Cost_id));
+            //バリデーション
+            InputCheck.errorClear(ep);
+            InputCheck.isString(ep, "業務内容", textBox4, true);
+            InputCheck.NumbersCheck(ep, "工数", textBox5, true);
+            InputCheck.RequiredHalfSize(ep, "工数", textBox5, true);
 
-                            command.ExecuteNonQuery();
-                            transaction.Commit();
-                            MessageBox.Show("工数を編集しました");
-                            Man_Hours_Management_Form man_Hours_Management = new Man_Hours_Management_Form();
-                            man_Hours_Management.Show();
-                            this.Close();
-                        }
-                        catch
+            var ret = this.Check();
+            if (ret == false)
+            {
+                return;
+            }
+
+            if (InputCheck.isError == true)
+            {
+                MessageBox.Show("入力に不備があるため登録できません");
+            }
+
+            else
+            {
+
+                var connectionString = CommonUtil.GetConnectionString();
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        using (var transaction = connection.BeginTransaction())
+                        using (var command = new SqlCommand() { Connection = connection, Transaction = transaction })
                         {
-                            transaction.Rollback();
-                            throw;
+                            try
+                            {
+                                command.CommandText = @"UPDATE Costs SET registration_date = @registration_date, name = @name, cost = @cost WHERE id = @id";
+                                command.Parameters.Add(new SqlParameter("@registration_date", dateTimePicker1.Value));
+                                command.Parameters.Add(new SqlParameter("@name", textBox4.Text));
+                                command.Parameters.Add(new SqlParameter("@cost", float.Parse(textBox5.Text)));
+                                command.Parameters.Add(new SqlParameter("@id", this.Cost_id));
+
+                                command.ExecuteNonQuery();
+                                transaction.Commit();
+                                MessageBox.Show("工数を編集しました");
+                                Man_Hours_Management_Form man_Hours_Management = new Man_Hours_Management_Form();
+                                man_Hours_Management.Show();
+                                this.Close();
+                            }
+                            catch
+                            {
+                                transaction.Rollback();
+                                throw;
+                            }
                         }
                     }
-                }
-                catch
-                {
-                    throw;
-                }
-                finally
-                {
-                    connection.Close();
+                    catch
+                    {
+                        throw;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
                 }
             }
         }
