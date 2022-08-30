@@ -112,9 +112,12 @@ namespace Man_hours_managementApp
             //バリデーション
             InputCheck.errorClear(ep);
             InputCheck.IsOnlyAlphanumeri(ep, "プロジェクトID", textBox4, true);
+            InputCheck.RequiredHalfSize(ep, "プロジェクトID", textBox4, true);
             InputCheck.isString(ep, "プロジェクト名", textBox5, true);
             InputCheck.NumbersCheck(ep, "総工数(人/月)", textBox7, true);
             InputCheck.NumbersCheck(ep, "工数(人/月)", textBox2, true);
+            InputCheck.RequiredHalfSize(ep, "総工数(人/月)", textBox7, true);
+            InputCheck.RequiredHalfSize(ep, "工数(人/月)", textBox2, true);
             InputCheck.ProjectsidCheck(ep, "プロジェクトID", textBox4, true);
 
             var ret = this.Check();

@@ -56,6 +56,9 @@ namespace Man_hours_managementApp
             InputCheck.isString(ep, "パスワード", textBox5, true);
             InputCheck.IsOnlyAlphanumeri(ep, "ログインID", textBox4, true);
             InputCheck.IsOnlyAlphanumeri(ep, "パスワード", textBox5, true);
+            InputCheck.RequiredHalfSize(ep, "ログインID", textBox4, true);
+            InputCheck.RequiredHalfSize(ep, "パスワード", textBox5, true);
+
 
             if (InputCheck.isError == true)
             {

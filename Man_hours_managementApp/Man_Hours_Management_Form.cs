@@ -21,6 +21,7 @@ namespace Man_hours_managementApp
 
         //ErrorProviderのインスタンスを生成
         ErrorProvider ep = new ErrorProvider();
+       
 
         private void Man_Hours_Management_Form_Load(object sender, EventArgs e)
         {
@@ -39,6 +40,9 @@ namespace Man_hours_managementApp
          
             textBox2.ReadOnly = true;
             textBox3.ReadOnly = true;
+
+            //ErrorProviderのアイコンを点滅なしに設定する
+            ep.BlinkStyle = ErrorBlinkStyle.NeverBlink;
         }
 
         //文字数入力チェック
@@ -89,55 +93,77 @@ namespace Man_hours_managementApp
 
         private void register_button_Click(object sender, EventArgs e)
         {
-            var connectionString = CommonUtil.GetConnectionString();
-            using (var connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    using (var transaction = connection.BeginTransaction())
-                    using (var command = new SqlCommand() { Connection = connection, Transaction = transaction })
-                    {
-                        try
-                        {
-                            int user_id = UserSession.GetInstatnce().id;
-                            command.CommandText = @"INSERT INTO Costs (project_id, user_id, name, cost, registration_date) VALUES (@project_id, @user_id, @name, @cost, @registration_date)";
-                            command.Parameters.Add(new SqlParameter("@project_id", textBox2.Text));
-                            command.Parameters.Add(new SqlParameter("@user_id", user_id));
-                            command.Parameters.Add(new SqlParameter("@name", textBox4.Text));
-                            command.Parameters.Add(new SqlParameter("@cost", float.Parse(textBox5.Text)));
-                            command.Parameters.Add(new SqlParameter("@registration_date", dateTimePicker1.Value));
+            //バリデーション
+            InputCheck.errorClear(ep);
+            InputCheck.isCombobox(ep, "プロジェクト名", comboBox1, true);
+            InputCheck.isString(ep, "業務内容", textBox4, true);
+            InputCheck.NumbersCheck(ep, "工数", textBox5, true);
+            InputCheck.RequiredHalfSize(ep, "工数", textBox5, true);
 
-                            command.ExecuteNonQuery();
-                            transaction.Commit();
-                            MessageBox.Show("工数を登録しました");
-                        }
-                        catch
+            var ret = this.Check();
+            if (ret == false)
+            {
+                return;
+            }
+
+            if (InputCheck.isError == true)
+            {
+                MessageBox.Show("入力に不備があるため登録できません");
+            }
+
+            else
+            {
+
+                var connectionString = CommonUtil.GetConnectionString();
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        using (var transaction = connection.BeginTransaction())
+                        using (var command = new SqlCommand() { Connection = connection, Transaction = transaction })
                         {
-                            transaction.Rollback();
-                            throw;
+                            try
+                            {
+                                int user_id = UserSession.GetInstatnce().id;
+                                command.CommandText = @"INSERT INTO Costs (project_id, user_id, name, cost, registration_date) VALUES (@project_id, @user_id, @name, @cost, @registration_date)";
+                                command.Parameters.Add(new SqlParameter("@project_id", textBox2.Text));
+                                command.Parameters.Add(new SqlParameter("@user_id", user_id));
+                                command.Parameters.Add(new SqlParameter("@name", textBox4.Text));
+                                command.Parameters.Add(new SqlParameter("@cost", float.Parse(textBox5.Text)));
+                                command.Parameters.Add(new SqlParameter("@registration_date", dateTimePicker1.Value));
+
+                                command.ExecuteNonQuery();
+                                transaction.Commit();
+                                MessageBox.Show("工数を登録しました");
+                            }
+                            catch
+                            {
+                                transaction.Rollback();
+                                throw;
+                            }
                         }
                     }
+                    catch
+                    {
+                        throw;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
                 }
-                catch
+                var dt = new DataTable();
+                using (var connection = new SqlConnection(connectionString))
                 {
-                    throw;
+                    var command = connection.CreateCommand();
+                    command.CommandText = "SELECT id AS ID, registration_date AS 登録日, name AS 業務内容, cost AS 工数 FROM Costs WHERE project_id = @project_id";
+                    command.Parameters.Add(new SqlParameter("@project_id", textBox2.Text));
+                    var sda = new SqlDataAdapter(command);
+                    sda.Fill(dt);
                 }
-                finally
-                {
-                    connection.Close();
-                }
+                dataGridView1.DataSource = dt;
             }
-            var dt = new DataTable();
-            using (var connection = new SqlConnection(connectionString))
-            {
-                var command = connection.CreateCommand();
-                command.CommandText = "SELECT id AS ID, registration_date AS 登録日, name AS 業務内容, cost AS 工数 FROM Costs WHERE project_id = @project_id";
-                command.Parameters.Add(new SqlParameter("@project_id", textBox2.Text));
-                var sda = new SqlDataAdapter(command);
-                sda.Fill(dt);
-            }
-            dataGridView1.DataSource = dt;
         }
 
         private void mypage_button_Click(object sender, EventArgs e)

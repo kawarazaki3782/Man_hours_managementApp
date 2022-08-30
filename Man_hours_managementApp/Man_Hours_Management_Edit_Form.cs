@@ -19,6 +19,9 @@ namespace Man_hours_managementApp
             this.Load += Man_Hours_Management_Edit_From_Load;
         }
 
+        //ErrorProviderのインスタンスを生成
+        ErrorProvider ep = new ErrorProvider();
+
         private void button2_Click(object sender, EventArgs e)
         {
            MypageForm mypage = new MypageForm();

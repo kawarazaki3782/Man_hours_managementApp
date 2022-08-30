@@ -225,6 +225,8 @@ namespace Man_hours_managementApp
             InputCheck.isString(ep, "プロジェクト名", textBox5, true);
             InputCheck.NumbersCheck(ep, "総工数(人/月)", textBox7, true);
             InputCheck.NumbersCheck(ep, "工数(人/月)", textBox2, true);
+            InputCheck.RequiredHalfSize(ep, "総工数(人/月)", textBox7, true);
+            InputCheck.RequiredHalfSize(ep, "工数(人/月)", textBox2, true);
 
             var ret = this.Check();
             if (ret == false)

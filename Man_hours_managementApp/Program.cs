@@ -71,8 +71,55 @@ namespace Man_hours_managementApp
             
         }
 
-        //数字のみ必須チェック
-        public static bool RequiredNumber(ErrorProvider ep,
+        //コンポボックスの入力チェック
+        public static bool isCombobox(ErrorProvider ep,
+                            string itemName,
+                            ComboBox c,
+                            bool required,
+                            StrKind strKind = StrKind.mix)
+        {
+            backColorClear(c);
+            string msg = "";
+            if (String.IsNullOrEmpty(c.Text))
+            {
+                msg = $"{itemName}は必須項目です";
+                errorSet(ep, c, msg);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+       
+
+        //半角英数字を正規表現でチェック
+        public static bool IsOnlyAlphanumeri(ErrorProvider ep,
+                            string itemName,
+                            TextBox c,
+                            bool required,
+                            StrKind strKind = StrKind.half)
+        {
+            backColorClear(c);
+            string msg = "";
+            var　result = Regex.IsMatch(c.Text, @"^[0-9a-zA-Z]+$");
+
+            if (result == true)
+            {
+                return true;
+            }
+
+            else
+            {
+                msg = $"{itemName}は半角英数字で入力してください";
+                errorSet(ep, c, msg);
+                return false;
+            }
+        }
+
+        //半角の必須チェック
+        public static bool RequiredHalfSize(ErrorProvider ep,
                            string itemName,
                            TextBox c,
                            bool required,
@@ -93,37 +140,7 @@ namespace Man_hours_managementApp
             }
         }
 
-        //半角英数字と必須チェック
-        public static bool IsOnlyAlphanumeri(ErrorProvider ep,
-                            string itemName,
-                            TextBox c,
-                            bool required,
-                            StrKind strKind = StrKind.half)
-        {
-            backColorClear(c);
-            string msg = "";
-            var　result = Regex.IsMatch(c.Text, @"^[0-9a-zA-Z]+$");
-
-            if (result == true && String.IsNullOrEmpty(c.Text) == false)
-            {
-                return true;
-            }
-
-            if (result == false && String.IsNullOrEmpty(c.Text) == true)
-            {
-                msg = $"{itemName}は必須項目です";
-                errorSet(ep, c, msg);
-                return false;
-            }
-            else
-            {
-                msg = $"{itemName}は半角英数字で入力してください";
-                errorSet(ep, c, msg);
-                return false;
-            }
-        }
-
-        //数字のみチェック
+        //数字を正規表現でチェック
         public static bool NumbersCheck(ErrorProvider ep,
                            string itemName,
                            TextBox c,
@@ -134,16 +151,10 @@ namespace Man_hours_managementApp
             string msg = "";
             var result = Regex.IsMatch(c.Text, @"^([1-9][0-9]{0,1}|0)(\.[0-9]{1,2})?$");
 
-            if (result == true && String.IsNullOrEmpty(c.Text) == false)
+            if (result == true)
             {
                 return true;
             }
-
-            if (result == false && String.IsNullOrEmpty(c.Text) == true)
-            {
-                return true;
-            }
-
             else
             {
                 msg = $"{itemName}は0.00～99.99の範囲で入力してください";
