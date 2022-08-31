@@ -41,23 +41,18 @@ namespace Man_hours_managementApp
             dataGridView1.DataSource = dt;
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         public string User_id { get; set; }
         public string User_name { get; set; }
         public string User_affiliation { get; set; }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void delete_button_Click(object sender, EventArgs e)
         {
           Users_Delete_Form users_Delete_Form = new Users_Delete_Form();
           users_Delete_Form.Show();
           this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void userlist_button_Click(object sender, EventArgs e)
         {
             UserListForm userListForm = new UserListForm();
             userListForm.Show();

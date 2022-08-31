@@ -42,7 +42,7 @@ namespace Man_hours_managementApp
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void mypage_button_Click(object sender, EventArgs e)
         {
             MypageForm mypage = new MypageForm();
             mypage.Show();

@@ -57,10 +57,10 @@
             this.button1.Location = new System.Drawing.Point(109, 466);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 40);
-            this.button1.TabIndex = 32;
+            this.button1.TabIndex = 2;
             this.button1.Text = "ユーザー削除";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.delete_button_Click);
             // 
             // label4
             // 
@@ -79,7 +79,6 @@
             this.label3.Size = new System.Drawing.Size(31, 20);
             this.label3.TabIndex = 29;
             this.label3.Text = "さん";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label1
             // 
@@ -128,17 +127,17 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(559, 188);
-            this.dataGridView1.TabIndex = 43;
+            this.dataGridView1.TabIndex = 3;
             // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(109, 396);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(125, 40);
-            this.button2.TabIndex = 44;
+            this.button2.TabIndex = 1;
             this.button2.Text = "ユーザー一覧";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.userlist_button_Click);
             // 
             // UserPageForm
             // 

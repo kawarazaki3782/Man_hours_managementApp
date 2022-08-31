@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Man_hours_managementApp
 {
+    //ユーザーの情報を一時保存
     public class UserSession
     {
         private static UserSession _myinstance = new UserSession();

@@ -113,10 +113,10 @@
             this.button5.Location = new System.Drawing.Point(857, 126);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(94, 43);
-            this.button5.TabIndex = 28;
+            this.button5.TabIndex = 12;
             this.button5.Text = "行の削除";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.Click += new System.EventHandler(this.row_delete_Click);
             // 
             // label10
             // 
@@ -132,7 +132,7 @@
             this.textBox6.Location = new System.Drawing.Point(568, 139);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(45, 27);
-            this.textBox6.TabIndex = 26;
+            this.textBox6.TabIndex = 9;
             // 
             // button4
             // 
@@ -140,7 +140,7 @@
             this.button4.Location = new System.Drawing.Point(757, 126);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(94, 43);
-            this.button4.TabIndex = 25;
+            this.button4.TabIndex = 11;
             this.button4.Text = "追加";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.add_button_Click);
@@ -159,7 +159,7 @@
             this.textBox2.Location = new System.Drawing.Point(628, 139);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(123, 27);
-            this.textBox2.TabIndex = 23;
+            this.textBox2.TabIndex = 10;
             // 
             // label8
             // 
@@ -169,7 +169,6 @@
             this.label8.Size = new System.Drawing.Size(115, 20);
             this.label8.TabIndex = 22;
             this.label8.Text = "プロジェクトメンバー";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // comboBox2
             // 
@@ -186,14 +185,14 @@
             this.comboBox1.Location = new System.Drawing.Point(60, 139);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(151, 28);
-            this.comboBox1.TabIndex = 20;
+            this.comboBox1.TabIndex = 7;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(628, 52);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(250, 27);
-            this.dateTimePicker1.TabIndex = 19;
+            this.dateTimePicker1.TabIndex = 6;
             // 
             // dataGridView1
             // 
@@ -208,7 +207,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(433, 188);
-            this.dataGridView1.TabIndex = 8;
+            this.dataGridView1.TabIndex = 13;
             // 
             // メンバー
             // 
@@ -246,7 +245,7 @@
             this.textBox7.Location = new System.Drawing.Point(234, 140);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(123, 27);
-            this.textBox7.TabIndex = 7;
+            this.textBox7.TabIndex = 8;
             // 
             // label6
             // 
@@ -271,7 +270,7 @@
             this.button3.Location = new System.Drawing.Point(628, 217);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 43);
-            this.button3.TabIndex = 10;
+            this.button3.TabIndex = 15;
             this.button3.Text = "オールクリア";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.clear_button_Click);
@@ -281,7 +280,7 @@
             this.button1.Location = new System.Drawing.Point(508, 217);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 43);
-            this.button1.TabIndex = 9;
+            this.button1.TabIndex = 14;
             this.button1.Text = "登録";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.register_button_Click);
@@ -318,7 +317,7 @@
             this.textBox5.Location = new System.Drawing.Point(406, 54);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(196, 27);
-            this.textBox5.TabIndex = 4;
+            this.textBox5.TabIndex = 5;
             // 
             // textBox4
             // 
@@ -365,7 +364,7 @@
             this.button6.TabIndex = 2;
             this.button6.Text = "プロジェクト一覧";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button6.Click += new System.EventHandler(this.project_list_Click);
             // 
             // ProjectsMaster
             // 

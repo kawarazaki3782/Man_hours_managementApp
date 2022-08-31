@@ -24,6 +24,7 @@ namespace Man_hours_managementApp
         //ErrorProviderのインスタンス生成
         ErrorProvider ep = new ErrorProvider();
 
+        //ユーザー情報を取得
         private void EditUserForm_Load(object sender, EventArgs e)
         {
             textBox2.Text = UserSession.GetInstatnce().name;

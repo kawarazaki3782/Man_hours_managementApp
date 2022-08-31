@@ -14,6 +14,7 @@ namespace Man_hours_managementApp
 {
     public sealed class UserService
     {
+        //認証
         public bool Authenticate(TextBox PasswordtextBox, TextBox LoginidtextBox)
         {
             var connectionString = CommonUtil.GetConnectionString();

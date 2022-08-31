@@ -122,7 +122,7 @@ namespace Man_hours_managementApp
             }
         }
 
-        //完了日の表示・非表示の設定
+       //完了日の表示・非表示の設定
         private void dateTimePicker2_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Delete)
@@ -165,7 +165,7 @@ namespace Man_hours_managementApp
         public string Project_id { get; set; }
 
         //プロジェクト一覧ボタン
-        private void button3_Click(object sender, EventArgs e)
+        private void project_list_button_Click(object sender, EventArgs e)
         {
             ProjectsMaster_List projectsMaster_List = new ProjectsMaster_List();
             projectsMaster_List.Show();
@@ -173,7 +173,7 @@ namespace Man_hours_managementApp
         }
 
         //マイページボタン
-        private void button2_Click(object sender, EventArgs e)
+        private void mypage_button_Click(object sender, EventArgs e)
         {
             MypageForm mypageForm = new MypageForm();
             mypageForm.Show();
@@ -181,7 +181,7 @@ namespace Man_hours_managementApp
 
         }
         //クリアボタン
-        private void button1_Click(object sender, EventArgs e)
+        private void clear_button_Click(object sender, EventArgs e)
         {
             textBox2.Text = String.Empty;
             textBox3.Text = String.Empty;
@@ -218,7 +218,7 @@ namespace Man_hours_managementApp
         }
 
         //登録ボタン
-        private void button6_Click(object sender, EventArgs e)
+        private void register_button_Click(object sender, EventArgs e)
         {
             //バリデーション
             InputCheck.errorClear(ep);
@@ -309,14 +309,14 @@ namespace Man_hours_managementApp
 
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void project_delete_button_Click(object sender, EventArgs e)
         {
             Projects_Delete_Form projects_Delete_Form = new Projects_Delete_Form();
             projects_Delete_Form.Show();
             this.Close();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void row_delete_button_Click(object sender, EventArgs e)
         {
           int idx = this.dataGridView1.Rows.Count - 1;
             if (dataGridView1.Rows.Count > 0)
@@ -325,7 +325,7 @@ namespace Man_hours_managementApp
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void add_button_Click(object sender, EventArgs e)
         {
             if (dataGridView1.Rows.Count > 0)
             {

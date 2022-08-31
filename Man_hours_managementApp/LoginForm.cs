@@ -81,8 +81,7 @@ namespace Man_hours_managementApp
                 MessageBox.Show("パスワードの入力値に誤りがあります");
                 return false;
             }
-            //禁則文字チェック
-
+            
             return true;
 
         }

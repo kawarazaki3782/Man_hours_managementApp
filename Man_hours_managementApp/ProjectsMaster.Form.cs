@@ -195,16 +195,13 @@ namespace Man_hours_managementApp
             }
         }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        //dataGridViewに行を追加
         private void add_button_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Add(comboBox2.Text, textBox6.Text, textBox2.Text);
         }
 
+        //プロジェクトメンバーを選択し、user_idを自動取得
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             var connectionString = CommonUtil.GetConnectionString();
@@ -226,7 +223,8 @@ namespace Man_hours_managementApp
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        //dataGridViewの行を削除
+        private void row_delete_Click(object sender, EventArgs e)
         {
             int idx = this.dataGridView1.Rows.Count - 1;
             if (dataGridView1.Rows.Count > 0)
@@ -235,7 +233,7 @@ namespace Man_hours_managementApp
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void project_list_Click(object sender, EventArgs e)
         {
             ProjectsMaster_List projectsMaster_List = new ProjectsMaster_List();
             projectsMaster_List.Show();

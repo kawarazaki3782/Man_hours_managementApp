@@ -18,16 +18,18 @@ namespace Man_hours_managementApp
         public SignupForm()
         {
             InitializeComponent();
+            this.Load += SignupForm_Load;
+        }
+
+        private void SignupForm_Load(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+            //ErrorProviderのアイコンを点滅なしに設定する
+            ep.BlinkStyle = ErrorBlinkStyle.NeverBlink;
         }
 
         //ErrorProviderのインスタンス生成
         ErrorProvider ep = new ErrorProvider();
-
-        //ErrorProviderのアイコンを点滅なしに設定する
-        private void SignupForm_Load(object sender, EventArgs e)
-        { 
-            ep.BlinkStyle = ErrorBlinkStyle.NeverBlink;
-        }
 
         private void return_button_Click(object sender, EventArgs e)
         {

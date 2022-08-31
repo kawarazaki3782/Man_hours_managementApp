@@ -34,14 +34,14 @@ namespace Man_hours_managementApp
             dataGridView1.Columns["削除対象"].DisplayIndex = 0; 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void mypage_button_Click(object sender, EventArgs e)
         {
             MypageForm mypageForm = new MypageForm();
             mypageForm.Show();
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void delete_button_Click(object sender, EventArgs e)
         {
             var connectionString = CommonUtil.GetConnectionString();
             using (var connection = new SqlConnection(connectionString))

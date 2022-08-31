@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,22 +52,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(282, 76);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(236, 45);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "ユーザー情報編集";
             // 
             // label2
             // 
@@ -333,11 +322,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "氏名";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label14.Location = new System.Drawing.Point(272, 84);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(256, 46);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "ユーザー情報編集";
+            // 
             // EditUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 958);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -345,7 +346,6 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox1);
             this.Name = "EditUserForm";
             this.Text = "Edit_user_information";
             this.groupBox3.ResumeLayout(false);
@@ -362,8 +362,6 @@
         }
 
         #endregion
-
-        private TextBox textBox1;
         private Label label2;
         private TextBox textBox4;
         private Label label3;
@@ -388,5 +386,6 @@
         private TextBox textBox2;
         private Label label1;
         private ComboBox comboBox1;
+        private Label label14;
     }
 }

@@ -41,10 +41,10 @@
             this.button1.Location = new System.Drawing.Point(161, 404);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 37);
-            this.button1.TabIndex = 9;
+            this.button1.TabIndex = 2;
             this.button1.Text = "マイページへ";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.mypage_button_Click);
             // 
             // label2
             // 
@@ -75,7 +75,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(908, 188);
-            this.dataGridView1.TabIndex = 10;
+            this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // ProjectsMaster_List

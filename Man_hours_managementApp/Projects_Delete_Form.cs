@@ -19,7 +19,6 @@ namespace Man_hours_managementApp
             this.Load += Projects_Delete_Form_load;
         }
 
-
         private void Projects_Delete_Form_load(object sender, EventArgs e)
         {
             var connectionString = CommonUtil.GetConnectionString();
@@ -36,7 +35,7 @@ namespace Man_hours_managementApp
             dataGridView1.Columns["削除対象"].DisplayIndex = 0;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void delete_button_Click(object sender, EventArgs e)
         {
             var connectionString = CommonUtil.GetConnectionString();
             using (var connection = new SqlConnection(connectionString))
@@ -85,7 +84,7 @@ namespace Man_hours_managementApp
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void mypage_button_Click(object sender, EventArgs e)
         {
             MypageForm mypage = new MypageForm();
             mypage.Show();

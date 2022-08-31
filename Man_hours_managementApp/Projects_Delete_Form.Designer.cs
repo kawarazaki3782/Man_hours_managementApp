@@ -46,7 +46,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(908, 188);
-            this.dataGridView1.TabIndex = 14;
+            this.dataGridView1.TabIndex = 2;
             // 
             // button1
             // 
@@ -54,10 +54,10 @@
             this.button1.Location = new System.Drawing.Point(62, 370);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 37);
-            this.button1.TabIndex = 13;
+            this.button1.TabIndex = 3;
             this.button1.Text = "マイページへ";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.mypage_button_Click);
             // 
             // label2
             // 
@@ -84,10 +84,10 @@
             this.button2.Location = new System.Drawing.Point(850, 92);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(120, 37);
-            this.button2.TabIndex = 15;
+            this.button2.TabIndex = 1;
             this.button2.Text = "削除";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.delete_button_Click);
             // 
             // Projects_Delete_Form
             // 

@@ -92,8 +92,6 @@ namespace Man_hours_managementApp
             }
         }
 
-       
-
         //半角英数字を正規表現でチェック
         public static bool IsOnlyAlphanumeri(ErrorProvider ep,
                             string itemName,
