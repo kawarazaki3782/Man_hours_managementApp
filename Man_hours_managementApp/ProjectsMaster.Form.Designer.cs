@@ -58,9 +58,9 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.commonUtilBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button6 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commonUtilBindingSource)).BeginInit();
@@ -341,17 +341,6 @@
             this.label1.Size = new System.Drawing.Size(0, 20);
             this.label1.TabIndex = 12;
             // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(325, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(319, 45);
-            this.textBox1.TabIndex = 11;
-            this.textBox1.Text = "プロジェクトマスタ(新規)";
-            // 
             // commonUtilBindingSource
             // 
             this.commonUtilBindingSource.DataSource = typeof(Man_hours_managementApp.CommonUtil);
@@ -366,16 +355,26 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.project_list_Click);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(457, 63);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(245, 46);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "プロジェクトマスタ";
+            // 
             // ProjectsMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1119, 734);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
             this.Name = "ProjectsMaster";
             this.Text = "ProjectsMaster";
             this.groupBox1.ResumeLayout(false);
@@ -402,7 +401,6 @@
         private TextBox textBox4;
         private TextBox textBox3;
         private Label label1;
-        private TextBox textBox1;
         private Label label7;
         private TextBox textBox7;
         private DataGridView dataGridView1;
@@ -421,5 +419,6 @@
         private DataGridViewTextBoxColumn メンバー工数;
         private Button button5;
         private Button button6;
+        private Label label11;
     }
 }

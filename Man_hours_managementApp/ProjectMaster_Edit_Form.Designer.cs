@@ -30,7 +30,6 @@
         {
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -59,6 +58,7 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -80,17 +80,6 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 20);
             this.label1.TabIndex = 19;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(338, 58);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(319, 45);
-            this.textBox1.TabIndex = 18;
-            this.textBox1.Text = "プロジェクトマスタ(編集)";
             // 
             // button3
             // 
@@ -362,17 +351,27 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.project_delete_button_Click);
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label12.Location = new System.Drawing.Point(381, 39);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(313, 46);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "プロジェクトマスタ編集";
+            // 
             // ProjectMaster_Edit_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1046, 787);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
             this.Name = "ProjectMaster_Edit_Form";
             this.Text = "ProjectMaster_EditForm";
             this.groupBox1.ResumeLayout(false);
@@ -387,7 +386,6 @@
 
         private Button button2;
         private Label label1;
-        private TextBox textBox1;
         private Button button3;
         private GroupBox groupBox1;
         private Button button5;
@@ -419,5 +417,6 @@
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn メンバー工数;
         private Button button7;
+        private Label label12;
     }
 }

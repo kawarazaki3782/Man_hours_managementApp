@@ -41,6 +41,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -106,7 +107,7 @@
             this.button3.Location = new System.Drawing.Point(1098, 58);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(125, 40);
-            this.button3.TabIndex = 3;
+            this.button3.TabIndex = 4;
             this.button3.Text = "ログアウト";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.logout_button_Click);
@@ -116,7 +117,7 @@
             this.button4.Location = new System.Drawing.Point(1098, 170);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(125, 40);
-            this.button4.TabIndex = 5;
+            this.button4.TabIndex = 6;
             this.button4.Text = "工数を入力する";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.man_hour_input_button_Click);
@@ -126,7 +127,7 @@
             this.button5.Location = new System.Drawing.Point(296, 170);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(125, 40);
-            this.button5.TabIndex = 4;
+            this.button5.TabIndex = 5;
             this.button5.Text = "プロジェクトを登録";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.project_register_button_Click);
@@ -170,13 +171,25 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(637, 188);
-            this.dataGridView1.TabIndex = 32;
+            this.dataGridView1.TabIndex = 7;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.IndianRed;
+            this.button6.Location = new System.Drawing.Point(67, 534);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(125, 40);
+            this.button6.TabIndex = 3;
+            this.button6.Text = "ユーザー削除";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.users_delete_button_Click);
             // 
             // MypageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1358, 688);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -213,5 +226,6 @@
         private Label label11;
         private Label label12;
         private DataGridView dataGridView1;
+        private Button button6;
     }
 }

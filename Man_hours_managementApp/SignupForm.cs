@@ -23,7 +23,6 @@ namespace Man_hours_managementApp
 
         private void SignupForm_Load(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
             //ErrorProviderのアイコンを点滅なしに設定する
             ep.BlinkStyle = ErrorBlinkStyle.NeverBlink;
         }

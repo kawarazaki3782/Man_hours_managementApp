@@ -26,6 +26,7 @@ namespace Man_hours_managementApp
             if (admin == false)
             {
                 button5.Visible = false;
+                button6.Visible = false;
             }
 
             var connectionString = CommonUtil.GetConnectionString();
@@ -74,6 +75,13 @@ namespace Man_hours_managementApp
         {
             UserListForm userListForm = new UserListForm();
             userListForm.Show();
+            this.Close();
+        }
+
+        private void users_delete_button_Click(object sender, EventArgs e)
+        {
+            Users_Delete_Form users_Delete_From = new Users_Delete_Form();
+            users_Delete_From.Show();
             this.Close();
         }
     }

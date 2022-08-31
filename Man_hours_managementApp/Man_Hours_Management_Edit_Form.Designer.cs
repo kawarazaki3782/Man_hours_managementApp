@@ -41,9 +41,9 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +60,7 @@
             this.button2.Location = new System.Drawing.Point(126, 390);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 29);
-            this.button2.TabIndex = 17;
+            this.button2.TabIndex = 5;
             this.button2.Text = "マイページ";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.mypage_button_Click);
@@ -87,14 +87,14 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(21, 57);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(250, 27);
-            this.dateTimePicker1.TabIndex = 14;
+            this.dateTimePicker1.TabIndex = 0;
             // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(619, 103);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 43);
-            this.button3.TabIndex = 13;
+            this.button3.TabIndex = 4;
             this.button3.Text = "削除";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.clear_button_Click);
@@ -104,7 +104,7 @@
             this.button1.Location = new System.Drawing.Point(521, 103);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 43);
-            this.button1.TabIndex = 7;
+            this.button1.TabIndex = 3;
             this.button1.Text = "登録";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.register_button_Click);
@@ -141,14 +141,14 @@
             this.textBox5.Location = new System.Drawing.Point(490, 57);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(125, 27);
-            this.textBox5.TabIndex = 9;
+            this.textBox5.TabIndex = 2;
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(296, 57);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(176, 27);
-            this.textBox4.TabIndex = 8;
+            this.textBox4.TabIndex = 1;
             // 
             // label2
             // 
@@ -167,17 +167,6 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "プロジェクト名";
             // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(396, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(223, 45);
-            this.textBox1.TabIndex = 11;
-            this.textBox1.Text = "工数管理(編集)";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -192,16 +181,27 @@
             this.button4.Location = new System.Drawing.Point(266, 390);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(94, 29);
-            this.button4.TabIndex = 20;
+            this.button4.TabIndex = 6;
             this.button4.Text = "工数管理へ";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.management_button_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(397, 47);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(244, 46);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "工数管理(編集)";
             // 
             // Man_Hours_Management_Edit_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(973, 497);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -209,7 +209,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
             this.Name = "Man_Hours_Management_Edit_Form";
             this.Text = "Man_Hours_Management_Edit_Form";
             this.groupBox1.ResumeLayout(false);
@@ -233,9 +232,9 @@
         private TextBox textBox4;
         private Label label2;
         private Label label1;
-        private TextBox textBox1;
         private Label label7;
         private DateTimePicker dateTimePicker1;
         private Button button4;
+        private Label label8;
     }
 }

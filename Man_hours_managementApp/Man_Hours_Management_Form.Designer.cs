@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -59,17 +59,6 @@
             this.comboBox1.Size = new System.Drawing.Size(151, 28);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(326, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(223, 45);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "工数管理(新規)";
             // 
             // label1
             // 
@@ -85,7 +74,7 @@
             this.textBox2.Location = new System.Drawing.Point(419, 144);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(125, 27);
-            this.textBox2.TabIndex = 4;
+            this.textBox2.TabIndex = 1;
             // 
             // label2
             // 
@@ -118,14 +107,14 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(62, 54);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(250, 27);
-            this.dateTimePicker1.TabIndex = 20;
+            this.dateTimePicker1.TabIndex = 3;
             // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(583, 105);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 43);
-            this.button3.TabIndex = 13;
+            this.button3.TabIndex = 7;
             this.button3.Text = "クリア";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.clear_button_Click);
@@ -135,7 +124,7 @@
             this.button1.Location = new System.Drawing.Point(466, 105);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 43);
-            this.button1.TabIndex = 7;
+            this.button1.TabIndex = 6;
             this.button1.Text = "登録";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.register_button_Click);
@@ -172,21 +161,21 @@
             this.textBox5.Location = new System.Drawing.Point(539, 56);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(125, 27);
-            this.textBox5.TabIndex = 9;
+            this.textBox5.TabIndex = 5;
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(338, 54);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(176, 27);
-            this.textBox4.TabIndex = 8;
+            this.textBox4.TabIndex = 4;
             // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(110, 639);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 29);
-            this.button2.TabIndex = 8;
+            this.button2.TabIndex = 9;
             this.button2.Text = "マイページ";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.mypage_button_Click);
@@ -210,7 +199,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(590, 188);
-            this.dataGridView1.TabIndex = 10;
+            this.dataGridView1.TabIndex = 8;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // label7
@@ -227,13 +216,24 @@
             this.textBox3.Location = new System.Drawing.Point(609, 143);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(125, 27);
-            this.textBox3.TabIndex = 11;
+            this.textBox3.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(373, 32);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(156, 46);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "工数管理";
             // 
             // Man_Hours_Management_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 680);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.dataGridView1);
@@ -243,7 +243,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
             this.Name = "Man_Hours_Management_Form";
             this.Text = "Man_Hours_Management_Form";
@@ -258,7 +257,6 @@
         #endregion
 
         private ComboBox comboBox1;
-        private TextBox textBox1;
         private Label label1;
         private TextBox textBox2;
         private Label label2;
@@ -276,5 +274,6 @@
         private DateTimePicker dateTimePicker1;
         private Label label7;
         private TextBox textBox3;
+        private Label label8;
     }
 }

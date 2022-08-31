@@ -22,12 +22,7 @@ namespace Man_hours_managementApp
         private void UserPageForm_Load(object sender, EventArgs e)
         {
             label2.Text = this.User_name;
-            var admin = UserSession.GetInstatnce().admin;
-            if (admin == false)
-            {
-                button1.Visible = false;
-            }
-
+           
             var connectionString = CommonUtil.GetConnectionString();
             var dt = new DataTable();
             using (var connection = new SqlConnection(connectionString))

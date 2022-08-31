@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label10 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,16 +50,6 @@
             this.label10.Size = new System.Drawing.Size(196, 30);
             this.label10.TabIndex = 37;
             this.label10.Text = "担当プロジェクト一覧";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(109, 466);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 40);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "ユーザー削除";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.delete_button_Click);
             // 
             // label4
             // 
@@ -150,7 +139,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -165,7 +153,6 @@
 
         #endregion
         private Label label10;
-        private Button button1;
         private Label label4;
         private Label label3;
         private Label label1;

@@ -117,7 +117,6 @@ namespace Man_hours_managementApp
                 }
             }
         }
-
         private void register_button_Click(object sender, EventArgs e)
         {
             //バリデーション
