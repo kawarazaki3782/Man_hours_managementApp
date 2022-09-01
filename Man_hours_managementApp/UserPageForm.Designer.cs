@@ -45,7 +45,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Yu Gothic UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(482, 119);
+            this.label10.Location = new System.Drawing.Point(489, 145);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(196, 30);
             this.label10.TabIndex = 37;
@@ -55,7 +55,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(197, 169);
+            this.label4.Location = new System.Drawing.Point(202, 169);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 28);
             this.label4.TabIndex = 31;
@@ -63,7 +63,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(203, 322);
+            this.label3.Location = new System.Drawing.Point(208, 322);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 20);
             this.label3.TabIndex = 29;
@@ -72,17 +72,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(374, 27);
+            this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(392, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 46);
+            this.label1.Size = new System.Drawing.Size(199, 46);
             this.label1.TabIndex = 26;
             this.label1.Text = "ユーザーぺージ";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(112, 281);
+            this.label5.Location = new System.Drawing.Point(117, 281);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 20);
             this.label5.TabIndex = 40;
@@ -91,7 +91,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(112, 322);
+            this.label2.Location = new System.Drawing.Point(117, 322);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 20);
             this.label2.TabIndex = 41;
@@ -100,7 +100,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Man_hours_managementApp.Properties.Resources.ショートカットの女の人の無料アイコン素材_21;
-            this.pictureBox1.Location = new System.Drawing.Point(112, 145);
+            this.pictureBox1.Location = new System.Drawing.Point(117, 145);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(122, 133);
             this.pictureBox1.TabIndex = 42;
@@ -110,17 +110,17 @@
             // 
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(311, 188);
+            this.dataGridView1.Location = new System.Drawing.Point(309, 208);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(559, 188);
+            this.dataGridView1.Size = new System.Drawing.Size(559, 228);
             this.dataGridView1.TabIndex = 3;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(109, 396);
+            this.button2.Location = new System.Drawing.Point(114, 396);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(125, 40);
             this.button2.TabIndex = 1;
@@ -132,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(992, 584);
+            this.ClientSize = new System.Drawing.Size(982, 753);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pictureBox1);

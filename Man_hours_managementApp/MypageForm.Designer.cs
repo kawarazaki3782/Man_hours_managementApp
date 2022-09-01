@@ -49,10 +49,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(605, 52);
+            this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(416, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 46);
+            this.label1.Size = new System.Drawing.Size(150, 46);
             this.label1.TabIndex = 1;
             this.label1.Text = "マイページ";
             // 
@@ -67,7 +67,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(148, 327);
+            this.label3.Location = new System.Drawing.Point(167, 327);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 20);
             this.label3.TabIndex = 4;
@@ -104,7 +104,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1098, 58);
+            this.button3.Location = new System.Drawing.Point(787, 149);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(125, 40);
             this.button3.TabIndex = 4;
@@ -114,7 +114,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(1098, 170);
+            this.button4.Location = new System.Drawing.Point(531, 149);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(125, 40);
             this.button4.TabIndex = 6;
@@ -124,7 +124,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(296, 170);
+            this.button5.Location = new System.Drawing.Point(285, 149);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(125, 40);
             this.button5.TabIndex = 5;
@@ -136,7 +136,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Yu Gothic UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(674, 180);
+            this.label10.Location = new System.Drawing.Point(497, 275);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(196, 30);
             this.label10.TabIndex = 23;
@@ -165,12 +165,12 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(444, 250);
+            this.dataGridView1.Location = new System.Drawing.Point(275, 327);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(637, 188);
+            this.dataGridView1.Size = new System.Drawing.Size(637, 247);
             this.dataGridView1.TabIndex = 7;
             // 
             // button6
@@ -188,7 +188,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1358, 688);
+            this.ClientSize = new System.Drawing.Size(982, 753);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label12);

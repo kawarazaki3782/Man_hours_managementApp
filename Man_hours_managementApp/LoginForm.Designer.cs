@@ -54,7 +54,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(417, 54);
+            this.label1.Location = new System.Drawing.Point(375, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(233, 46);
             this.label1.TabIndex = 0;
@@ -68,7 +68,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(473, 146);
+            this.label2.Location = new System.Drawing.Point(245, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 46);
             this.label2.TabIndex = 1;
@@ -112,7 +112,7 @@
             this.LoginidtextBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.LoginidtextBox.Location = new System.Drawing.Point(450, 273);
             this.LoginidtextBox.Name = "LoginidtextBox";
-            this.LoginidtextBox.Size = new System.Drawing.Size(304, 52);
+            this.LoginidtextBox.Size = new System.Drawing.Size(219, 52);
             this.LoginidtextBox.TabIndex = 1;
             // 
             // PasswordtextBox
@@ -124,14 +124,14 @@
             this.PasswordtextBox.Location = new System.Drawing.Point(450, 364);
             this.PasswordtextBox.Name = "PasswordtextBox";
             this.PasswordtextBox.PasswordChar = '●';
-            this.PasswordtextBox.Size = new System.Drawing.Size(304, 52);
+            this.PasswordtextBox.Size = new System.Drawing.Size(219, 52);
             this.PasswordtextBox.TabIndex = 2;
             this.PasswordtextBox.Enter += new System.EventHandler(this.PasswordtextBox_Enter);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(429, 467);
+            this.button1.Location = new System.Drawing.Point(195, 348);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(241, 60);
             this.button1.TabIndex = 3;
@@ -167,8 +167,10 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Location = new System.Drawing.Point(234, 118);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(183, 118);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(616, 565);
             this.groupBox1.TabIndex = 9;
@@ -190,7 +192,7 @@
             this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Location = new System.Drawing.Point(234, 689);
+            this.groupBox2.Location = new System.Drawing.Point(183, 689);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(616, 314);
             this.groupBox2.TabIndex = 10;
@@ -201,19 +203,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1067, 1037);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(982, 1003);
             this.Controls.Add(this.PasswordtextBox);
             this.Controls.Add(this.LoginidtextBox);
             this.Controls.Add(this.Usernamelabel);
             this.Controls.Add(this.Passwordlabel);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Name = "LoginForm";
             this.Text = "login";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);

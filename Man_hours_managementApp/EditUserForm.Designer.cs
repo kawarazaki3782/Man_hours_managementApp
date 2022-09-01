@@ -137,9 +137,9 @@
             // 
             this.button3.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button3.Location = new System.Drawing.Point(341, 849);
+            this.button3.Location = new System.Drawing.Point(432, 849);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(119, 46);
+            this.button3.Size = new System.Drawing.Size(125, 40);
             this.button3.TabIndex = 6;
             this.button3.Text = "登録";
             this.button3.UseVisualStyleBackColor = true;
@@ -160,9 +160,9 @@
             // 
             this.button2.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button2.Location = new System.Drawing.Point(556, 849);
+            this.button2.Location = new System.Drawing.Point(647, 849);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(119, 46);
+            this.button2.Size = new System.Drawing.Size(125, 40);
             this.button2.TabIndex = 7;
             this.button2.Text = "クリア";
             this.button2.UseVisualStyleBackColor = true;
@@ -172,9 +172,9 @@
             // 
             this.button1.Font = new System.Drawing.Font("Yu Gothic UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(126, 849);
+            this.button1.Location = new System.Drawing.Point(217, 849);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 46);
+            this.button1.Size = new System.Drawing.Size(125, 40);
             this.button1.TabIndex = 5;
             this.button1.Text = "もどる";
             this.button1.UseVisualStyleBackColor = true;
@@ -186,7 +186,7 @@
             this.groupBox3.Controls.Add(this.textBox4);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Location = new System.Drawing.Point(126, 515);
+            this.groupBox3.Location = new System.Drawing.Point(217, 515);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(549, 125);
             this.groupBox3.TabIndex = 10;
@@ -229,7 +229,7 @@
             this.groupBox4.Controls.Add(this.textBox5);
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Location = new System.Drawing.Point(126, 677);
+            this.groupBox4.Location = new System.Drawing.Point(217, 677);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(549, 125);
             this.groupBox4.TabIndex = 11;
@@ -262,7 +262,7 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(126, 350);
+            this.groupBox2.Location = new System.Drawing.Point(217, 350);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(549, 125);
             this.groupBox2.TabIndex = 9;
@@ -297,7 +297,7 @@
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(126, 185);
+            this.groupBox1.Location = new System.Drawing.Point(217, 185);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(549, 125);
             this.groupBox1.TabIndex = 8;
@@ -325,11 +325,11 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label14.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label14.Location = new System.Drawing.Point(272, 84);
+            this.label14.Location = new System.Drawing.Point(375, 50);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(256, 46);
+            this.label14.Size = new System.Drawing.Size(257, 46);
             this.label14.TabIndex = 4;
             this.label14.Text = "ユーザー情報編集";
             // 
@@ -337,7 +337,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 958);
+            this.ClientSize = new System.Drawing.Size(982, 1003);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);

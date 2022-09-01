@@ -54,7 +54,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(229, 143);
+            this.comboBox1.Location = new System.Drawing.Point(241, 198);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(151, 28);
             this.comboBox1.TabIndex = 0;
@@ -63,7 +63,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(110, 147);
+            this.label1.Location = new System.Drawing.Point(122, 201);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 20);
             this.label1.TabIndex = 3;
@@ -71,7 +71,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(419, 144);
+            this.textBox2.Location = new System.Drawing.Point(426, 199);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(125, 27);
             this.textBox2.TabIndex = 1;
@@ -79,7 +79,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(397, 147);
+            this.label2.Location = new System.Drawing.Point(404, 202);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(24, 20);
             this.label2.TabIndex = 5;
@@ -95,7 +95,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Location = new System.Drawing.Point(81, 224);
+            this.groupBox1.Location = new System.Drawing.Point(121, 228);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(747, 165);
             this.groupBox1.TabIndex = 6;
@@ -111,9 +111,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(583, 105);
+            this.button3.Location = new System.Drawing.Point(214, 105);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 43);
+            this.button3.Size = new System.Drawing.Size(125, 40);
             this.button3.TabIndex = 7;
             this.button3.Text = "クリア";
             this.button3.UseVisualStyleBackColor = true;
@@ -121,9 +121,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(466, 105);
+            this.button1.Location = new System.Drawing.Point(60, 105);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 43);
+            this.button1.Size = new System.Drawing.Size(125, 40);
             this.button1.TabIndex = 6;
             this.button1.Text = "登録";
             this.button1.UseVisualStyleBackColor = true;
@@ -172,9 +172,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(110, 639);
+            this.button2.Location = new System.Drawing.Point(114, 639);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 29);
+            this.button2.Size = new System.Drawing.Size(125, 40);
             this.button2.TabIndex = 9;
             this.button2.Text = "マイページ";
             this.button2.UseVisualStyleBackColor = true;
@@ -183,7 +183,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(110, 428);
+            this.label6.Location = new System.Drawing.Point(122, 407);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(39, 20);
             this.label6.TabIndex = 9;
@@ -193,7 +193,7 @@
             // 
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(155, 428);
+            this.dataGridView1.Location = new System.Drawing.Point(122, 430);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -205,7 +205,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(558, 147);
+            this.label7.Location = new System.Drawing.Point(565, 202);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 20);
             this.label7.TabIndex = 12;
@@ -213,7 +213,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(609, 143);
+            this.textBox3.Location = new System.Drawing.Point(616, 198);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(125, 27);
             this.textBox3.TabIndex = 2;
@@ -221,8 +221,8 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(373, 32);
+            this.label8.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(413, 47);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(156, 46);
             this.label8.TabIndex = 21;
@@ -232,7 +232,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(875, 680);
+            this.ClientSize = new System.Drawing.Size(982, 753);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox3);

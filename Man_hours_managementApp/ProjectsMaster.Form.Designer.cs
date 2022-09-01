@@ -68,9 +68,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(110, 170);
+            this.button2.Location = new System.Drawing.Point(38, 167);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 29);
+            this.button2.Size = new System.Drawing.Size(125, 40);
             this.button2.TabIndex = 1;
             this.button2.Text = "マイページ";
             this.button2.UseVisualStyleBackColor = true;
@@ -101,27 +101,28 @@
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Location = new System.Drawing.Point(110, 223);
+            this.groupBox1.Location = new System.Drawing.Point(38, 220);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(982, 474);
+            this.groupBox1.Size = new System.Drawing.Size(906, 528);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "入力";
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(857, 126);
+            this.button5.BackColor = System.Drawing.Color.IndianRed;
+            this.button5.Location = new System.Drawing.Point(528, 282);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(94, 43);
+            this.button5.Size = new System.Drawing.Size(125, 40);
             this.button5.TabIndex = 12;
-            this.button5.Text = "行の削除";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Text = "行削除";
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.row_delete_Click);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(568, 116);
+            this.label10.Location = new System.Drawing.Point(608, 116);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(24, 20);
             this.label10.TabIndex = 27;
@@ -129,7 +130,7 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(568, 139);
+            this.textBox6.Location = new System.Drawing.Point(608, 139);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(45, 27);
             this.textBox6.TabIndex = 9;
@@ -137,18 +138,18 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button4.Location = new System.Drawing.Point(757, 126);
+            this.button4.Location = new System.Drawing.Point(528, 217);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(94, 43);
+            this.button4.Size = new System.Drawing.Size(125, 40);
             this.button4.TabIndex = 11;
-            this.button4.Text = "追加";
+            this.button4.Text = "行追加";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.add_button_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(628, 116);
+            this.label9.Location = new System.Drawing.Point(669, 116);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(85, 20);
             this.label9.TabIndex = 24;
@@ -156,15 +157,15 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(628, 139);
+            this.textBox2.Location = new System.Drawing.Point(669, 139);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(123, 27);
+            this.textBox2.Size = new System.Drawing.Size(189, 27);
             this.textBox2.TabIndex = 10;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(406, 118);
+            this.label8.Location = new System.Drawing.Point(383, 116);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(115, 20);
             this.label8.TabIndex = 22;
@@ -173,9 +174,9 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(406, 141);
+            this.comboBox2.Location = new System.Drawing.Point(383, 139);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(151, 28);
+            this.comboBox2.Size = new System.Drawing.Size(196, 28);
             this.comboBox2.TabIndex = 21;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -189,7 +190,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(628, 52);
+            this.dateTimePicker1.Location = new System.Drawing.Point(608, 54);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(250, 27);
             this.dateTimePicker1.TabIndex = 6;
@@ -259,7 +260,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(628, 31);
+            this.label2.Location = new System.Drawing.Point(608, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 20);
             this.label2.TabIndex = 14;
@@ -267,9 +268,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(628, 217);
+            this.button3.Location = new System.Drawing.Point(733, 217);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 43);
+            this.button3.Size = new System.Drawing.Size(125, 40);
             this.button3.TabIndex = 15;
             this.button3.Text = "オールクリア";
             this.button3.UseVisualStyleBackColor = true;
@@ -277,9 +278,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(508, 217);
+            this.button1.Location = new System.Drawing.Point(733, 282);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 43);
+            this.button1.Size = new System.Drawing.Size(125, 40);
             this.button1.TabIndex = 14;
             this.button1.Text = "登録";
             this.button1.UseVisualStyleBackColor = true;
@@ -314,29 +315,29 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(406, 54);
+            this.textBox5.Location = new System.Drawing.Point(383, 54);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(196, 27);
             this.textBox5.TabIndex = 5;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(212, 54);
+            this.textBox4.Location = new System.Drawing.Point(234, 52);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(176, 27);
+            this.textBox4.Size = new System.Drawing.Size(123, 27);
             this.textBox4.TabIndex = 4;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(60, 54);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(125, 27);
+            this.textBox3.Size = new System.Drawing.Size(151, 27);
             this.textBox3.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(167, 147);
+            this.label1.Location = new System.Drawing.Point(69, 144);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 20);
             this.label1.TabIndex = 12;
@@ -347,9 +348,9 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(248, 170);
+            this.button6.Location = new System.Drawing.Point(188, 167);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(130, 29);
+            this.button6.Size = new System.Drawing.Size(125, 40);
             this.button6.TabIndex = 2;
             this.button6.Text = "プロジェクト一覧";
             this.button6.UseVisualStyleBackColor = true;
@@ -358,10 +359,10 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(457, 63);
+            this.label11.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(369, 63);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(245, 46);
+            this.label11.Size = new System.Drawing.Size(249, 46);
             this.label11.TabIndex = 16;
             this.label11.Text = "プロジェクトマスタ";
             // 
@@ -369,7 +370,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 734);
+            this.ClientSize = new System.Drawing.Size(982, 753);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button2);
