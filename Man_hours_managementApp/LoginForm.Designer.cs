@@ -41,8 +41,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -167,25 +167,14 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(183, 118);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(616, 565);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(195, 441);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(241, 60);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "閉じる";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.close_button_Click);
             // 
             // groupBox2
             // 
@@ -197,6 +186,17 @@
             this.groupBox2.Size = new System.Drawing.Size(616, 314);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.checkBox1.Location = new System.Drawing.Point(195, 438);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(214, 27);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "次回からログインを省略する";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // LoginForm
             // 
@@ -235,6 +235,6 @@
         private Label label3;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
-        private Button button3;
+        private CheckBox checkBox1;
     }
 }
