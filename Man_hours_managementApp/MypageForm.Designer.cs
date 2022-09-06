@@ -205,6 +205,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MypageForm";
             this.Text = "Mypage";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

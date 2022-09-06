@@ -21,6 +21,7 @@ namespace Man_hours_managementApp
 
         private void MypageForm_Load(object sender, EventArgs e)
         {
+            this.Owner.Hide();
             label12.Text = UserSession.GetInstatnce().name;
             var admin = UserSession.GetInstatnce().admin;
             if (admin == false)
@@ -39,9 +40,8 @@ namespace Man_hours_managementApp
                 var sda = new SqlDataAdapter(command);
                 sda.Fill(dt);
             }
-            dataGridView1.DataSource = dt;            
+            dataGridView1.DataSource = dt;   
         }
-
 
         private void project_register_button_Click(object sender, EventArgs e)
         {

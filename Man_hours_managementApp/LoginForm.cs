@@ -5,6 +5,7 @@ using System.Data;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.Text;
+using System.IO;
 
 
 namespace Man_hours_managementApp
@@ -14,6 +15,37 @@ namespace Man_hours_managementApp
         public LoginForm()
         {
             InitializeComponent();
+            Load += LoginForm_Load;
+        }
+
+        private void LoginForm_Load(object? sender, EventArgs e)
+        {
+            string filePath = @"C:\Users\kawar\source\repos\Man_hours_managementApp\login.text";
+
+            if (File.Exists(filePath))
+            {
+                UserService user = new UserService();
+                List<string>texts = new List<string>();
+                StreamReader sr = new
+                StreamReader(filePath);
+                string st;
+                string line = File.ReadLines(filePath).Skip(0).First();
+                string line2 = File.ReadLines(filePath).Skip(1).First();
+                LoginidtextBox.Text = line;
+                PasswordtextBox.Text = line2;
+                bool ret= user.Authenticate(PasswordtextBox, LoginidtextBox);
+                if (ret)
+                {
+                    MypageForm mypageform = new MypageForm();
+                    mypageform.ShowDialog(this);
+                    mypageform.Dispose();
+                    
+                }
+                else
+                {
+                    MessageBox.Show("ログイン情報が誤っています、再度ログインしてください");
+                }
+            }
         }
 
         private void signup_button_Click(object sender, EventArgs e)
@@ -44,6 +76,21 @@ namespace Man_hours_managementApp
             ret = user.Authenticate(PasswordtextBox, LoginidtextBox);
             if (ret)
             {
+                if (checkBox1.Checked == true)
+                {
+                    string path = @"C:\Users\kawar\source\repos\Man_hours_managementApp\login.text";
+                    FileStream fileStream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+                    string login_id = LoginidtextBox.Text;
+                    string password = PasswordtextBox.Text;
+                    Encoding enc = Encoding.GetEncoding("Shift_JIS");
+                    using (StreamWriter writer = new StreamWriter(path, true, enc))
+                    {
+                        writer.WriteLine(login_id);
+                        writer.WriteLine(password); 
+                    }
+
+                }
                 MessageBox.Show("ログインに成功しました");
                 MypageForm mypageform = new MypageForm();
                 mypageform.Show();
