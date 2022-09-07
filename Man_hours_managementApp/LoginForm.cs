@@ -33,13 +33,13 @@ namespace Man_hours_managementApp
                 string line2 = File.ReadLines(filePath).Skip(1).First();
                 LoginidtextBox.Text = line;
                 PasswordtextBox.Text = line2;
+                sr.Dispose();
                 bool ret= user.Authenticate(PasswordtextBox, LoginidtextBox);
                 if (ret)
                 {
                     MypageForm mypageform = new MypageForm();
                     mypageform.ShowDialog(this);
                     mypageform.Dispose();
-                    
                 }
                 else
                 {
@@ -89,7 +89,6 @@ namespace Man_hours_managementApp
                         writer.WriteLine(login_id);
                         writer.WriteLine(password); 
                     }
-
                 }
                 MessageBox.Show("ÉçÉOÉCÉìÇ…ê¨å˜ÇµÇ‹ÇµÇΩ");
                 MypageForm mypageform = new MypageForm();

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace Man_hours_managementApp
 {
@@ -52,6 +53,13 @@ namespace Man_hours_managementApp
 
         private void logout_button_Click(object sender, EventArgs e)
         {
+            string FilePath = @"C:\Users\kawar\source\repos\Man_hours_managementApp\login.text";
+            
+            if (File.Exists(FilePath))
+            {
+                File.Delete(FilePath);  
+            }
+            Application.OpenForms[1].Close();
             LoginForm loginForm = new LoginForm();  
             loginForm.Show();
             this.Close();
@@ -78,7 +86,7 @@ namespace Man_hours_managementApp
             this.Close();
         }
 
-        private void users_delete_button_Click(object sender, EventArgs e)
+       private void users_delete_button_Click(object sender, EventArgs e)
         {
             Users_Delete_Form users_Delete_From = new Users_Delete_Form();
             users_Delete_From.Show();
