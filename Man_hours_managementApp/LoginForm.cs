@@ -79,12 +79,12 @@ namespace Man_hours_managementApp
                 if (checkBox1.Checked == true)
                 {
                     string path = @"C:\Users\kawar\source\repos\Man_hours_managementApp\login.text";
-                    FileStream fileStream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                    FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Read, FileShare.ReadWrite);
 
                     string login_id = LoginidtextBox.Text;
                     string password = PasswordtextBox.Text;
                     Encoding enc = Encoding.GetEncoding("Shift_JIS");
-                    using (StreamWriter writer = new StreamWriter(path, true, enc))
+                    using (StreamWriter writer = new StreamWriter(path, false, enc))
                     {
                         writer.WriteLine(login_id);
                         writer.WriteLine(password); 

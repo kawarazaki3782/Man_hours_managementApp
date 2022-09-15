@@ -22,7 +22,9 @@ namespace Man_hours_managementApp
 
         private void MypageForm_Load(object sender, EventArgs e)
         {
-            this.Owner.Hide();
+            if (this.Owner != null)
+                this.Owner.Hide();
+            
             label12.Text = UserSession.GetInstatnce().name;
             var admin = UserSession.GetInstatnce().admin;
             if (admin == false)
@@ -60,8 +62,6 @@ namespace Man_hours_managementApp
                 File.Delete(FilePath);  
             }
             Application.OpenForms[1].Close();
-            LoginForm loginForm = new LoginForm();  
-            loginForm.Show();
             this.Close();
         }
 
