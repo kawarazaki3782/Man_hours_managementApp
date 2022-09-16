@@ -55,14 +55,32 @@ namespace Man_hours_managementApp
 
         private void logout_button_Click(object sender, EventArgs e)
         {
-            string FilePath = @"C:\Users\kawar\source\repos\Man_hours_managementApp\login.text";
+            string Path = @"C:\Users\kawar\source\repos\Man_hours_managementApp\login.text";
             
-            if (File.Exists(FilePath))
+            //FileStream fileStream = new FileStream(Path, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
+            //fileStream.Close();
+
+            FileStream fileStream = new FileStream(Path, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Delete);
+
+
+            if (File.Exists(Path))
             {
-                File.Delete(FilePath);  
+                File.Delete(Path);
+                fileStream.Close();
+                Application.OpenForms[1].Close();
+                LoginForm loginForm = new LoginForm();
+                loginForm.Show();
+                this.Close();
             }
-            Application.OpenForms[1].Close();
-            this.Close();
+
+            else
+            {
+                Application.OpenForms[1].Close();
+                LoginForm loginForm = new LoginForm();
+                loginForm.Show();
+                this.Close();
+            }
+            
         }
 
         private void man_hour_input_button_Click(object sender, EventArgs e)

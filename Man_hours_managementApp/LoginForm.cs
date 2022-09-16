@@ -79,8 +79,8 @@ namespace Man_hours_managementApp
                 if (checkBox1.Checked == true)
                 {
                     string path = @"C:\Users\kawar\source\repos\Man_hours_managementApp\login.text";
-                    FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Read, FileShare.ReadWrite);
-
+                    FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
+                    fileStream.Close();
                     string login_id = LoginidtextBox.Text;
                     string password = PasswordtextBox.Text;
                     Encoding enc = Encoding.GetEncoding("Shift_JIS");
