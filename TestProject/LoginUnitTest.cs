@@ -32,6 +32,22 @@ namespace TestProject
         }
 
         [TestMethod]
+        //ログインを省略にチェックを入れた状態でログインした際にローカルにテキストファイルが作成されること
+        public void TestLoginOmitMethod()
+        {
+            TextBox PasswordtextBox = new TextBox();
+            PasswordtextBox.Text = "honkon";
+            TextBox LoginidtextBox = new TextBox();
+            LoginidtextBox.Text = "honkon";
+            CheckBox checkBox1 = new CheckBox();
+            checkBox1.Checked = true;
+
+            UserService user = new UserService();
+            bool ret = user.Authenticate(PasswordtextBox, LoginidtextBox);
+            Assert.IsTrue(ret);
+        }
+
+        [TestMethod]
         //ログインIDが間違っていた場合にログインできないこと
         public void TestLoginFailedMethod()
         {
