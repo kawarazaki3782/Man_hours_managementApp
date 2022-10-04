@@ -101,7 +101,7 @@ namespace Man_hours_managementApp
             }
         }
 
-        private bool Check()
+        public bool Check()
         {
             //必須チェック
             if (LoginidtextBox.Text == "")
