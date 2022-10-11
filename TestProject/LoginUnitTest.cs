@@ -15,13 +15,13 @@ namespace TestProject
 
 {
     [TestClass]
-    //Authenticateメソッドのテスト
-    public class LoginUnitTest
+    //UserServiceのテスト
+    public class UserServiceTest
     {
 
         [TestMethod]
         //ログインできることのテスト
-        public void TestLoginMethod()
+        public void UserServiceTest001_LoginMethod()
         {
             TextBox PasswordtextBox = new TextBox();
             PasswordtextBox.Text = "honkon";
@@ -29,12 +29,20 @@ namespace TestProject
             LoginidtextBox.Text = "honkon";
 
             UserService user = new UserService();
-            user.Authenticate(PasswordtextBox, LoginidtextBox);
+            bool ret = user.Authenticate(PasswordtextBox, LoginidtextBox);
+            Assert.IsTrue(ret);
+
+            Assert.AreEqual(UserSession.GetInstatnce().id, 23);
+            Assert.AreEqual(UserSession.GetInstatnce().name, "ごぶごぶ");
+            Assert.AreEqual(UserSession.GetInstatnce().affiliation, "第一システム部");
+            Assert.AreEqual(UserSession.GetInstatnce().password, "honkon");
+            Assert.AreEqual(UserSession.GetInstatnce().login_id, "honkon");
+            Assert.AreEqual(UserSession.GetInstatnce().admin, true);
         }
 
         [TestMethod]
         //パスワードが間違っていた場合にログインできないこと
-        public void TestLoginFailedMethod()
+        public void UserServiceTest002_LoginFailedMethod()
         {
             TextBox PasswordtextBox = new TextBox();
             PasswordtextBox.Text = "honkon";
@@ -48,7 +56,7 @@ namespace TestProject
 
         [TestMethod]
         //ログインIDが間違っていた場合にログインできないこと
-        public void TestLoginFailed2Method()
+        public void UserServiceTest003_LoginFailed2Method()
         {
             TextBox PasswordtextBox = new TextBox();
             PasswordtextBox.Text = "test";
@@ -62,7 +70,7 @@ namespace TestProject
 
         [TestMethod]
         //ログインIDが未入力の場合にログインできないこと
-        public void TestLoginIDnotEnteredMethod()
+        public void UserServiceTest004_LoginIDnotEnteredMethod()
         {
             TextBox PasswordtextBox = new TextBox();
             PasswordtextBox.Text = "";
@@ -76,7 +84,7 @@ namespace TestProject
 
         [TestMethod]
         //パスワードが未入力の場合にログインできないこと
-        public void TestPasswordnotEnteredMethod()
+        public void UserServiceTest005_PasswordnotEnteredMethod()
         {
             TextBox PasswordtextBox = new TextBox();
             PasswordtextBox.Text = "honkon";
@@ -90,7 +98,7 @@ namespace TestProject
 
         [TestMethod]
         //ログインIDが未入力の際にfalseが返ること
-        public void TestChecknotEnteredMethod()
+        public void TUserServiceTest006_ChecknotEnteredMethod()
         {
             LoginForm loginForm = new LoginForm();
             bool ret = false;
