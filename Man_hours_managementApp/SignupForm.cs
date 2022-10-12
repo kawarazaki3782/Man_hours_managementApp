@@ -39,10 +39,8 @@ namespace Man_hours_managementApp
 
         private void clear_button_Click(object sender, EventArgs e)
         {
-            textBox2.Text = String.Empty;
-            comboBox1.Text = String.Empty;
-            textBox4.Text = String.Empty;
-            textBox5.Text = String.Empty;
+            UserSignupFormLogic userSignupFormLogic = new UserSignupFormLogic();
+            userSignupFormLogic.Clear(textBox2, comboBox1, textBox4, textBox5);
         }
 
         private void register_button_Click_1(object sender, EventArgs e)
