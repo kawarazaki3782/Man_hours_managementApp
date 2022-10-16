@@ -72,7 +72,7 @@
             this.button3.TabIndex = 6;
             this.button3.Text = "登録";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.register_button_Click_1);
+            this.button3.Click += new System.EventHandler(this.register_button_Click);
             // 
             // button2
             // 
