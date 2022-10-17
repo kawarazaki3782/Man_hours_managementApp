@@ -42,6 +42,11 @@ namespace TestProject
             UserSignupFormLogic userSignupFormLogic = new UserSignupFormLogic();
             bool ret = userSignupFormLogic.Register(textBox2.Text.ToString(), textBox4.Text.ToString(), textBox5.Text.ToString(), comboBox1.Text.ToString(), ep, signupForm);
             Assert.IsTrue(ret);
+            Assert.AreEqual(UserSession.GetInstatnce().name, "テストユーザー");
+            Assert.AreEqual(UserSession.GetInstatnce().password, "password3782");
+            Assert.AreEqual(UserSession.GetInstatnce().affiliation, "");
+            Assert.AreEqual(UserSession.GetInstatnce().login_id, "testUser");
+            Assert.AreEqual(UserSession.GetInstatnce().admin, false);
         }
 
         [TestMethod]
