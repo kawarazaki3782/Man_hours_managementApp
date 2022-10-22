@@ -37,7 +37,7 @@ namespace TestProject
             dataGridView1.DataSource = dt;
             dataGridView1.Columns["削除対象"].DisplayIndex = 0;
             dataGridView1.Rows[0].Cells[7].Value = true;
-
+           
             UserDeleteFormLogic userDeleteFormLogic = new UserDeleteFormLogic();
             
             bool ret = userDeleteFormLogic.Delete(dataGridView1, users_Delete_Form);

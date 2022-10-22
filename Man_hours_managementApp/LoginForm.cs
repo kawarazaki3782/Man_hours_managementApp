@@ -131,7 +131,7 @@ namespace Man_hours_managementApp
             return true;
 
         }
-
+     
         private void PasswordtextBox_Enter(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(PasswordtextBox.Text))

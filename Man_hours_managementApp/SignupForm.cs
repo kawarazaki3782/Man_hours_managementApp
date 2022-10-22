@@ -18,17 +18,7 @@ namespace Man_hours_managementApp
         public SignupForm()
         {
             InitializeComponent();
-            this.Load += SignupForm_Load;
         }
-
-        private void SignupForm_Load(object? sender, EventArgs e)
-        {
-            //ErrorProviderのアイコンを点滅なしに設定する
-            ep.BlinkStyle = ErrorBlinkStyle.NeverBlink;
-        }
-
-        //ErrorProviderのインスタンス生成
-        ErrorProvider ep = new ErrorProvider();
 
         private void return_button_Click(object sender, EventArgs e)
         {
@@ -47,6 +37,11 @@ namespace Man_hours_managementApp
 
         private void register_button_Click(object sender, EventArgs e)
         {
+            //ErrorProviderのインスタンス生成
+            ErrorProvider ep = new ErrorProvider();
+            //ErrorProviderのアイコンを点滅なしに設定する
+            ep.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+
             InputCheck.errorClear(ep);
             InputCheck.isString(ep, "氏名",textBox2 , true);
             InputCheck.isString(ep, "ログインID", textBox4 , true);
@@ -64,7 +59,7 @@ namespace Man_hours_managementApp
             else
             {
                 UserSignupFormLogic userSignupFormLogic = new UserSignupFormLogic();
-                userSignupFormLogic.Register(textBox2.Text.ToString(), textBox4.Text.ToString(), textBox5.Text.ToString(), comboBox1.Text.ToString(), ep, this);
+                userSignupFormLogic.Register(textBox2.Text.ToString(), textBox4.Text.ToString(), textBox5.Text.ToString(), comboBox1.Text.ToString(), this);
             }
         }
     }

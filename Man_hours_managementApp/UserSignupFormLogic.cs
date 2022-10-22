@@ -22,7 +22,7 @@ namespace Man_hours_managementApp
         /// <param name="comboBox1"></param>
         /// <param name="ep"></param>
         /// <param name="signupForm"></param>
-        public bool Register(string name, string loginId, string password, string afiliation, ErrorProvider ep, SignupForm signupForm)
+        public bool Register(string name, string loginId, string password, string afiliation, SignupForm signupForm)
         {
             //ハッシュ値を計算
             SHA256CryptoServiceProvider sha256 = new SHA256CryptoServiceProvider();

@@ -36,11 +36,8 @@ namespace TestProject
 
             ComboBox comboBox1 = new ComboBox();
            
-            ErrorProvider ep = new ErrorProvider();
-
-
             UserSignupFormLogic userSignupFormLogic = new UserSignupFormLogic();
-            bool ret = userSignupFormLogic.Register(textBox2.Text.ToString(), textBox4.Text.ToString(), textBox5.Text.ToString(), comboBox1.Text.ToString(), ep, signupForm);
+            bool ret = userSignupFormLogic.Register(textBox2.Text.ToString(), textBox4.Text.ToString(), textBox5.Text.ToString(), comboBox1.Text.ToString(), signupForm);
             Assert.IsTrue(ret);
             Assert.AreEqual(UserSession.GetInstatnce().name, "テストユーザー");
             Assert.AreEqual(UserSession.GetInstatnce().password, "password3782");
@@ -66,11 +63,8 @@ namespace TestProject
 
             ComboBox comboBox1 = new ComboBox();
 
-            ErrorProvider ep = new ErrorProvider();
-
-
             UserSignupFormLogic userSignupFormLogic = new UserSignupFormLogic();
-            bool ret = userSignupFormLogic.Register(textBox2.Text.ToString(), textBox4.Text.ToString(), textBox5.Text.ToString(), comboBox1.Text.ToString(), ep, signupForm);
+            bool ret = userSignupFormLogic.Register(textBox2.Text.ToString(), textBox4.Text.ToString(), textBox5.Text.ToString(), comboBox1.Text.ToString(), signupForm);
             Assert.IsFalse(ret);
 
         }
