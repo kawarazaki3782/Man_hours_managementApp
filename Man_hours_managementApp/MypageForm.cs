@@ -57,9 +57,6 @@ namespace Man_hours_managementApp
         {
             string Path = @"C:\Users\kawar\source\repos\Man_hours_managementApp\login.text";
             
-            //FileStream fileStream = new FileStream(Path, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
-            //fileStream.Close();
-
             FileStream fileStream = new FileStream(Path, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Delete);
 
 

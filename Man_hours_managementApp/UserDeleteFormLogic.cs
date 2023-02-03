@@ -20,7 +20,7 @@ namespace Man_hours_managementApp
         /// <param name="users_Delete_Form"></param>
         /// <returns></returns>
         public bool Delete(DataGridView dataGridView1, Users_Delete_Form users_Delete_Form)
-        { 
+        {
             var connectionString = CommonUtil.GetConnectionString();
             using (var connection = new SqlConnection(connectionString))
             {
