@@ -18,6 +18,9 @@ namespace Man_hours_managementApp
             Load += LoginForm_Load;
         }
 
+        //ユーザーの新規登録と編集画面を場合分けする区分
+        int displayKbn = 0; 
+
         private void LoginForm_Load(object? sender, EventArgs e)
         {
             string filePath = @"C:\Users\kawar\source\repos\Man_hours_managementApp\login.text";
@@ -50,7 +53,8 @@ namespace Man_hours_managementApp
 
         private void signup_button_Click(object sender, EventArgs e)
         {
-            SignupForm signupForm = new SignupForm();
+            displayKbn = 1;
+            SignupForm signupForm = new SignupForm(displayKbn);
             signupForm.Show();
             this.Hide();
         }

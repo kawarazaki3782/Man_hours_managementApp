@@ -20,6 +20,9 @@ namespace Man_hours_managementApp
             this.Load += MypageForm_Load;
         }
 
+        //ユーザーの新規登録と編集画面を場合分けする区分
+        int displayKbn = 0;
+
         private void MypageForm_Load(object sender, EventArgs e)
         {
             if (this.Owner != null)
@@ -89,7 +92,8 @@ namespace Man_hours_managementApp
 
         private void edituser_button_Click(object sender, EventArgs e)
         {
-            EditUserForm editUserForm = new EditUserForm(); 
+            displayKbn = 2;
+            SignupForm editUserForm = new SignupForm(displayKbn); 
             editUserForm.Show();
             this.Close();
         }

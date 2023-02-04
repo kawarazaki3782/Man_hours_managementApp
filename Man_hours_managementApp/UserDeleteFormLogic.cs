@@ -23,6 +23,7 @@ namespace Man_hours_managementApp
         {
             var connectionString = CommonUtil.GetConnectionString();
             using (var connection = new SqlConnection(connectionString))
+
             {
                 try
                 {

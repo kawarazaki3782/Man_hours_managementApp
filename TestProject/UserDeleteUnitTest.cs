@@ -48,5 +48,33 @@ namespace TestProject
             bool ret = userDeleteFormLogic.Delete(dataGridView, users_Delete_Form);
             Assert.IsTrue(ret); 
         }
+
+        [TestMethod]
+        //ユーザーの削除に失敗すること
+        public void UserDeleteTest002_DeleteMethod()
+        {
+            Users_Delete_Form users_Delete_Form = new Users_Delete_Form();
+
+            var connectionString = CommonUtil.GetConnectionString();
+            DataTable dt = new DataTable();
+            DataGridView dataGridView = new DataGridView();
+            users_Delete_Form.Controls.Add(dataGridView);
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                var command = connection.CreateCommand();
+                command.CommandText = @"SELECT * FROM Users";
+                var sda = new SqlDataAdapter(command);
+                sda.Fill(dt);
+            }
+
+            dt.Columns.Add("削除対象", typeof(bool));
+            dataGridView.DataSource = dt;
+
+            //削除対象にチェックが入っていないためエラーになる。
+            dataGridView.DataSource = dt;
+            UserDeleteFormLogic userDeleteFormLogic = new UserDeleteFormLogic();
+            bool ret = userDeleteFormLogic.Delete(dataGridView, users_Delete_Form);
+            Assert.IsFalse(ret);
+        }
     }
 }
