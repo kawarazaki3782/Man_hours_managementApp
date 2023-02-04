@@ -39,8 +39,9 @@ namespace TestProject
             dt.Columns.Add("削除対象", typeof(bool));
             dataGridView.DataSource = dt;
 
-            //11行目のユーザーの削除
-            dataGridView.Rows[11].Cells[7].Value = true; 
+            //画面上の11行目のユーザーの削除
+            //下記のRowsのインデックスはSSMS上で削除したいユーザーの行-1行目を指定する
+            dataGridView.Rows[10].Cells[7].Value = true; 
 
             dataGridView.DataSource = dt;
             UserDeleteFormLogic userDeleteFormLogic = new UserDeleteFormLogic();
